@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>Podcast Professional - Subscription Link</name>
+	<author>Kontent Design</author>
+	<creationDate>April 2011</creationDate>
+	<copyright>(C) 2011 Kontent Design. All rights reserved.</copyright>
+	<license>GNU/GPL</license>
+	<authorEmail>support@kontentdesign.com</authorEmail>
+	<authorUrl>http://extensions.kontentdesign.com</authorUrl>
+	<version>1.0</version>
+	<description>Displays podcast subscription links.</description>
+	<languages folder="language">
+      	<language tag="en-GB">en-GB.mod_podcastpro.ini</language>    
+    </languages>
+    <files>
+		<filename module="mod_podcastpro">mod_podcastpro.php</filename>
+		<filename>podcast-mini2.png</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+	<params>
+		<param name="showlink" type="radio" default="1" label="MOD_PODCASTPRO_SHOWURL_LABEL" description="MOD_PODCASTPRO_SHOWURL_DESC">
+			<option value="0">MOD_PODCASTPRO_HIDE</option>
+			<option value="1">MOD_PODCASTPRO_SHOW</option>
+		</param>
+		<param name="showimg" type="radio" default="1" label="MOD_PODCASTPRO_SHOWIMAGE_LABEL" description="MOD_PODCASTPRO_SHOWIMAGE_DESC">
+			<option value="0">MOD_PODCASTPRO_TEXT</option>
+			<option value="1">MOD_PODCASTPRO_IMAGE</option>
+		</param>		
+		<param name="urischeme" type="list" default="http" label="MOD_PODCASTPRO_URLTYPEIMG_LABEL" description="MOD_PODCASTPRO_URLTYPEIMG_DESC">
+			<option value="http">http://</option>
+			<option value="itpc">itpc://</option>
+			<option value="pcast">pcast://</option>
+		</param>
+		<param name="rsslink" type="radio" default="1" label="MOD_PODCASTPRO_SHOWRSS_LABEL" description="MOD_PODCASTPRO_SHOWRSS_DESC">
+			<option value="0">MOD_PODCASTPRO_HIDE</option>
+			<option value="1">MOD_PODCASTPRO_SHOW</option>
+		</param>
+		
+		<param name="itunesid" type="text" default="" label="MOD_PODCASTPRO_MODULE_ITUNESID_LABEL" description="MOD_PODCASTPRO_MODULE_ITUNESID_DESC" />
+
+		<param name="otherlink" type="text" default="" label="MOD_PODCASTPRO_MODULE_OTHER_LINK_LABEL" description="MOD_PODCASTPRO_MODULE_OTHER_LINK_DESC" />
+		<param name="otherimage" type="text" default="" label="MOD_PODCASTPRO_MODULE_OTHER_IMAGE_LABEL" description="MOD_PODCASTPRO_MODULE_OTHER_IMAGE_DESC" />
+		
+		<param name="text_prefix" type="text" default="" label="MOD_PODCASTPRO_TEXTPREFIX_LABEL" description="MOD_PODCASTPRO_TEXTPREFIX_DESC" />
+		<param name="text_suffix" type="text" default="" label="MOD_PODCASTPRO_TEXTSUFFIX_LABEL" description="MOD_PODCASTPRO_TEXTSUFFIX_DESC" />
+		
+		<param name="kbox" type="radio" default="1" label="MOD_PODCASTPRO_KBOX_LABEL" description="MOD_PODCASTPRO_KBOX_DESC">
+			<option value="0">MOD_PODCASTPRO_OFF</option>
+			<option value="1">MOD_PODCASTPRO_ON</option>
+		</param>
+		
+		
+	</params>
+	
+    <params group="advanced">
+    	<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+		<param name="cache" type="list" default="1" label="Caching" description="Select whether to cache the content of this module">
+			<option value="1">Use global</option>
+			<option value="0">No caching</option>
+		</param>
+	</params>
+</install>

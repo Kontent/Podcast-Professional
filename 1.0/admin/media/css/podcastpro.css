@@ -1,0 +1,95 @@
+ /**
+ * Podcast Professional - The Joomla Podcast Manager
+ * @package 	Podcast Professional
+ * @copyright 	(C) 2010-2011 Kontent Design. All rights reserved.
+ * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ * @link 		http://extensions.kontentdesign.com
+ **/
+ 
+ 
+/* MAIN STYLES
+----------------------------------------------------------------------------------------------- */
+ 
+.info { 
+	color: #000000; 
+	font-size: 11pt; 
+	font-family: Tahoma, serif; 
+	text-align: left; 
+	padding: 10px; 
+	margin-bottom: 5px; 
+	background: #CCDDFF; 
+	border: 1px #336699 dotted; 
+}
+
+.filespace {
+	background-color: #FF9999;
+}
+
+.alert {
+	color: #000000; 
+	font-size: 11pt; 
+	font-family: Tahoma, serif; 
+	text-align: left; 
+	padding: 10px; 
+	margin-bottom: 5px; 
+	background: #FF9999; 
+	border: 1px #FF3333 dotted; 
+}
+
+
+div.header {
+    color: #000 !important;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 48px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#filter_published,
+#filter_metadata {
+	margin: 8px;
+}
+
+#pp-form .col {
+	width: 100%;
+}
+#pp-form .admintable {
+	width: 80%;
+}
+
+.adminlist .filespace td {
+	background: red;
+	color: #fff;
+}
+.adminlist .filespace td a {
+	color: #fff;
+}
+
+.credit {
+	text-align:center;
+}
+
+ /* Icons
+----------------------------------------------------------------------------------------------- */
+
+.icon-32-podcastpro {
+    background-image: url("../images/icon-32-podcastpro.png");
+}
+.icon-32-podcast {
+    background-image: url("../images/icon-32-podcast.png");
+}
+.icon-32-podcastadd {
+    background-image: url("../images/icon-32-podcastadd.png");
+}
+.icon-48-podcastpro {
+    background-image: url("../images/icon-48-podcastpro.png");
+}
+.icon-48-podcast {
+    background-image: url("../images/icon-48-podcast.png");
+}
+.icon-48-podcastadd {
+    background-image: url("../images/icon-48-podcastadd.png");
+}
+.icon-48-metadata {
+    background-image: url("../images/icon-48-metadata.png");
+}

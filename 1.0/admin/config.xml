@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params>
+	
+		<param name="mediapath" type="text" size="40" default="media/com_podcastpro/episodes" label="COM_PODCASTPRO_MEDIAPATH_LABEL" description="COM_PODCASTPRO_MEDIAPATH_DESC" />
+		<param name="mainurl" type="text" size="40" default="" label="COM_PODCASTPRO_MAINURL_LABEL" description="COM_PODCASTPRO_MAINURL_DESC" />
+		<param name="newurl" type="text" size="40" default="" label="COM_PODCASTPRO_NEWURL_LABEL" description="COM_PODCASTPRO_NEWURL_DESC" />
+		
+		<param name="cache" type="radio" default="1" label="COM_PODCASTPRO_CACHE_LABEL" description="COM_PODCASTPRO_CACHE_DESC">
+			<option value="0">COM_PODCASTPRO_NO</option>
+			<option value="1">COM_PODCASTPRO_YES</option>
+		</param>
+		
+		<param name="cache_time" type="text" size="8" default="3600" label="COM_PODCASTPRO_CACHETIME_LABEL" description="COM_PODCASTPRO_CACHETIME_DESC" />
+		
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		
+		<param name="linkhandling" type="radio" default="links" label="COM_PODCASTPRO_LINKHANDLING_LABEL" description="COM_PODCASTPRO_LINKHANDLING_DESC">
+			<option value="links">COM_PODCASTPRO_LINKHANDLELINKS</option>
+			<option value="player">COM_PODCASTPRO_LINKHANDLEFLASH</option>
+			<option value="html">COM_PODCASTPRO_LINKHANDLEHTML</option>
+			<option value="QTplayer">COM_PODCASTPRO_LINKHANDLEQUICKTIME</option>
+		</param>
+		<param name="playerwidth" type="text" default="" label="COM_PODCASTPRO_PLAYER_WIDTH_LABEL" description="COM_PODCASTPRO_PLAYER_WIDTH_DESC" />
+		<param name="playerheight" type="text" default="" label="COM_PODCASTPRO_PLAYER_HEIGHT_LABEL" description="COM_PODCASTPRO_PLAYER_HEIGHT_DESC" />
+		
+		<param name="linktitle" type="text" default="Click to Listen Now" label="COM_PODCASTPRO_LINKTITLES_LABEL" description="COM_PODCASTPRO_LINKTITLES_DESC" />
+		<param name="linkcode" type="textarea" rows="5" cols="30" default="" label="COM_PODCASTPRO_ENCLOSURE_LABEL" description="COM_PODCASTPRO_ENCLOSURE_DESC" />
+		
+		<param name="mimetype" type="text" size="30" default="audio/mpeg" label="COM_PODCASTPRO_MIME_LABEL" description="COM_PODCASTPRO_MIME_DESC" />
+		
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="title" type="text" size="40" default="" label="COM_PODCASTPRO_TITLE_LABEL" description="COM_PODCASTPRO_TITLE_DESC" />
+		
+		<param name="description" type="textarea" rows="5" cols="30" default="" label="COM_PODCASTPRO_DESCRIPTION_LABEL" description="COM_PODCASTPRO_DESCRIPTION_DESC" />
+		<param name="copyright" type="text" size="30" default="&#xA9;2011" label="Copyright" description="Copyright" />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		
+		<param name="itSubtitle" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_SUBTITLE_LABEL" description="COM_PODCASTPRO_ITUNES_SUBTITLE_DESC" />
+		<param name="itAuthor" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_AUTHOR_LABEL" description="COM_PODCASTPRO_ITUNES_AUTHOR_DESC" />
+		<param name="itImage" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_IMAGE_LABEL" description="COM_PODCASTPRO_ITUNES_IMAGE_DESC" />
+		
+		<param name="itOwnerName" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_OWNER_NAME_LABEL" description="COM_PODCASTPRO_ITUNES_OWNER_NAME_DESC" />
+		<param name="itOwnerEmail" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_OWNER_EMAIL_LABEL" description="COM_PODCASTPRO_ITUNES_OWNER_EMAIL_DESC" />
+		
+		<param name="itBlock" type="radio" default="0" label="COM_PODCASTPRO_ITUNES_BLOCK_LABEL" description="COM_PODCASTPRO_ITUNES_BLOCK_DESC">
+			<option value="0">COM_PODCASTPRO_NO</option>
+			<option value="1">COM_PODCASTPRO_YES</option>
+		</param>
+		<param name="itExplicit" type="radio" default="0" label="COM_PODCASTPRO_ITUNES_EXPLICIT_LABEL" description="COM_PODCASTPRO_ITUNES_EXPLICIT_DESC">
+			<option value="0">COM_PODCASTPRO_NO</option>
+			<option value="1">COM_PODCASTPRO_YES</option>
+			<option value="1">COM_PODCASTPRO_CLEAN</option>
+		</param>
+		<param name="itKeywords" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_KEYWORDS_LABEL" description="COM_PODCASTPRO_ITUNES_KEYWORDS_DESC" />
+		<param name="itCategory1" type="list" default="" label="COM_PODCASTPRO_ITUNES_CATEGORY_1_LABEL" description="COM_PODCASTPRO_ITUNES_CATEGORY_1_DESC">
+			<option value="">COM_PODCASTPRO_NONE</option>
+			<option value="Arts">Arts</option>
+			<option value="Arts &gt; Design">Arts &gt; Design</option>
+			<option value="Arts &gt; Fashion &amp; Beauty">Arts &gt; Fashion &amp; Beauty</option>
+			<option value="Arts &gt; Food">Arts &gt; Food</option>
+			<option value="Arts &gt; Literature">Arts &gt; Literature</option>
+			<option value="Arts &gt; Performing Arts">Arts &gt; Performing Arts</option>
+			<option value="Arts &gt; Visual Arts">Arts &gt; Visual Arts</option>
+			<option value="Business">Business</option>
+			<option value="Business &gt; Business News">Business &gt; Business News</option>
+			<option value="Business &gt; Careers">Business &gt; Careers</option>
+			<option value="Business &gt; Investing">Business &gt; Investing</option>
+			<option value="Business &gt; Management &amp; Marketing">Business &gt; Management &amp; Marketing</option>
+			<option value="Business &gt; Shopping">Business &gt; Shopping</option>
+			<option value="Comedy">Comedy</option>
+			<option value="Education">Education</option>
+			<option value="Education &gt; Education Technology">Education &gt; Education Technology</option>
+			<option value="Education &gt; Higher Education">Education &gt; Higher Education</option>
+			<option value="Education &gt; K-12">Education &gt; K-12</option>
+			<option value="Education &gt; Language Courses">Education &gt; Language Courses</option>
+			<option value="Education &gt; Training">Education &gt; Training</option>
+			<option value="Games &amp; Hobbies">Games &amp; Hobbies</option>
+			<option value="Games &amp; Hobbies &gt; Automotive">Games &amp; Hobbies &gt; Automotive</option>
+			<option value="Games &amp; Hobbies &gt; Aviation">Games &amp; Hobbies &gt; Aviation</option>
+			<option value="Games &amp; Hobbies &gt; Hobbies">Games &amp; Hobbies &gt; Hobbies</option>
+			<option value="Games &amp; Hobbies &gt; Other Games">Games &amp; Hobbies &gt; Other Games</option>
+			<option value="Games &amp; Hobbies &gt; Video Games">Games &amp; Hobbies &gt; Video Games</option>
+			<option value="Government &amp; Organizations">Government &amp; Organizations</option>
+			<option value="Government &amp; Organizations &gt; Local">Government &amp; Organizations &gt; Local</option>
+			<option value="Government &amp; Organizations &gt; National">Government &amp; Organizations &gt; National</option>
+			<option value="Government &amp; Organizations &gt; Non-Profit">Government &amp; Organizations &gt; Non-Profit</option>
+			<option value="Government &amp; Organizations &gt; Regional">Government &amp; Organizations &gt; Regional</option>
+			<option value="Health">Health</option>
+			<option value="Health &gt; Alternative Health">Health &gt; Alternative Health</option>
+			<option value="Health &gt; Fitness &amp; Nutrition">Health &gt; Fitness &amp; Nutrition</option>
+			<option value="Health &gt; Self-Help">Health &gt; Self-Help</option>
+			<option value="Health &gt; Sexuality">Health &gt; Sexuality</option>
+			<option value="Kids &amp; Family">Kids &amp; Family</option>
+			<option value="Music">Music</option>
+			<option value="News &amp; Politics">News &amp; Politics</option>
+			<option value="Religion &amp; Spirituality">Religion &amp; Spirituality</option>
+			<option value="Religion &amp; Spirituality &gt; Buddhism">Religion &amp; Spirituality &gt; Buddhism</option>
+			<option value="Religion &amp; Spirituality &gt; Christianity">Religion &amp; Spirituality &gt; Christianity</option>
+			<option value="Religion &amp; Spirituality &gt; Hinduism">Religion &amp; Spirituality &gt; Hinduism</option>
+			<option value="Religion &amp; Spirituality &gt; Islam">Religion &amp; Spirituality &gt; Islam</option>
+			<option value="Religion &amp; Spirituality &gt; Judaism">Religion &amp; Spirituality &gt; Judaism</option>
+			<option value="Religion &amp; Spirituality &gt; Other">Religion &amp; Spirituality &gt; Other</option>
+			<option value="Religion &amp; Spirituality &gt; Spirituality">Religion &amp; Spirituality &gt; Spirituality</option>
+			<option value="Science &amp; Medicine">Science &amp; Medicine</option>
+			<option value="Science &amp; Medicine &gt; Medicine">Science &amp; Medicine &gt; Medicine</option>
+			<option value="Science &amp; Medicine &gt; Natural Sciences">Science &amp; Medicine &gt; Natural Sciences</option>
+			<option value="Science &amp; Medicine &gt; Social Sciences">Science &amp; Medicine &gt; Social Sciences</option>
+			<option value="Society &amp; Culture">Society &amp; Culture</option>
+			<option value="Society &amp; Culture &gt; History">Society &amp; Culture &gt; History</option>
+			<option value="Society &amp; Culture &gt; Personal Journals">Society &amp; Culture &gt; Personal Journals</option>
+			<option value="Society &amp; Culture &gt; Philosophy">Society &amp; Culture &gt; Philosophy</option>
+			<option value="Society &amp; Culture &gt; Places &amp; Travel">Society &amp; Culture &gt; Places &amp; Travel</option>
+			<option value="Sports &amp; Recreation">Sports &amp; Recreation</option>
+			<option value="Sports &amp; Recreation &gt; Amateur">Sports &amp; Recreation &gt; Amateur</option>
+			<option value="Sports &amp; Recreation &gt; College &amp; High School">Sports &amp; Recreation &gt; College &amp; High School</option>
+			<option value="Sports &amp; Recreation &gt; Outdoor">Sports &amp; Recreation &gt; Outdoor</option>
+			<option value="Sports &amp; Recreation &gt; Professional">Sports &amp; Recreation &gt; Professional</option>
+			<option value="Technology">Technology</option>
+			<option value="Technology &gt; Gadgets">Technology &gt; Gadgets</option>
+			<option value="Technology &gt; Tech News">Technology &gt; Tech News</option>
+			<option value="Technology &gt; Podcasting">Technology &gt; Podcasting</option>
+			<option value="Technology &gt; Software How-To">Technology &gt; Software How-To</option>
+			<option value="TV &amp; Film">TV &amp; Film</option>
+		</param>
+		<param name="itCategory2" type="list" default="" label="COM_PODCASTPRO_ITUNES_CATEGORY_2_LABEL" description="COM_PODCASTPRO_ITUNES_CATEGORY_2_DESC">
+			<option value="">(none)</option>
+			<option value="Arts">Arts</option>
+			<option value="Arts &gt; Design">Arts &gt; Design</option>
+			<option value="Arts &gt; Fashion &amp; Beauty">Arts &gt; Fashion &amp; Beauty</option>
+			<option value="Arts &gt; Food">Arts &gt; Food</option>
+			<option value="Arts &gt; Literature">Arts &gt; Literature</option>
+			<option value="Arts &gt; Performing Arts">Arts &gt; Performing Arts</option>
+			<option value="Arts &gt; Visual Arts">Arts &gt; Visual Arts</option>
+			<option value="Business">Business</option>
+			<option value="Business &gt; Business News">Business &gt; Business News</option>
+			<option value="Business &gt; Careers">Business &gt; Careers</option>
+			<option value="Business &gt; Investing">Business &gt; Investing</option>
+			<option value="Business &gt; Management &amp; Marketing">Business &gt; Management &amp; Marketing</option>
+			<option value="Business &gt; Shopping">Business &gt; Shopping</option>
+			<option value="Comedy">Comedy</option>
+			<option value="Education">Education</option>
+			<option value="Education &gt; Education Technology">Education &gt; Education Technology</option>
+			<option value="Education &gt; Higher Education">Education &gt; Higher Education</option>
+			<option value="Education &gt; K-12">Education &gt; K-12</option>
+			<option value="Education &gt; Language Courses">Education &gt; Language Courses</option>
+			<option value="Education &gt; Training">Education &gt; Training</option>
+			<option value="Games &amp; Hobbies">Games &amp; Hobbies</option>
+			<option value="Games &amp; Hobbies &gt; Automotive">Games &amp; Hobbies &gt; Automotive</option>
+			<option value="Games &amp; Hobbies &gt; Aviation">Games &amp; Hobbies &gt; Aviation</option>
+			<option value="Games &amp; Hobbies &gt; Hobbies">Games &amp; Hobbies &gt; Hobbies</option>
+			<option value="Games &amp; Hobbies &gt; Other Games">Games &amp; Hobbies &gt; Other Games</option>
+			<option value="Games &amp; Hobbies &gt; Video Games">Games &amp; Hobbies &gt; Video Games</option>
+			<option value="Government &amp; Organizations">Government &amp; Organizations</option>
+			<option value="Government &amp; Organizations &gt; Local">Government &amp; Organizations &gt; Local</option>
+			<option value="Government &amp; Organizations &gt; National">Government &amp; Organizations &gt; National</option>
+			<option value="Government &amp; Organizations &gt; Non-Profit">Government &amp; Organizations &gt; Non-Profit</option>
+			<option value="Government &amp; Organizations &gt; Regional">Government &amp; Organizations &gt; Regional</option>
+			<option value="Health">Health</option>
+			<option value="Health &gt; Alternative Health">Health &gt; Alternative Health</option>
+			<option value="Health &gt; Fitness &amp; Nutrition">Health &gt; Fitness &amp; Nutrition</option>
+			<option value="Health &gt; Self-Help">Health &gt; Self-Help</option>
+			<option value="Health &gt; Sexuality">Health &gt; Sexuality</option>
+			<option value="Kids &amp; Family">Kids &amp; Family</option>
+			<option value="Music">Music</option>
+			<option value="News &amp; Politics">News &amp; Politics</option>
+			<option value="Religion &amp; Spirituality">Religion &amp; Spirituality</option>
+			<option value="Religion &amp; Spirituality &gt; Buddhism">Religion &amp; Spirituality &gt; Buddhism</option>
+			<option value="Religion &amp; Spirituality &gt; Christianity">Religion &amp; Spirituality &gt; Christianity</option>
+			<option value="Religion &amp; Spirituality &gt; Hinduism">Religion &amp; Spirituality &gt; Hinduism</option>
+			<option value="Religion &amp; Spirituality &gt; Islam">Religion &amp; Spirituality &gt; Islam</option>
+			<option value="Religion &amp; Spirituality &gt; Judaism">Religion &amp; Spirituality &gt; Judaism</option>
+			<option value="Religion &amp; Spirituality &gt; Other">Religion &amp; Spirituality &gt; Other</option>
+			<option value="Religion &amp; Spirituality &gt; Spirituality">Religion &amp; Spirituality &gt; Spirituality</option>
+			<option value="Science &amp; Medicine">Science &amp; Medicine</option>
+			<option value="Science &amp; Medicine &gt; Medicine">Science &amp; Medicine &gt; Medicine</option>
+			<option value="Science &amp; Medicine &gt; Natural Sciences">Science &amp; Medicine &gt; Natural Sciences</option>
+			<option value="Science &amp; Medicine &gt; Social Sciences">Science &amp; Medicine &gt; Social Sciences</option>
+			<option value="Society &amp; Culture">Society &amp; Culture</option>
+			<option value="Society &amp; Culture &gt; History">Society &amp; Culture &gt; History</option>
+			<option value="Society &amp; Culture &gt; Personal Journals">Society &amp; Culture &gt; Personal Journals</option>
+			<option value="Society &amp; Culture &gt; Philosophy">Society &amp; Culture &gt; Philosophy</option>
+			<option value="Society &amp; Culture &gt; Places &amp; Travel">Society &amp; Culture &gt; Places &amp; Travel</option>
+			<option value="Sports &amp; Recreation">Sports &amp; Recreation</option>
+			<option value="Sports &amp; Recreation &gt; Amateur">Sports &amp; Recreation &gt; Amateur</option>
+			<option value="Sports &amp; Recreation &gt; College &amp; High School">Sports &amp; Recreation &gt; College &amp; High School</option>
+			<option value="Sports &amp; Recreation &gt; Outdoor">Sports &amp; Recreation &gt; Outdoor</option>
+			<option value="Sports &amp; Recreation &gt; Professional">Sports &amp; Recreation &gt; Professional</option>
+			<option value="Technology">Technology</option>
+			<option value="Technology &gt; Gadgets">Technology &gt; Gadgets</option>
+			<option value="Technology &gt; Tech News">Technology &gt; Tech News</option>
+			<option value="Technology &gt; Podcasting">Technology &gt; Podcasting</option>
+			<option value="Technology &gt; Software How-To">Technology &gt; Software How-To</option>
+			<option value="TV &amp; Film">TV &amp; Film</option>
+		</param>
+		<param name="itCategory3" type="list" default="" label="COM_PODCASTPRO_ITUNES_CATEGORY_3_LABEL" description="COM_PODCASTPRO_ITUNES_CATEGORY_3_DESC">
+			<option value="">(none)</option>
+			<option value="Arts">Arts</option>
+			<option value="Arts &gt; Design">Arts &gt; Design</option>
+			<option value="Arts &gt; Fashion &amp; Beauty">Arts &gt; Fashion &amp; Beauty</option>
+			<option value="Arts &gt; Food">Arts &gt; Food</option>
+			<option value="Arts &gt; Literature">Arts &gt; Literature</option>
+			<option value="Arts &gt; Performing Arts">Arts &gt; Performing Arts</option>
+			<option value="Arts &gt; Visual Arts">Arts &gt; Visual Arts</option>
+			<option value="Business">Business</option>
+			<option value="Business &gt; Business News">Business &gt; Business News</option>
+			<option value="Business &gt; Careers">Business &gt; Careers</option>
+			<option value="Business &gt; Investing">Business &gt; Investing</option>
+			<option value="Business &gt; Management &amp; Marketing">Business &gt; Management &amp; Marketing</option>
+			<option value="Business &gt; Shopping">Business &gt; Shopping</option>
+			<option value="Comedy">Comedy</option>
+			<option value="Education">Education</option>
+			<option value="Education &gt; Education Technology">Education &gt; Education Technology</option>
+			<option value="Education &gt; Higher Education">Education &gt; Higher Education</option>
+			<option value="Education &gt; K-12">Education &gt; K-12</option>
+			<option value="Education &gt; Language Courses">Education &gt; Language Courses</option>
+			<option value="Education &gt; Training">Education &gt; Training</option>
+			<option value="Games &amp; Hobbies">Games &amp; Hobbies</option>
+			<option value="Games &amp; Hobbies &gt; Automotive">Games &amp; Hobbies &gt; Automotive</option>
+			<option value="Games &amp; Hobbies &gt; Aviation">Games &amp; Hobbies &gt; Aviation</option>
+			<option value="Games &amp; Hobbies &gt; Hobbies">Games &amp; Hobbies &gt; Hobbies</option>
+			<option value="Games &amp; Hobbies &gt; Other Games">Games &amp; Hobbies &gt; Other Games</option>
+			<option value="Games &amp; Hobbies &gt; Video Games">Games &amp; Hobbies &gt; Video Games</option>
+			<option value="Government &amp; Organizations">Government &amp; Organizations</option>
+			<option value="Government &amp; Organizations &gt; Local">Government &amp; Organizations &gt; Local</option>
+			<option value="Government &amp; Organizations &gt; National">Government &amp; Organizations &gt; National</option>
+			<option value="Government &amp; Organizations &gt; Non-Profit">Government &amp; Organizations &gt; Non-Profit</option>
+			<option value="Government &amp; Organizations &gt; Regional">Government &amp; Organizations &gt; Regional</option>
+			<option value="Health">Health</option>
+			<option value="Health &gt; Alternative Health">Health &gt; Alternative Health</option>
+			<option value="Health &gt; Fitness &amp; Nutrition">Health &gt; Fitness &amp; Nutrition</option>
+			<option value="Health &gt; Self-Help">Health &gt; Self-Help</option>
+			<option value="Health &gt; Sexuality">Health &gt; Sexuality</option>
+			<option value="Kids &amp; Family">Kids &amp; Family</option>
+			<option value="Music">Music</option>
+			<option value="News &amp; Politics">News &amp; Politics</option>
+			<option value="Religion &amp; Spirituality">Religion &amp; Spirituality</option>
+			<option value="Religion &amp; Spirituality &gt; Buddhism">Religion &amp; Spirituality &gt; Buddhism</option>
+			<option value="Religion &amp; Spirituality &gt; Christianity">Religion &amp; Spirituality &gt; Christianity</option>
+			<option value="Religion &amp; Spirituality &gt; Hinduism">Religion &amp; Spirituality &gt; Hinduism</option>
+			<option value="Religion &amp; Spirituality &gt; Islam">Religion &amp; Spirituality &gt; Islam</option>
+			<option value="Religion &amp; Spirituality &gt; Judaism">Religion &amp; Spirituality &gt; Judaism</option>
+			<option value="Religion &amp; Spirituality &gt; Other">Religion &amp; Spirituality &gt; Other</option>
+			<option value="Religion &amp; Spirituality &gt; Spirituality">Religion &amp; Spirituality &gt; Spirituality</option>
+			<option value="Science &amp; Medicine">Science &amp; Medicine</option>
+			<option value="Science &amp; Medicine &gt; Medicine">Science &amp; Medicine &gt; Medicine</option>
+			<option value="Science &amp; Medicine &gt; Natural Sciences">Science &amp; Medicine &gt; Natural Sciences</option>
+			<option value="Science &amp; Medicine &gt; Social Sciences">Science &amp; Medicine &gt; Social Sciences</option>
+			<option value="Society &amp; Culture">Society &amp; Culture</option>
+			<option value="Society &amp; Culture &gt; History">Society &amp; Culture &gt; History</option>
+			<option value="Society &amp; Culture &gt; Personal Journals">Society &amp; Culture &gt; Personal Journals</option>
+			<option value="Society &amp; Culture &gt; Philosophy">Society &amp; Culture &gt; Philosophy</option>
+			<option value="Society &amp; Culture &gt; Places &amp; Travel">Society &amp; Culture &gt; Places &amp; Travel</option>
+			<option value="Sports &amp; Recreation">Sports &amp; Recreation</option>
+			<option value="Sports &amp; Recreation &gt; Amateur">Sports &amp; Recreation &gt; Amateur</option>
+			<option value="Sports &amp; Recreation &gt; College &amp; High School">Sports &amp; Recreation &gt; College &amp; High School</option>
+			<option value="Sports &amp; Recreation &gt; Outdoor">Sports &amp; Recreation &gt; Outdoor</option>
+			<option value="Sports &amp; Recreation &gt; Professional">Sports &amp; Recreation &gt; Professional</option>
+			<option value="Technology">Technology</option>
+			<option value="Technology &gt; Gadgets">Technology &gt; Gadgets</option>
+			<option value="Technology &gt; Tech News">Technology &gt; Tech News</option>
+			<option value="Technology &gt; Podcasting">Technology &gt; Podcasting</option>
+			<option value="Technology &gt; Software How-To">Technology &gt; Software How-To</option>
+			<option value="TV &amp; Film">TV &amp; Film</option>
+		</param>	
+		
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="hidehelps" type="radio" default="0" label="COM_PODCASTPRO_HIDEHELP_LABEL" description="COM_PODCASTPRO_HIDEHELP_DESC">
+			<option value="0">COM_PODCASTPRO_NO</option>
+			<option value="1">COM_PODCASTPRO_YES</option>
+		</param>
+		
+		
+	</params>
+</config>
