@@ -26,6 +26,9 @@ Legend:
 
 ------------
 
+13-Jul-2011 Severdia
+# Fixed language key
+
 12-June-2011 Severdia
 ^ Language fixes
 + Added tooltips on backend
