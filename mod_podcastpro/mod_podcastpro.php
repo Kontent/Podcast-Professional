@@ -38,7 +38,6 @@ if($params->get('urischeme') == 'http')
 	$link = $showlink;
 else
 	$link = str_replace(array('http:', 'https:'), $params->get('urischeme') . ':', $showlink);
-
-require(JModuleHelper::getLayoutPath('mod_podcastpro'));
+	require(JModuleHelper::getLayoutPath('mod_podcastpro'));
 ?>
 
