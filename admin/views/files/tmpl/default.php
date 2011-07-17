@@ -12,7 +12,9 @@
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
 JToolBarHelper::title( JText::_( 'COM_PODCASTPRO_PODCAST_EPISODE_MANAGER' ), 'podcast.png' );
+
 JToolBarHelper::custom( 'add' , 'podcastadd.png', '', JText::_( 'COM_PODCASTPRO_ADD_NEW_EPISODE'), 0, 0 );
+
 JToolBarHelper::preferences('com_podcastpro', '550');
 
 $document =& JFactory::getDocument();
@@ -21,17 +23,6 @@ $document->addStyleSheet(JURI::base() . 'components/com_podcastpro/media/css/pod
 $document->addScript(JURI::base() . 'components/com_podcastpro/media/js/files.js');
 
 JHTML::_('behavior.tooltip');
-
-if($this->params->get('hidehelps', 0) != 1) 
-{
-	if ($this->hasSpaces) {
-		?>
-		<!-- div class="alert">
-			<p><?php echo JText::_('COM_PODCASTPRO_SPACES_IN_FILENAME'); ?></p>
-		</div -->
-		<?php
-	}
-}
 ?>
 
 <form action="index.php" method="post" name="adminForm">
@@ -80,7 +71,6 @@ if($this->params->get('hidehelps', 0) != 1)
 		foreach($this->data as $file) 
 		{
 			$id = $file->id;
-
 			if(!$id) {
 				$editKeyName = 'filename';
 				$editKeyValue = $file->filename;
@@ -88,15 +78,11 @@ if($this->params->get('hidehelps', 0) != 1)
 				$editKeyName = 'cid';
 				$editKeyValue = $id;
 			}
-
 			$checked = JHTML::_('grid.id', $i, htmlentities($editKeyValue), false, $editKeyName);
 			if($file->published) {
 				$viewLink = JRoute::_("../index.php?option=com_content&view=article&id={$file->articleId}");
 				$editLink = JRoute::_("index.php?option=com_content&task=edit&cid[]={$file->articleId}");
-
 				$published = "<img src=\"components/com_podcastpro/media/images/icon-16-published.png\" alt=\"" . JText::_('COM_PODCASTPRO_YES') . "\"/>";
-				
-				
 			} else {
 				$published = "<img src=\"components/com_podcastpro/media/images/icon-16-unpublished.png\" alt=\"" . JText::_('COM_PODCASTPRO_NO') . "\"/>";
 			}
@@ -152,11 +138,10 @@ if($this->params->get('hidehelps', 0) != 1)
 				</td>
 			</tr> 
 			<?php 
-			$k = 1 - $k;
-			$i++;
-		}
-		?>
-
+				$k = 1 - $k;
+				$i++;
+				}
+			?>
 		<tfoot>
 			<tr><td colspan="6"><?php echo $this->pagination->getListFooter(); ?></td></tr>
 		</tfoot>

@@ -68,6 +68,15 @@ div.header {
 .credit {
 	text-align:center;
 }
+.klogo {
+	width:250px;
+	margin: 10px auto;
+}
+#pp-help p,
+#pp-help li {
+	font-size: 12px;
+	line-height: 16px;
+}
 
  /* Icons
 ----------------------------------------------------------------------------------------------- */

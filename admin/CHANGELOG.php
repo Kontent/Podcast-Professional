@@ -30,6 +30,7 @@ Legend:
 ^ Updated info page
 # Fixed metadata link bug & language key
 ^ Changed column order
+- Removed hiding help setting
 
 13-Jul-2011 Severdia
 # Fixed language key

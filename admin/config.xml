@@ -264,12 +264,5 @@
 			<option value="TV &amp; Film">TV &amp; Film</option>
 		</param>	
 		
-		<param name="@spacer" type="spacer" default="" label="" description="" />
-		<param name="hidehelps" type="radio" default="0" label="COM_PODCASTPRO_HIDEHELP_LABEL" description="COM_PODCASTPRO_HIDEHELP_DESC">
-			<option value="0">COM_PODCASTPRO_NO</option>
-			<option value="1">COM_PODCASTPRO_YES</option>
-		</param>
-		
-		
 	</params>
 </config>
