@@ -77,7 +77,9 @@ div.header {
 	font-size: 12px;
 	line-height: 16px;
 }
-
+.center {
+	text-align:center;
+}
  /* Icons
 ----------------------------------------------------------------------------------------------- */
 
@@ -90,6 +92,12 @@ div.header {
 .icon-32-podcastadd {
     background-image: url("../images/icon-32-podcastadd.png");
 }
+.icon-32-podcastfileupload {
+    background-image: url("../images/icon-32-podcastfileupload.png");
+}
+.icon-32-podcastfiledelete {
+    background-image: url("../images/icon-32-podcastfiledelete.png");
+}
 .icon-48-podcastpro {
     background-image: url("../images/icon-48-podcastpro.png");
 }
@@ -101,4 +109,7 @@ div.header {
 }
 .icon-48-metadata {
     background-image: url("../images/icon-48-metadata.png");
+}
+.icon-48-podcastfileupload {
+    background-image: url("../images/icon-48-podcastfileupload.png");
 }

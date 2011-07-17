@@ -13,7 +13,7 @@
  
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
-JToolBarHelper::title( JText::_( 'COM_PODCASTPRO_ABOUT_PODCASTPRO' ), 'podcastpro.png' );
+JToolBarHelper::title( JText::_( 'COM_PODCASTPRO_PODCASTPRO_HELP' ), 'podcastpro.png' );
 
 $document =& JFactory::getDocument();
 $document->addStyleSheet(JURI::base() . 'components/com_podcastpro/media/css/podcastpro.css');

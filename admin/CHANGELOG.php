@@ -31,6 +31,8 @@ Legend:
 # Fixed metadata link bug & language key
 ^ Changed column order
 - Removed hiding help setting
+- Removed checkboxes in EM
++ Added placeholder images for delete and upload
 
 13-Jul-2011 Severdia
 # Fixed language key

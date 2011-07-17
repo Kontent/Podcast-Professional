@@ -13,9 +13,13 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 JToolBarHelper::title( JText::_( 'COM_PODCASTPRO_PODCAST_EPISODE_MANAGER' ), 'podcast.png' );
 
-JToolBarHelper::custom( 'add' , 'podcastadd.png', '', JText::_( 'COM_PODCASTPRO_ADD_NEW_EPISODE'), 0, 0 );
+// JToolBarHelper::custom( 'add' , 'podcastadd.png', '', JText::_( 'COM_PODCASTPRO_ADD_NEW_EPISODE'), 0, 0 );
 
+// The parameters button will go away once it's moved to the submenu.
 JToolBarHelper::preferences('com_podcastpro', '550');
+
+// This button isn't hooked up yet.
+JToolBarHelper::custom( 'upload' , 'podcastfileupload.png', '', JText::_( 'COM_PODCASTPRO_UPLOAD_FILE'), 0, 0 );
 
 $document =& JFactory::getDocument();
 $document->addStyleSheet(JURI::base() . 'components/com_podcastpro/media/css/podcastpro.css');
@@ -46,7 +50,7 @@ JHTML::_('behavior.tooltip');
 	<table class="adminlist">
 		<thead>
 			<tr>
-				<th width="20"><input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count($this->data); ?>);" /></th>
+				<th width="20"><?php echo JText::_('COM_PODCASTPRO_PODCAST_ID'); ?></th>
 
 				<th class="title">
 					<?php echo JHTML::_('grid.sort',  JText::_('COM_PODCASTPRO_FILENAME'), 'filename', $this->lists['order_Dir'], $this->lists['order'] ); ?>				
@@ -62,6 +66,9 @@ JHTML::_('behavior.tooltip');
 				</th>
 				<th class="title">
 					<?php echo JText::_('COM_PODCASTPRO_VIEW_ARTICLE'); ?>				
+				</th>
+				<th class="title">
+					<?php echo JText::_('COM_PODCASTPRO_DELETE_FILE'); ?>				
 				</th>
 			</tr>
 		</thead>
@@ -89,8 +96,8 @@ JHTML::_('behavior.tooltip');
 			$link = JRoute::_("index.php?option=$option&task=edit&{$editKeyName}[]=" . urlencode($editKeyValue));
 			?>
 			<tr class="<?php echo $file->hasSpaces ? 'filespace' : "row$k"; ?>"> 
-				<td> 
-					<?php echo $checked; ?> 
+				<td class="center"> 
+					<!-- ?php echo $checked; ? --> <?php echo $i+1; ?> 
 				</td>
 				<td>
 					<?php
@@ -101,10 +108,10 @@ JHTML::_('behavior.tooltip');
 						}
 					 ?>
 				</td>
-				<td width="8%" align="center">
+				<td width="8%" class="center">
 					<?php echo $published; ?>
 				</td>
-				<td width="8%" align="center">
+				<td width="8%" class="center">
 					<?php
 					// TODO: Add check for if article exists.
 						if($file->published) {							
@@ -115,7 +122,7 @@ JHTML::_('behavior.tooltip');
 						}
 					 ?>
 				</td>				
-				<td width="8%" align="center">					
+				<td width="8%" class="center">					
 					<?php 
 						if($file->hasMetadata) {		
 							echo "<a href=\"$link\"><img src=\"components/com_podcastpro/media/images/icon-16-metadata.png\" 
@@ -126,7 +133,7 @@ JHTML::_('behavior.tooltip');
 						}
 					?>
 				</td>
-				<td width="8%" align="center">
+				<td width="8%" class="center">
 					<?php
 						if($file->published) {
 							echo "<a href=\"$viewLink\" target=\"_blank\"><img src=\"components/com_podcastpro/media/images/icon-16-article.png\" 
@@ -136,6 +143,13 @@ JHTML::_('behavior.tooltip');
 						}
 					 ?>
 				</td>
+				<td width="8%" class="center">
+					<?php
+						//TODO: Delete podcast file
+						echo "<a href=\"#\"><img src=\"components/com_podcastpro/media/images/icon-16-delete.png\" 
+								alt=\"" . JText::_('COM_PODCASTPRO_DELETE_FILE_LABEL') . "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_DELETE_FILE_LABEL') . " :: " . JText::_('COM_PODCASTPRO_DELETE_FILE_DESC') . "\"/></a>";
+					?>
+				</td>
 			</tr> 
 			<?php 
 				$k = 1 - $k;
@@ -143,7 +157,7 @@ JHTML::_('behavior.tooltip');
 				}
 			?>
 		<tfoot>
-			<tr><td colspan="6"><?php echo $this->pagination->getListFooter(); ?></td></tr>
+			<tr><td colspan="7"><?php echo $this->pagination->getListFooter(); ?></td></tr>
 		</tfoot>
 	</table>
 	
