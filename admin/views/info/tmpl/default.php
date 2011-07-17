@@ -26,6 +26,19 @@ $document->addStyleSheet(JURI::base() . 'components/com_podcastpro/media/css/pod
 	<p>Originally, podcasting was just audio recordings (like a radio show) with embedded images as chapter markers. Using a tool like Apple's Garageband you can have images show up at specific times throught the podcast to give the listener an idea of who or what is being discussed.
 	<p>Lately, podcasting has expanded into the video format. These vodcasts are the equivalent of video on demand and can be used for anything from a series of educational lectures to a professionally shot regular program.</p>
 
+	<h2>Recording a Podcast</h2>
+
+	<p>All you need to record a podcast is a computer with a microphone and recording software. There are several good free options you can try out to get your feet wet. <a href="http://audacity.sourceforge.net/" target="_blank">Audacity</a> is a multi-platform solution that's easy to learn. On Mac OS X, you can use Apple's <a href="http://www.apple.com/ilife/garageband/" target="_blank">Garageband</a>, which has a lot of great features (like embedding images) and is well worth the money if you're serious about podcasting. On Windows, you can use <a href="http://www.adobe.com/products/audition.html" target="_blank">Adobe Audition</a>, which is a more professional audio application with lots of features (some might say overkill for most).</p>
+	
+	<p>Once you're all set up, don't forget to plan your podcast. It's really a live program once you start recording so you want to be well prepared with what you're going to say and do. If you're interviewing someone, make sure you have all of your questions ready beforehand. If you're reciting Shakespeare or playing music, make sure you rehearse before turning on the microphone. Make sure the pace moves enough to engage the listener. If you don't, your podcast will appear unprofessional and people will usually get bored easily.</p>
+
+	<h2>Recording a Vodcast</h2>
+
+	<p>The term "vodcast" came from the merging of "video" and "podcast" when video starting becoming more prevalent on the Internet. While you can include images in podcasts, vodcasts are better when you need to show what's going on. There's a fine line between vodcasts and vlogs ("video blogs") because both are usually episodic.</p>
+	
+	<p>Naturally, for vodcasting, you'll need a camera to record your show. Production values range from the person who shoots a few minutes in the bedroom sitting in front of the computer (with no editing at all), to full-blown high-quality production values (with professional editing). That means you you decide how serious you are and scale accordingly.</p>
+	<p>On Mac OS X, you can use <a href="http://www.apple.com/ilife/imovie/" target="_blank">iMovie</a> or even <a href="http://www.apple.com/finalcutpro/" target="_blank">Final Cut Pro</a> On Windows, you can use <a href="http://explore.live.com/windows-live-movie-maker?os=other" target="_blank">Windows Live Movie Maker</a> or even <a href="http://www.adobe.com/products/premiere.html" target="_blank">Adobe Premiere Pro</a> for more professional features. You should start with the simple and free applications and work your way up to the more complex ones if you need them.</p>
+	
 	<h2>Setting Up Podcast Professional</h2>
 	
 	<p>First, go to the <a href="">configuration</a> to define the settings for all of your podcast episodes.</p>
@@ -41,9 +54,9 @@ $document->addStyleSheet(JURI::base() . 'components/com_podcastpro/media/css/pod
 	<p>The path for this directory on your server is: <strong><?php JText::printf($this->folder); ?></strong></p>
 	
 	<p>You can change this in the configuration. Currently, your system supports a <strong>maximum upload size of <?php echo ini_get('upload_max_filesize');?></strong>. If you want to upload files larger than that, you will need to increase it or upload your episode files via FTP to this directory.</p>
+		
 	
-	
-	<h2>Create a New Podcast</h2>
+	<h2>Setting Up Your New Podcast</h2>
 	
 	<p>Clicking the file name in the Episode Manager will create a new Joomla article with the episode tag included:</p>
 	
@@ -69,9 +82,9 @@ $document->addStyleSheet(JURI::base() . 'components/com_podcastpro/media/css/pod
 	
 	<p>Add a title for this episode and any other details to the editor area. 
 	
-	<h2>Publicizing Your Podcast</h2>
+	<h2>Promoting Your Podcast or Vodcast</h2>
 	
-	<p>Use <a href="http://www.feedvalidator.org/" target="_blank">FeedValidator</a> to be sure that your podcast feed passes the validation process before distributing it. We recommend you use a service like <a href="http://feedburner.google.com" target="_blank">Feedburner</a> to distribute your episode feed. It ensures your feed is always available and gives you nice troubleshooting and tracking options. You can test your feed by opening iTunes, going to Advanced > Subscribe to Podcast, and entering your feed URL.</p>
+	<p>Use <a href="http://www.feedvalidator.org/" target="_blank">FeedValidator</a> to be sure that your podcast feed passes the validation process before distributing it. We recommend you use a service like <a href="http://feedburner.google.com" target="_blank">Feedburner</a> to distribute your episode feed. It ensures your feed is always available and gives you nice troubleshooting and tracking options. You can test your feed by opening iTunes, going to Advanced &gt; Subscribe to Podcast, and entering your feed URL.</p>
 		
 	<p>Adding your podcast to iTunes is pretty straightforward. You'll need an iTunes account and a 300px by 300px JPG. <a href="https://phobos.apple.com/WebObjects/MZFinance.woa/wa/publishPodcast" target="_blank">
 	Click here</a> to visit the podcast submission page.</p>
@@ -81,24 +94,48 @@ $document->addStyleSheet(JURI::base() . 'components/com_podcastpro/media/css/pod
 	<p>There are a number of great resources where you can submit your podcast to reach a wider audience:</p>
 	
 	<ul>
-		<li><a href="http://www.podcast.com/" target="_blank">http://www.podcast.com/</a></li>
-		<li><a href="http://www.podcastdirectory.com/" target="_blank">http://www.podcastdirectory.com/</a></li>
-		<li><a href="http://www.podcastalley.com/" target="_blank">http://www.podcastalley.com/</a></li>
-		<li><a href="http://www.podfeed.net/" target="_blank">http://www.podfeed.net/</a></li>
+		<li>Podcast.com: <a href="http://www.podcast.com/" target="_blank">http://www.podcast.com/</a></li>
+		<li>Podcast Directory: <a href="http://www.podcastdirectory.com/" target="_blank">http://www.podcastdirectory.com/</a></li>
+		<li>Podcast Alley: <a href="http://www.podcastalley.com/" target="_blank">http://www.podcastalley.com/</a></li>
+		<li>Podfeed.net: <a href="http://www.podfeed.net/" target="_blank">http://www.podfeed.net/</a></li>
+		<li>Blip.tv: <a href="http://blip.tv/" target="_blank">http://blip.tv/</a></li>
+		<li>DigitalPodcast: <a href="http://www.digitalpodcast.com/" target="_blank">http://www.digitalpodcast.com/forums/</a></li>
+		<li>Podcast Pickle: <a href="http://www.podcastpickle.com/" target="_blank">http://www.podcastpickle.com/</a></li>
+		<li>Pod Lounge: <a href="http://www.thepodlounge.com.au/" target="_blank">http://www.thepodlounge.com.au/</a></li>
+		<li>Feed Shark: <a href="http://feedshark.brainbliss.com/" target="_blank">http://feedshark.brainbliss.com/</a></li>
+		<li>Videocasting Station: <a href="http://www.videocasting-station.com/" target="_blank">http://www.videocasting-station.com/</a></li>
+		<li>Zencast: <a href="http://www.zencast.com/" target="_blank">http://www.zencast.com/</a></li>
+		<li>Revision3: <a href="http://revision3.com/" target="_blank">http://revision3.com/</a></li>
 	</ul>
 	
+	<h2>Making Money With Your Podcast</h2>
+	
+	<p>Once you build up your listenership, selling advertising is a great way to make your podcast pay off. Companies like <a href="http://www.radiotail.com/" target="_blank">RadioTail</a>, <a href="http://podtrac.com/" target="_blank">Podtrac</a>, or <a href="http://www.limelightnetworks.com/mobile-advertising-video-ads/" target="_blank">Limelight</a> can connect you with advertisers. You can get the word out yourself on your website and in the podcast itself. If you're using Feedburner, you'll be able to track how many subscribers you have and that will be a big selling point for potential advertisers.</p>
+	
+	
+	<h2>Legal Considerations</h2>
+	
+	<p>Since you'll be distributing recordings, you should think about how you want to license your material. Some people are will to release their podcasts into the <a href="http://en.wikipedia.org/wiki/Public_domain" target="_blank">public domain</a> while others want strict copyright control. Creative Commons has a great resource called the <a href="http://wiki.creativecommons.org/Podcasting_Legal_Guide" target="_blank">Podcasting Legal Guide</a> to help you wade through the complexities.</p>
 	
 	<h2>More Information</h2>
 	<p>Apple has a <a href="https://discussions.apple.com/community/itunes/producing_podcasts?forumID=1107" target="_blank">discussion forum</a> for helping users create and distribute podcasts. Here are a few additional resources:</p>
 	<ul>
-		<li><a href="http://www.apple.com/itunes/podcasts/specs.html" target="_blank">http://www.apple.com/itunes/podcasts/specs.html</a></li>
-		<li><a href="http://www.apple.com/itunes/podcasts/creatorfaq.html" target="_blank">http://www.apple.com/itunes/podcasts/creatorfaq.html</a></li>
-		<li><a href="http://en.wikipedia.org/wiki/Uses_of_podcasting" target="_blank">http://en.wikipedia.org/wiki/Uses_of_podcasting</a></li>
+		<li>Apple's Podcast Specifications: <a href="http://www.apple.com/itunes/podcasts/specs.html" target="_blank">http://www.apple.com/itunes/podcasts/specs.html</a></li>
+		<li>Apple's Podcast Creator FAQs <a href="http://www.apple.com/itunes/podcasts/creatorfaq.html" target="_blank">http://www.apple.com/itunes/podcasts/creatorfaq.html</a></li>
+		<li>Wikipedia: Uses of Podcasting: <a href="http://en.wikipedia.org/wiki/Uses_of_podcasting" target="_blank">http://en.wikipedia.org/wiki/Uses_of_podcasting</a></li>
+		
+		<li>Learning in Hand: Podcasting for Teachers &amp; Students: <a href="http://learninginhand.com/podcasting-booklet/" target="_blank">http://learninginhand.com/podcasting-booklet/</a></li>
+		
+		<li>Podcast Alley Discussion Forum: <a href="http://www.podcastalley.com/forum/" target="_blank">http://www.podcastalley.com/forum/</a></li>
+		
+		<li>Podcasting News: <a href="http://www.podcastingnews.com/" target="_blank">http://www.podcastingnews.com/</a></li>
+		<li>Podcasting Tools: <a href="http://www.podcasting-tools.com" target="_blank">http://www.podcasting-tools.com</a></li>
 	</ul>
 			
 	<h2>Kontent Extensions</h2>
 	<p>Visit <a href="http://extensions.kontent.com/" target="_blank">Kontent Extensions</a> to see our other great extensions.</p>
-
+	
+	<p>All information &copy;2010-2011 by Kontent Design. Kontent Design takes no responsibility for the information, websites or services contained herein. Information is subject to change.</p>
 </div>
 
 <?php include_once(JPATH_ADMINISTRATOR."/components/com_podcastpro/footer.php");

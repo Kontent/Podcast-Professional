@@ -26,6 +26,9 @@ Legend:
 
 ------------
 
+17-Jul-2011 Severdia
+^ Updated info page
+
 13-Jul-2011 Severdia
 # Fixed language key
 

@@ -135,7 +135,7 @@ class PodcastPlayer
 
 		$playerURL = JURI::base() . 'plugins/content/podcastpro/xspf_player_slim.swf';
 
-		return '<object type="application/x-shockwave-flash" width="' . $width . '" height="' . $height . '" data="' . $playerURL . '?song_url=' . $this->fileURL . '&song_title=' . $this->title . '"><param name="movie" value="' . $playerURL . '?song_url=' . $this->fileURL . '&song_title=' . $this->title . '" /></object>';
+		return '<object type="application/x-shockwave-flash" width="' . $width . '" height="' . $height . '" data="' . $playerURL . '?song_url=' . $this->fileURL . '&song_title=' . $this->title . '&player_title=' . $this->title . '"><param name="movie" value="' . $playerURL . '?song_url=' . $this->fileURL . '&song_title=' . $this->title . '&player_title=' . $this->title . '" /></object>';
 	}
 	
 	private function html()
