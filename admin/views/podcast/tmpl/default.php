@@ -116,8 +116,8 @@ JHTML::_('behavior.tooltip');
 		
 		<tr>
 			<td width="110" class="key">
-				<label for="title" class="hasTip" title="<?php echo JText::_('COM_PODCASTPRO_ITUNES_EXPLICIT');?>::<?php echo JText::_('COM_PODCASTPRO_ITUNES_EXPLICIT_DESC');?>">
-					<?php echo JText::_( 'COM_PODCASTPRO_ITUNES_EXPLICIT' ); ?>:
+				<label for="title" class="hasTip" title="<?php echo JText::_('COM_PODCASTPRO_ITUNES_EXPLICIT_LABEL');?>::<?php echo JText::_('COM_PODCASTPRO_ITUNES_EXPLICIT_DESC');?>">
+					<?php echo JText::_( 'COM_PODCASTPRO_ITUNES_EXPLICIT_LABEL' ); ?>:
 				</label>
 			</td>
 			<td>

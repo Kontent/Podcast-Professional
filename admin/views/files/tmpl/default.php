@@ -67,10 +67,10 @@ if($this->params->get('hidehelps', 0) != 1)
 					<?php echo JText::_('COM_PODCASTPRO_EDIT_ARTICLE'); ?>				
 				</th>
 				<th class="title">
-					<?php echo JText::_('COM_PODCASTPRO_VIEW_ARTICLE'); ?>				
+					<?php echo JHTML::_('grid.sort',  JText::_('COM_PODCASTPRO_METADATA'), 'metadata', $this->lists['order_Dir'], $this->lists['order'] ); ?>								
 				</th>
 				<th class="title">
-					<?php echo JHTML::_('grid.sort',  JText::_('COM_PODCASTPRO_METADATA'), 'metadata', $this->lists['order_Dir'], $this->lists['order'] ); ?>								
+					<?php echo JText::_('COM_PODCASTPRO_VIEW_ARTICLE'); ?>				
 				</th>
 			</tr>
 		</thead>
@@ -120,6 +120,7 @@ if($this->params->get('hidehelps', 0) != 1)
 				</td>
 				<td width="8%" align="center">
 					<?php
+					// TODO: Add check for if article exists.
 						if($file->published) {							
 							echo "<a href=\"$editLink\"><img src=\"components/com_podcastpro/media/images/icon-16-edit.png\" 
 								alt=\"" . JText::_('COM_PODCASTPRO_EDIT_ARTICLE') . "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_EDIT_ARTICLE_LABEL') . " :: " . JText::_('COM_PODCASTPRO_EDIT_ARTICLE_DESC') . "\" /></a>";
@@ -127,6 +128,17 @@ if($this->params->get('hidehelps', 0) != 1)
 							echo "<img src=\"components/com_podcastpro/media/images/icon-16-noedit.png\" alt=\"" . JText::_('COM_PODCASTPRO_NO_ARTICLE') . "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_NOEDIT_ARTICLE_LABEL') . " :: " . JText::_('COM_PODCASTPRO_NOEDIT_ARTICLE_DESC') . "\"/>";
 						}
 					 ?>
+				</td>				
+				<td width="8%" align="center">					
+					<?php 
+						if($file->hasMetadata) {		
+							echo "<a href=\"$link\"><img src=\"components/com_podcastpro/media/images/icon-16-metadata.png\" 
+							alt=\"". JText::_('COM_PODCASTPRO_EDIT_METADATA'). "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_VIEW_METADATA_LABEL') . " :: " . JText::_('COM_PODCASTPRO_VIEW_METADATA_DESC') . "\"/></a>";
+						} else {
+							echo "<img src=\"components/com_podcastpro/media/images/icon-16-nometadata.png\" 
+							alt=\"". JText::_('COM_PODCASTPRO_NO_METADATA'). "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_NO_METADATA_LABEL') . " :: " . JText::_('COM_PODCASTPRO_NO_METADATA_DESC') . "\"/>";
+						}
+					?>
 				</td>
 				<td width="8%" align="center">
 					<?php
@@ -137,18 +149,6 @@ if($this->params->get('hidehelps', 0) != 1)
 							echo "<img src=\"components/com_podcastpro/media/images/icon-16-noarticle.png\" alt=\"" . JText::_('COM_PODCASTPRO_NO_ARTICLE') . "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_NOVIEW_ARTICLE_LABEL') . " :: " . JText::_('COM_PODCASTPRO_NOVIEW_ARTICLE_DESC') . "\"/>";
 						}
 					 ?>
-				</td>
-				
-				<td width="8%" align="center">					
-					<?php 
-						if($file->hasMetadata) {		
-							echo "<a href=\"#\"><img src=\"components/com_podcastpro/media/images/icon-16-metadata.png\" 
-							alt=\"". JText::_('COM_PODCASTPRO_EDIT_METADATA'). "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_VIEW_METADATA_LABEL') . " :: " . JText::_('COM_PODCASTPRO_VIEW_METADATA_DESC') . "\"/></a>";
-						} else {
-							echo "<img src=\"components/com_podcastpro/media/images/icon-16-nometadata.png\" 
-							alt=\"". JText::_('COM_PODCASTPRO_NO_METADATA'). "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_NO_METADATA_LABEL') . " :: " . JText::_('COM_PODCASTPRO_NO_METADATA_DESC') . "\"/>";
-						}
-					?>
 				</td>
 			</tr> 
 			<?php 
