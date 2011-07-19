@@ -26,6 +26,10 @@ Legend:
 
 ------------
 
+18-Jul-2011 Severdia
+^ Updated version number in footer
++ Added version file
+
 17-Jul-2011 Severdia
 ^ Updated info page
 # Fixed metadata link bug & language key

@@ -10,4 +10,4 @@
  
 defined ( '_JEXEC' ) or die ( 'Restricted access' ); 
 ?>
-<p class="credit">Podcast Professional *VERSION* | <a href="http://extensions.kontentdesign.com">Kontent Extensions</a> | <a href="#">Check for update</a></p>
+<p class="credit">Podcast Professional 1.0 | <a href="http://extensions.kontentdesign.com">Kontent Extensions</a> | <a href="#">Check for update</a></p>
