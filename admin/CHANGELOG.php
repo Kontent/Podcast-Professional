@@ -1,6 +1,5 @@
 <?php
 defined( '_JEXEC' ) or die( 'Restricted access' );
-
 /**
  * Podcast Professional - The Joomla Podcast Manager
  * @package 	Podcast Professional
@@ -8,7 +7,6 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
- 
 ?>
 <!--
 
@@ -25,6 +23,9 @@ Legend:
 ! -> Note
 
 ------------
+
+13-Oct-2011 Matias
+^ Added doctype to all xml files
 
 18-Jul-2011 Severdia
 ^ Updated version number in footer
