@@ -27,6 +27,8 @@ Legend:
 13-Oct-2011 Matias
 ^ Added doctype to all xml files
 ^ Changed file headers (removed @version $Id)
+# Fixed PHP notice (undefined $newurl) in view=feed and itunes:new-feed-url being always 0
+# Fixed PHP Notice (undefined $params) in PodcastModelPodcast::buildQuery()
 
 18-Jul-2011 Severdia
 ^ Updated version number in footer

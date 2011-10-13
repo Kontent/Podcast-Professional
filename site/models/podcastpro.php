@@ -1,22 +1,19 @@
 <?php 
-
  /**
  * Podcast Professional - The Joomla Podcast Manager
- * @version 	$Id: podcastpro.php
  * @package 	Podcast Professional
  * @copyright 	(C) 2010-2011 Kontent Design. All rights reserved.
  * @copyright 	(c) 2005-2008 Joseph L. LeBlanc
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
- 
-/*
-	Model to find {enclose ...} tags in content items
-*/
-defined( '_JEXEC' ) or die( 'Restricted access' );
+defined( '_JEXEC' ) or die();
 
 jimport('joomla.application.component.model');
 
+/**
+ * Model to find {enclose ...} tags in content items
+ */
 class PodcastModelPodcast extends JModel
 {
 	private $data = array();
@@ -70,6 +67,8 @@ class PodcastModelPodcast extends JModel
 		$date =& JFactory::getDate();
 		$now = $date->toMySQL();
 		
+		$params =& JComponentHelper::getParams('com_podcastpro');
+
 		$category_id = $params->get('category_id', 0);
 		
 		$nullDate = $this->_db->Quote($this->_db->getNullDate());
