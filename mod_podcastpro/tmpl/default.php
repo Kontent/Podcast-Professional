@@ -1,15 +1,12 @@
 <?php 
-
  /**
  * Podcast Professional - The Joomla Podcast Manager
- * @version 	$Id: default.php
  * @package 	Podcast Professional Module
  * @copyright 	(C) 2010-2011 Kontent Design. All rights reserved.
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
- 
-defined('_JEXEC') or die('Restricted access'); 
+defined('_JEXEC') or die(); 
 
 // Attach the stylesheet to the document head
 JHTML::stylesheet('podcastpro.css', 'modules/mod_podcastpro/media/');

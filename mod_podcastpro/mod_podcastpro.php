@@ -1,17 +1,15 @@
 <?php
-
  /**
  * Podcast Professional - The Joomla Podcast Manager
- * @version 	$Id: mod_podcastpro.php
  * @package 	Podcast Professional Module
  * @copyright 	(C) 2010-2011 Kontent Design. All rights reserved.
  * @copyright 	(c) 2005-2008 Joseph L. LeBlanc
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
- 
-defined( '_JEXEC' ) or die( 'Restricted access' );
+defined( '_JEXEC' ) or die();
 
+$params = ( object ) $params;
 $params->def('moduleclass_sfx', '');
 $params->def('text_prefix', '');
 $params->def('text_suffix', '');
@@ -38,6 +36,5 @@ if($params->get('urischeme') == 'http')
 	$link = $showlink;
 else
 	$link = str_replace(array('http:', 'https:'), $params->get('urischeme') . ':', $showlink);
-	require(JModuleHelper::getLayoutPath('mod_podcastpro'));
-?>
 
+require(JModuleHelper::getLayoutPath('mod_podcastpro'));

@@ -1,23 +1,19 @@
 <?php 
-
  /**
  * Podcast Professional - The Joomla Podcast Manager
- * @version 	$Id: feed.php
  * @package 	Podcast Professional
  * @copyright 	(C) 2010-2011 Kontent Design. All rights reserved.
  * @copyright 	(c) 2005-2008 Joseph L. LeBlanc
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
- 
- 
-/*
-	Model to find {enclose ...} tags in content items
-*/
-defined( '_JEXEC' ) or die( 'Restricted access' );
+defined( '_JEXEC' ) or die();
 
 jimport('joomla.application.component.model');
 
+/**
+ * Model to find {enclose ...} tags in content items
+ */
 class PodcastModelFeed extends JModel
 {
 	private $data = array();

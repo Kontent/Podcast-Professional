@@ -1,15 +1,13 @@
 <?php 
  /**
  * Podcast Professional - The Joomla Podcast Manager
- * @version 	$Id: default.php
  * @package 	Podcast Professional
  * @copyright 	(C) 2010-2011 Kontent Design. All rights reserved.
  * @copyright 	(c) 2005-2008 Joseph L. LeBlanc
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
- 
-defined( '_JEXEC' ) or die( 'Restricted access' );
+defined( '_JEXEC' ) or die();
 
 JToolBarHelper::title( JText::_( 'COM_PODCASTPRO_PODCAST_EPISODE_MANAGER' ), 'podcast.png' );
 
@@ -93,7 +91,7 @@ JHTML::_('behavior.tooltip');
 			} else {
 				$published = "<img src=\"components/com_podcastpro/media/images/icon-16-unpublished.png\" alt=\"" . JText::_('COM_PODCASTPRO_NO') . "\"/>";
 			}
-			$link = JRoute::_("index.php?option=$option&task=edit&{$editKeyName}[]=" . urlencode($editKeyValue));
+			$link = JRoute::_("index.php?option={$option}&task=edit&{$editKeyName}[]=" . urlencode($editKeyValue));
 			?>
 			<tr class="<?php echo $file->hasSpaces ? 'filespace' : "row$k"; ?>"> 
 				<td class="center"> 

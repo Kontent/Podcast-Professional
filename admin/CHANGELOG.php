@@ -26,6 +26,7 @@ Legend:
 
 13-Oct-2011 Matias
 ^ Added doctype to all xml files
+^ Changed file headers (removed @version $Id)
 
 18-Jul-2011 Severdia
 ^ Updated version number in footer
