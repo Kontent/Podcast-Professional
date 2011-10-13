@@ -30,6 +30,7 @@ Legend:
 # Fixed PHP notice (undefined $newurl) in view=feed and itunes:new-feed-url being always 0
 # Fixed PHP Notice (undefined $params) in PodcastModelPodcast::buildQuery()
 # Joomla 1.7 compatibility: Use JFactory instead of $mainframe in plg_podcapro
+# Fill value from configuration into <itunes:new-feed-url>
 
 18-Jul-2011 Severdia
 ^ Updated version number in footer
