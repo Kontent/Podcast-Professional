@@ -29,6 +29,7 @@ Legend:
 ^ Changed file headers (removed @version $Id)
 # Fixed PHP notice (undefined $newurl) in view=feed and itunes:new-feed-url being always 0
 # Fixed PHP Notice (undefined $params) in PodcastModelPodcast::buildQuery()
+# Joomla 1.7 compatibility: Use JFactory instead of $mainframe in plg_podcapro
 
 18-Jul-2011 Severdia
 ^ Updated version number in footer
