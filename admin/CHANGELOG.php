@@ -32,6 +32,9 @@ Legend:
 # Make mod_podcastpro to work in Joomla! 1.5
 # Small fixes and improvements
 # Joomla 1.7 compatibility: Make plugin to work (barely)
+- Remove sample layout from feed view
+# Joomla 1.7 compatibility: Fix public article detection
+# Allow more than one media file in each artricle
 
 14-Oct-2011 Matias
 # Add all missing files to manifest.xml

@@ -1,4 +1,4 @@
-<?php 
+<?php
  /**
  * Podcast Professional - The Joomla Podcast Manager
  * @package 	Podcast Professional
@@ -19,11 +19,11 @@ class PodcastModelFiles extends JModel {
 	private $data = null;
 	private $podcasts = null;
 	private $hasSpaces = false;
-	
+
 	private function &getFilelist($sortorder='asc') {
 		if(!$this->filelist) {
 			$folder = $this->getFolder();
-			
+
 			if(!JFolder::exists($folder)) {
 				// TODO: handle error when mediapath isn't a folder
 				$this->filelist = array();
@@ -31,26 +31,26 @@ class PodcastModelFiles extends JModel {
 				$this->filelist = JFolder::files($folder, '.', false, false, array('.svn', 'CVS','.DS_Store','__MACOSX', 'index.html', 'htaccess.txt'));
 			}
 		}
-		
-		if ($sortorder=='asc') 
+
+		if ($sortorder=='asc')
 			sort($this->filelist);
-		else 	
-			rsort($this->filelist);	
+		else
+			rsort($this->filelist);
 
 		return $this->filelist;
 	}
-	
+
 	private function &getPodcasts()
 	{
 		if (!$this->podcasts) {
 			$query = "SELECT podcast_id,filename FROM #__podcast";
 			$this->podcasts = $this->_getList($query);
-			
+
 			if (!count($this->podcasts)) {
 				$this->podcasts = array();
 			}
 		}
-		
+
 		return $this->podcasts;
 	}
 
@@ -79,7 +79,7 @@ class PodcastModelFiles extends JModel {
 		$data =& $this->getAllData();
 		return count($data);
 	}
-	
+
 	public function getPagination() {
 		if(!$this->pagination) {
 			jimport('joomla.html.pagination');
@@ -89,13 +89,13 @@ class PodcastModelFiles extends JModel {
 
 		return $this->pagination;
 	}
-	
+
 	public function getHasSpaces()
 	{
 		if (!$this->data) {
 			$this->getAllData();
 		}
-		
+
 		return $this->hasSpaces;
 	}
 
@@ -105,10 +105,10 @@ class PodcastModelFiles extends JModel {
 
 		$option = JRequest::getCmd('option');
 		$app =& JFactory::getApplication();
-		
+
 		//get sorting order
 		$filter_order		= $app->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'filename',	'cmd' );
-		$filter_order_Dir	= $app->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'',	'word' );		
+		$filter_order_Dir	= $app->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'',	'word' );
 
 		$files =& $this->getFilelist($filter_order_Dir);
 		$podcasts =& $this->getPodcasts();
@@ -121,7 +121,7 @@ class PodcastModelFiles extends JModel {
 			$file->hasMetadata = false;
 			$file->id = 0;
 			$file->hasSpaces = false;
-			
+
 			if (JString::stristr($filename, ' ')) {
 				$this->hasSpaces = true;
 				$file->hasSpaces = true;
@@ -129,9 +129,9 @@ class PodcastModelFiles extends JModel {
 
 			$data[$filename] = $file;
 		}
-		
+
 		// merge in metadata with no corresponding files on filesystem
-		foreach ($podcasts as $podcast) {			
+		foreach ($podcasts as $podcast) {
 			if (!isset($data[$podcast->filename])) {
 				$file = new stdClass();
 				$file->filename = $podcast->filename;
@@ -148,38 +148,44 @@ class PodcastModelFiles extends JModel {
 				$data[$podcast->filename] = $file;
 			}
 		}
-		
+
 		$date =& JFactory::getDate();
 		$now = $date->toMySQL();
 		$nullDate = $this->_db->Quote($this->_db->getNullDate());
-		
+
+		if (version_compare(JVERSION, '1.6', '>')) {
+			$access = 1;
+		} else {
+			$access = 0;
+		}
 		$query = "SELECT id,introtext FROM #__content"
 		. "\n WHERE state = '1' AND introtext LIKE '%{enclose%}%'"
-		. "\n AND access = 0"
+		. "\n AND access = {$access}"
 		. "\n AND ( publish_up = $nullDate OR publish_up <= '$now' )"
 		. "\n AND ( publish_down = $nullDate OR publish_down >= '$now' );";
 
 		$articles = $this->_getList($query);
 		foreach($articles as &$row) {
-			preg_match('/\{enclose\s(.*)\}/', $row->introtext, $matches);
-			
-			// get the file name, ignore file size and mimetype
-			$pieces = explode(' ', $matches[1]);
-			$filename = $pieces[0];
-			
-			if(!isset($data[$filename])) // file has probably been deleted
-				continue;
-			
-			$podcast = $data[$filename];
+			preg_match_all('/\{enclose\s(.*)\}/', $row->introtext, $matches);
 
-			$podcast->published = true;
-			$podcast->articleId = $row->id;
+			// get the file name, ignore file size and mimetype
+			foreach ($matches[1] as $match) {
+				$pieces = explode(' ', $match);
+				$filename = $pieces[0];
+
+				if(!isset($data[$filename])) // file has probably been deleted
+					continue;
+
+				$podcast = $data[$filename];
+				$podcast->published = true;
+				$podcast->articleId = $row->id;
+			}
 		}
 
 		foreach($podcasts as &$row) {
 			if(!isset($data[$row->filename]))
 				continue;
-				
+
 			$data[$row->filename]->hasMetadata = true;
 			$data[$row->filename]->id = $row->podcast_id;
 		}
@@ -223,8 +229,8 @@ class PodcastModelFiles extends JModel {
 					unset($data[$key]);
 			}
 		}
-		
-		//sort the files 	
+
+		//sort the files
 		$filter_order		= $app->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'filename',	'cmd' );
 		$filter_order_Dir	= $app->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'asc',	'word' );
 
@@ -236,12 +242,12 @@ class PodcastModelFiles extends JModel {
 		if (!in_array(strtoupper($filter_order_Dir), array('asc', 'desc'))) {
 			$filter_order_Dir = 'asc';
 		}
-		
+
 		switch ($filter_order) {
 			case 'filename':
-				
+
 			case 'published':
-			
+
 			case 'metadata':
 		}
 		return $data;
