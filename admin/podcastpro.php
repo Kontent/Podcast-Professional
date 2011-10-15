@@ -57,7 +57,7 @@ class PodcastController extends JController
 		// Save the metadata first, will override the redirect below
 		$podcast =& $this->save();
 
-		$query = 'SELECT id FROM #__content WHERE introtext LIKE \'%{enclose%' . $podcast->filename . '%}%\' AND state > \'-1\'';
+		$query = "SELECT id FROM #__content WHERE introtext LIKE '%{enclose %{$podcast->filename}%}%' AND state > '-1'";
 		$db->setQuery($query);
 		$id = $db->loadResult();
 

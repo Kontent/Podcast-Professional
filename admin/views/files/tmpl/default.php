@@ -125,6 +125,9 @@ JHTML::_('behavior.tooltip');
 						if($file->hasMetadata) {
 							echo "<a href=\"$link\"><img src=\"components/com_podcastpro/media/images/icon-16-metadata.png\"
 							alt=\"". JText::_('COM_PODCASTPRO_EDIT_METADATA'). "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_VIEW_METADATA_LABEL') . " :: " . JText::_('COM_PODCASTPRO_VIEW_METADATA_DESC') . "\"/></a>";
+						} elseif($file->published) {
+							echo "<a href=\"$link\"><img src=\"components/com_podcastpro/media/images/icon-16-nometadata.png\"
+							alt=\"". JText::_('COM_PODCASTPRO_EDIT_METADATA'). "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_NO_METADATA_LABEL') . " :: " . JText::_('COM_PODCASTPRO_NO_METADATA_DESC') . "\"/></a>";
 						} else {
 							echo "<img src=\"components/com_podcastpro/media/images/icon-16-nometadata.png\"
 							alt=\"". JText::_('COM_PODCASTPRO_NO_METADATA'). "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_NO_METADATA_LABEL') . " :: " . JText::_('COM_PODCASTPRO_NO_METADATA_DESC') . "\"/>";

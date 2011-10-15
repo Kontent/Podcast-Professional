@@ -35,6 +35,7 @@ Legend:
 - Remove sample layout from feed view
 # Joomla 1.7 compatibility: Fix public article detection
 # Allow more than one media file in each artricle
+# Allow metadata change also if article exists
 
 14-Oct-2011 Matias
 # Add all missing files to manifest.xml
