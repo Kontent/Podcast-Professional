@@ -35,20 +35,23 @@
 	<administration>
 		<menu link="option=com_podcastpro" img="components/com_podcastpro/media/images/icon-16-podcastpro.png">Podcast Professional</menu>
 		<submenu>
-			<menu link="option=com_podcastpro&amp;view=files" img="components/com_podcastpro/media/images/icon-16-podcast.png">Manage Episodes</menu>
-			<menu link="option=com_podcastpro&amp;view=info" img="components/com_podcastpro/media/images/icon-16-podcastpro.png">About</menu>
+			<menu view="files" img="components/com_podcastpro/media/images/icon-16-podcast.png">Manage Episodes</menu>
+			<menu view="info" img="components/com_podcastpro/media/images/icon-16-podcastpro.png">About</menu>
 		</submenu>
 		<languages folder="language/admin/en-GB">
 			<language tag="en-GB">en-GB.com_podcastpro.ini</language>
 		</languages>
 		<files folder="admin">
+			<filename>CHANGELOG.php</filename>
 			<filename>config.xml</filename>
 			<filename>COPYRIGHT.php</filename>
+			<filename>footer.php</filename>
 			<filename>index.html</filename>
 			<filename>podcastpro.php</filename>
-			<folder>media</folder>
+			<filename>version.php</filename>
 			<folder>getid3</folder>
 			<folder>install</folder>
+			<folder>media</folder>
 			<folder>models</folder>
 			<folder>tables</folder>
 			<folder>views</folder>
