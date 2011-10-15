@@ -187,9 +187,8 @@ class PodcastViewFeed extends JView
 
 	private function addEnclosure(&$xw, &$pcast, $params, $fileURL, $fileFullPath)
 	{
-		preg_match('/\{enclose (.*)\}/s', $pcast->introtext, $matches);
-
-		$pieces = explode(' ', $matches[1]);
+		preg_match('/\{enclose\s+([^\}]+)\}/u', $pcast->introtext, $matches);
+		$pieces = $matches ? explode(' ', $matches[1]) : array();
 
 		if (count($pieces) < 3) {
 			$pieces[1] = filesize($fileFullPath);
@@ -205,8 +204,10 @@ class PodcastViewFeed extends JView
 
 	private function cleanSummary($text)
 	{
-		preg_match('/\{enclose (.*)\}/s', $text, $matches);
+		preg_match_all('/\{enclose\s+([^\}]+)\}/u', $text, $matches);
+		$text = $matches ? str_replace($matches[0], '', $text) : $text;
+		$text = preg_replace('/\s+/', ' ', $text);
 
-		return strip_tags(str_replace($matches[0], '', $text));
+		return trim(strip_tags($text));
 	}
 }
