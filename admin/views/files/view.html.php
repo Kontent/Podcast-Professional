@@ -13,14 +13,14 @@ jimport( 'joomla.application.component.view');
 
 class PodcastViewFiles extends JView {
 	public function display($tpl = null) {
-		global $mainframe, $option;
-
+		$option = JRequest::getCmd('option');
 		$params =& JComponentHelper::getParams($option);
+		$app =& JFactory::getApplication();
 
-		$filter_state		= $mainframe->getUserStateFromRequest( $option.'filter_state',		'filter_state',		'',				'word' );
-		$filter_order		= $mainframe->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'filename',	'cmd' );
-		$filter_order_Dir	= $mainframe->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'asc',				'word' );
-		$search				= $mainframe->getUserStateFromRequest( $option.'search',			'search',			'',				'string' );
+		$filter_state		= $app->getUserStateFromRequest( $option.'filter_state',		'filter_state',		'',				'word' );
+		$filter_order		= $app->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'filename',	'cmd' );
+		$filter_order_Dir	= $app->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'asc',				'word' );
+		$search				= $app->getUserStateFromRequest( $option.'search',			'search',			'',				'string' );
 		if (strpos($search, '"') !== false) {
 			$search = str_replace(array('=', '<'), '', $search);
 		}
@@ -35,8 +35,8 @@ class PodcastViewFiles extends JView {
 			$filter_order_Dir = 'asc';
 		}
 		
-		$filter_published = $mainframe->getUserStateFromRequest($option . 'filter_published', 'filter_published', '*', 'word');
-		$filter_metadata = $mainframe->getUserStateFromRequest($option . 'filter_metadata', 'filter_metadata', '*', 'word');
+		$filter_published = $app->getUserStateFromRequest($option . 'filter_published', 'filter_published', '*', 'word');
+		$filter_metadata = $app->getUserStateFromRequest($option . 'filter_metadata', 'filter_metadata', '*', 'word');
 
 		$filter = array();
 		$filter['published'] = PodcastViewFiles::filter($filter_published, JText::_('COM_PODCASTPRO_PUBLISHED'), JText::_('COM_PODCASTPRO_UNPUBLISHED'), JText::_('COM_PODCASTPRO_PUBLISHED'), 'filter_published');

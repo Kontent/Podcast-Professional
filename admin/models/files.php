@@ -83,8 +83,8 @@ class PodcastModelFiles extends JModel {
 	public function getPagination() {
 		if(!$this->pagination) {
 			jimport('joomla.html.pagination');
-			global $mainframe;
-			$this->pagination = new JPagination($this->getTotal(), JRequest::getVar('limitstart', 0), JRequest::getVar('limit', $mainframe->getCfg('list_limit')));
+			$app =& JFactory::getApplication();
+			$this->pagination = new JPagination($this->getTotal(), JRequest::getVar('limitstart', 0), JRequest::getVar('limit', $app->getCfg('list_limit')));
 		}
 
 		return $this->pagination;
@@ -103,11 +103,12 @@ class PodcastModelFiles extends JModel {
 		if($this->data)
 			return $this->data;
 
-		global $mainframe, $option;
-
+		$option = JRequest::getCmd('option');
+		$app =& JFactory::getApplication();
+		
 		//get sorting order
-		$filter_order		= $mainframe->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'filename',	'cmd' );
-		$filter_order_Dir	= $mainframe->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'',	'word' );		
+		$filter_order		= $app->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'filename',	'cmd' );
+		$filter_order_Dir	= $app->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'',	'word' );		
 
 		$files =& $this->getFilelist($filter_order_Dir);
 		$podcasts =& $this->getPodcasts();
@@ -186,8 +187,8 @@ class PodcastModelFiles extends JModel {
 		$this->data =& $data;
 
 		// filters
-		$filter_published = $mainframe->getUserStateFromRequest($option . 'filter_published', 'filter_published', '*', 'word');
-		$filter_metadata = $mainframe->getUserStateFromRequest($option . 'filter_metadata', 'filter_metadata', '*', 'word');
+		$filter_published = $app->getUserStateFromRequest($option . 'filter_published', 'filter_published', '*', 'word');
+		$filter_metadata = $app->getUserStateFromRequest($option . 'filter_metadata', 'filter_metadata', '*', 'word');
 
 		$published = $filter_published == 'on';
 		$unpublished = $filter_published == 'off';
@@ -224,8 +225,8 @@ class PodcastModelFiles extends JModel {
 		}
 		
 		//sort the files 	
-		$filter_order		= $mainframe->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'filename',	'cmd' );
-		$filter_order_Dir	= $mainframe->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'asc',	'word' );
+		$filter_order		= $app->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'filename',	'cmd' );
+		$filter_order_Dir	= $app->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'asc',	'word' );
 
 		// sanitize $filter_order
 		if (!in_array($filter_order, array('filename', 'published', 'metadata'))) {
@@ -246,5 +247,3 @@ class PodcastModelFiles extends JModel {
 		return $data;
 	}
 }
-
-?>

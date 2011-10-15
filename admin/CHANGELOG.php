@@ -24,6 +24,9 @@ Legend:
 
 ------------
 
+15-Oct-2011 Matias
+# Joomla 1.7 compatibility: Use always JFactory::getApplication() and local $option
+
 14-Oct-2011 Matias
 # Add all missing files to manifest.xml
 # Hide index.html and htaccess.txt from the file list

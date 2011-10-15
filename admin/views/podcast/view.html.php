@@ -16,9 +16,10 @@ class PodcastViewPodcast extends JView
 {
 	function display($tpl = null)
 	{
-		global $option;
+		$option = JRequest::getCmd('option');
 		
 		$params =& JComponentHelper::getParams($option);
+		$app =& JFactory::getApplication();
 		
 		$cid = JRequest::getVar('cid', array(0), '', 'array');
 		$id = (int)$cid[0];
@@ -35,15 +36,13 @@ class PodcastViewPodcast extends JView
 		} else if(!$id || !$row->load($id)) { // metadata hasn't been added yet or the given id is invalid
 			
 			if(!$filename) { // this should never happen if user uses interface
-				global $mainframe, $option;
-				$mainframe->redirect("index.php?option=$option", JText::_('COM_PODCASTPRO_INVALID_ID_FILENAME'), 'error');
+				$app->redirect("index.php?option=$option", JText::_('COM_PODCASTPRO_INVALID_ID_FILENAME'), 'error');
 				return;
 			}
 			
 			$row->filename = JFile::makeSafe($filename[0]);
 			if($row->filename !== $filename[0]) { // either they're messing with us or the OS is allowing filenames that Joomla isn't
-				global $mainframe, $option;
-				$mainframe->redirect("index.php?option=$option", JText::_('COM_PODCASTPRO_FILENAME_SPECIAL_CHARACTERS'), 'error'); // either way, let's stay safe
+				$app->redirect("index.php?option=$option", JText::_('COM_PODCASTPRO_FILENAME_SPECIAL_CHARACTERS'), 'error'); // either way, let's stay safe
 				return;
 			}
 
