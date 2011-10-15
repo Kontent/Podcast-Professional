@@ -13,7 +13,7 @@ jimport( 'joomla.application.component.view');
 
 class PodcastViewFiles extends JView {
 	public function display($tpl = null) {
-		$option = JRequest::getCmd('option');
+		$this->option = $option = JRequest::getCmd('option');
 		$params =& JComponentHelper::getParams($option);
 		$app =& JFactory::getApplication();
 
@@ -34,7 +34,7 @@ class PodcastViewFiles extends JView {
 		if (!in_array(strtoupper($filter_order_Dir), array('asc', 'desc'))) {
 			$filter_order_Dir = 'asc';
 		}
-		
+
 		$filter_published = $app->getUserStateFromRequest($option . 'filter_published', 'filter_published', '*', 'word');
 		$filter_metadata = $app->getUserStateFromRequest($option . 'filter_metadata', 'filter_metadata', '*', 'word');
 
@@ -51,13 +51,13 @@ class PodcastViewFiles extends JView {
 
 		// search filter
 		$lists['search']= $search;
-		
-		
+
+
 		$data =& $this->get('data');
 		$folder = $this->get('folder');
 		$pagination =& $this->get('pagination');
 		$hasSpaces = $this->get('hasSpaces');
-		
+
 		$this->assignRef('params', $params);
 		$this->assignRef('filter', $filter);
 		$this->assignRef('lists', $lists);
@@ -74,7 +74,7 @@ class PodcastViewFiles extends JView {
 		$state[] = JHTML::_('select.option', '*', '- ' . $desc . ' -');
 		$state[] = JHTML::_('select.option', 'on', $state1);
 		$state[] = JHTML::_('select.option', 'off', $state2);
-		
+
 		return JHTML::_('select.genericlist', $state, $requestVar, 'class="inputbox" size="1" onchange="submitform( );"', 'value', 'text', $filter_state);
 	}
 }

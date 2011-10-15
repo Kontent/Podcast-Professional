@@ -14,7 +14,7 @@
 	<!-- Joomla 1.6 Support -->
 	<fields name="params">
 		<fieldset name="basic">
-			<field name="category_id" type="category" extension="com_content" label="Category (optional)" description="Choose a specific Joomla category to use for this podcast feed" />
+			<field name="category_id" type="category" extension="com_content" show_root="1" label="Category (optional)" description="Choose a specific Joomla category to use for this podcast feed" />
 		</fieldset>
 	</fields>
 </metadata>
