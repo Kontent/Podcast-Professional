@@ -166,7 +166,7 @@ class PodcastModelFiles extends JModel {
 
 		$articles = $this->_getList($query);
 		foreach($articles as &$row) {
-			preg_match_all('/\{enclose\s(.*)\}/', $row->introtext, $matches);
+			preg_match_all('/\{enclose\s+([^\}]+)\}/u', $row->introtext, $matches);
 
 			// get the file name, ignore file size and mimetype
 			foreach ($matches[1] as $match) {

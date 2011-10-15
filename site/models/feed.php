@@ -54,7 +54,7 @@ class PodcastModelFeed extends JModel
 		$articles = $this->_getList($query);
 
 		foreach ($articles as &$row) {
-			preg_match('/\{enclose\s(.*)\}/', $row->introtext, $matches);
+			preg_match('/\{enclose\s+([^\}]+)\}/u', $row->introtext, $matches);
 
 			$pieces = explode(' ', $matches[1]);
 
