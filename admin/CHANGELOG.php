@@ -31,6 +31,7 @@ Legend:
 # Joomla 1.7 compatibility: Add view parameters to view=feed
 # Make mod_podcastpro to work in Joomla! 1.5
 # Small fixes and improvements
+# Joomla 1.7 compatibility: Make plugin to work (barely)
 
 14-Oct-2011 Matias
 # Add all missing files to manifest.xml
