@@ -37,6 +37,7 @@ Legend:
 # Allow more than one media file in each artricle
 # Allow metadata creation also if article exists
 ^ Module: Use feed URL from component if no URL has been defined
+# Fixes to feed content
 
 14-Oct-2011 Matias
 # Add all missing files to manifest.xml

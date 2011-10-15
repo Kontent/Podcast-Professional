@@ -25,7 +25,7 @@ class ModPodcastPro {
 	function display() {
 		$itunesidlink = $this->params->def('itunesid', '');
 		$showlink = $this->params->get('otherlink', $this->cparams->get('mainurl'));
-		$showlink = $showlink ? $showlink : JRoute::_(JURI::root(false) . 'index.php?option=com_podcastpro&view=feed&format=raw');
+		$showlink = $showlink ? $showlink : JRoute::_('index.php?option=com_podcastpro&view=feed&format=raw');
 		$img = $this->params->get('otherimage', '');
 		$img = $img ? $img : 'modules/mod_podcastpro/media/podcast-subscribe.png';
 
