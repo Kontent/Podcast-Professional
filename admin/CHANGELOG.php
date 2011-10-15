@@ -29,6 +29,7 @@ Legend:
 # Joomla 1.7 compatibility: Make global configuration to work
 # Joomla 1.7 compatibility: Add basic backend access control
 # Joomla 1.7 compatibility: Add view parameters to view=feed
+# Make mod_podcastpro to work in Joomla! 1.5
 
 14-Oct-2011 Matias
 # Add all missing files to manifest.xml
