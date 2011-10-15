@@ -1,15 +1,13 @@
-<?php 
+<?php
  /**
  * Podcast Professional - The Joomla Podcast Manager
- * @version 	$Id: default.php
  * @package 	Podcast Professional
  * @copyright 	(C) 2010-2011 Kontent Design. All rights reserved.
  * @copyright 	(c) 2005-2008 Joseph L. LeBlanc
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
- 
-defined( '_JEXEC' ) or die( 'Restricted access' );
+defined( '_JEXEC' ) or die();
 
 JToolBarHelper::title( JText::_( 'COM_PODCASTPRO_PODCAST_EPISODE_MANAGER' ), 'podcast.png' );
 
@@ -53,29 +51,29 @@ JHTML::_('behavior.tooltip');
 				<th width="20"><?php echo JText::_('COM_PODCASTPRO_PODCAST_ID'); ?></th>
 
 				<th class="title">
-					<?php echo JHTML::_('grid.sort',  JText::_('COM_PODCASTPRO_FILENAME'), 'filename', $this->lists['order_Dir'], $this->lists['order'] ); ?>				
+					<?php echo JHTML::_('grid.sort',  JText::_('COM_PODCASTPRO_FILENAME'), 'filename', $this->lists['order_Dir'], $this->lists['order'] ); ?>
 				</th>
 				<th class="title">
-					<?php echo JHTML::_('grid.sort',  JText::_('COM_PODCASTPRO_STATUS'), 'published', $this->lists['order_Dir'], $this->lists['order'] ); ?>				
+					<?php echo JHTML::_('grid.sort',  JText::_('COM_PODCASTPRO_STATUS'), 'published', $this->lists['order_Dir'], $this->lists['order'] ); ?>
 				</th>
 				<th class="title">
-					<?php echo JText::_('COM_PODCASTPRO_EDIT_ARTICLE'); ?>				
+					<?php echo JText::_('COM_PODCASTPRO_EDIT_ARTICLE'); ?>
 				</th>
 				<th class="title">
-					<?php echo JHTML::_('grid.sort',  JText::_('COM_PODCASTPRO_METADATA'), 'metadata', $this->lists['order_Dir'], $this->lists['order'] ); ?>								
+					<?php echo JHTML::_('grid.sort',  JText::_('COM_PODCASTPRO_METADATA'), 'metadata', $this->lists['order_Dir'], $this->lists['order'] ); ?>
 				</th>
 				<th class="title">
-					<?php echo JText::_('COM_PODCASTPRO_VIEW_ARTICLE'); ?>				
+					<?php echo JText::_('COM_PODCASTPRO_VIEW_ARTICLE'); ?>
 				</th>
 				<th class="title">
-					<?php echo JText::_('COM_PODCASTPRO_DELETE_FILE'); ?>				
+					<?php echo JText::_('COM_PODCASTPRO_DELETE_FILE'); ?>
 				</th>
 			</tr>
 		</thead>
 		<?php
 		$k = 0;
 		$i = 0;
-		foreach($this->data as $file) 
+		foreach($this->data as $file)
 		{
 			$id = $file->id;
 			if(!$id) {
@@ -93,11 +91,11 @@ JHTML::_('behavior.tooltip');
 			} else {
 				$published = "<img src=\"components/com_podcastpro/media/images/icon-16-unpublished.png\" alt=\"" . JText::_('COM_PODCASTPRO_NO') . "\"/>";
 			}
-			$link = JRoute::_("index.php?option=$option&task=edit&{$editKeyName}[]=" . urlencode($editKeyValue));
+			$link = JRoute::_("index.php?option={$this->option}&task=edit&{$editKeyName}[]=" . urlencode($editKeyValue));
 			?>
-			<tr class="<?php echo $file->hasSpaces ? 'filespace' : "row$k"; ?>"> 
-				<td class="center"> 
-					<!-- ?php echo $checked; ? --> <?php echo $i+1; ?> 
+			<tr class="<?php echo $file->hasSpaces ? 'filespace' : "row$k"; ?>">
+				<td class="center">
+					<!-- ?php echo $checked; ? --> <?php echo $i+1; ?>
 				</td>
 				<td>
 					<?php
@@ -114,21 +112,24 @@ JHTML::_('behavior.tooltip');
 				<td width="8%" class="center">
 					<?php
 					// TODO: Add check for if article exists.
-						if($file->published) {							
-							echo "<a href=\"$editLink\"><img src=\"components/com_podcastpro/media/images/icon-16-edit.png\" 
+						if($file->published) {
+							echo "<a href=\"$editLink\"><img src=\"components/com_podcastpro/media/images/icon-16-edit.png\"
 								alt=\"" . JText::_('COM_PODCASTPRO_EDIT_ARTICLE') . "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_EDIT_ARTICLE_LABEL') . " :: " . JText::_('COM_PODCASTPRO_EDIT_ARTICLE_DESC') . "\" /></a>";
 						} else {
 							echo "<img src=\"components/com_podcastpro/media/images/icon-16-noedit.png\" alt=\"" . JText::_('COM_PODCASTPRO_NO_ARTICLE') . "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_NOEDIT_ARTICLE_LABEL') . " :: " . JText::_('COM_PODCASTPRO_NOEDIT_ARTICLE_DESC') . "\"/>";
 						}
 					 ?>
-				</td>				
-				<td width="8%" class="center">					
-					<?php 
-						if($file->hasMetadata) {		
-							echo "<a href=\"$link\"><img src=\"components/com_podcastpro/media/images/icon-16-metadata.png\" 
+				</td>
+				<td width="8%" class="center">
+					<?php
+						if($file->hasMetadata) {
+							echo "<a href=\"$link\"><img src=\"components/com_podcastpro/media/images/icon-16-metadata.png\"
 							alt=\"". JText::_('COM_PODCASTPRO_EDIT_METADATA'). "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_VIEW_METADATA_LABEL') . " :: " . JText::_('COM_PODCASTPRO_VIEW_METADATA_DESC') . "\"/></a>";
+						} elseif($file->published) {
+							echo "<a href=\"$link\"><img src=\"components/com_podcastpro/media/images/icon-16-nometadata.png\"
+							alt=\"". JText::_('COM_PODCASTPRO_EDIT_METADATA'). "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_NO_METADATA_LABEL') . " :: " . JText::_('COM_PODCASTPRO_NO_METADATA_DESC') . "\"/></a>";
 						} else {
-							echo "<img src=\"components/com_podcastpro/media/images/icon-16-nometadata.png\" 
+							echo "<img src=\"components/com_podcastpro/media/images/icon-16-nometadata.png\"
 							alt=\"". JText::_('COM_PODCASTPRO_NO_METADATA'). "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_NO_METADATA_LABEL') . " :: " . JText::_('COM_PODCASTPRO_NO_METADATA_DESC') . "\"/>";
 						}
 					?>
@@ -136,7 +137,7 @@ JHTML::_('behavior.tooltip');
 				<td width="8%" class="center">
 					<?php
 						if($file->published) {
-							echo "<a href=\"$viewLink\" target=\"_blank\"><img src=\"components/com_podcastpro/media/images/icon-16-article.png\" 
+							echo "<a href=\"$viewLink\" target=\"_blank\"><img src=\"components/com_podcastpro/media/images/icon-16-article.png\"
 								alt=\"" . JText::_('COM_PODCASTPRO_VIEW_ARTICLE') . "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_VIEW_ARTICLE_LABEL') . " :: " . JText::_('COM_PODCASTPRO_VIEW_ARTICLE_DESC') . "\"/></a>";
 						} else {
 							echo "<img src=\"components/com_podcastpro/media/images/icon-16-noarticle.png\" alt=\"" . JText::_('COM_PODCASTPRO_NO_ARTICLE') . "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_NOVIEW_ARTICLE_LABEL') . " :: " . JText::_('COM_PODCASTPRO_NOVIEW_ARTICLE_DESC') . "\"/>";
@@ -146,12 +147,12 @@ JHTML::_('behavior.tooltip');
 				<td width="8%" class="center">
 					<?php
 						//TODO: Delete podcast file
-						echo "<a href=\"#\"><img src=\"components/com_podcastpro/media/images/icon-16-delete.png\" 
+						echo "<a href=\"#\"><img src=\"components/com_podcastpro/media/images/icon-16-delete.png\"
 								alt=\"" . JText::_('COM_PODCASTPRO_DELETE_FILE_LABEL') . "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_DELETE_FILE_LABEL') . " :: " . JText::_('COM_PODCASTPRO_DELETE_FILE_DESC') . "\"/></a>";
 					?>
 				</td>
-			</tr> 
-			<?php 
+			</tr>
+			<?php
 				$k = 1 - $k;
 				$i++;
 				}
@@ -160,8 +161,8 @@ JHTML::_('behavior.tooltip');
 			<tr><td colspan="7"><?php echo $this->pagination->getListFooter(); ?></td></tr>
 		</tfoot>
 	</table>
-	
-	<input type="hidden" name="option" value="<?php echo $option; ?>" />
+
+	<input type="hidden" name="option" value="<?php echo $this->option; ?>" />
 	<input type="hidden" name="task" value="" />
 	<input type="hidden" name="filter_order" value="<?php echo $this->lists['order']; ?>" />
 	<input type="hidden" name="filter_order_Dir" value="<?php echo $this->lists['order_Dir']; ?>" />
