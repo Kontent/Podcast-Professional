@@ -42,6 +42,7 @@
 			<language tag="en-GB">en-GB.com_podcastpro.ini</language>
 		</languages>
 		<files folder="admin">
+			<filename>access.xml</filename>
 			<filename>CHANGELOG.php</filename>
 			<filename>config.xml</filename>
 			<filename>COPYRIGHT.php</filename>

@@ -26,6 +26,8 @@ Legend:
 
 15-Oct-2011 Matias
 # Joomla 1.7 compatibility: Use always JFactory::getApplication() and local $option
+# Joomla 1.7 compatibility: Make global configuration to work
+# Joomla 1.7 compatibility: Add basic backend access control
 
 14-Oct-2011 Matias
 # Add all missing files to manifest.xml
@@ -86,7 +88,7 @@ Legend:
 31-May-2011 Arvind
 # Fixed error "Table podcast not supported" by Renaming the file administrator/tables/podcastpro.php to podcast.php
 # Corrected paths to admin images in manifest.xml (might need to change values in jos_components for it to work on existing installation)
-^ Changed Toolbar icons 
+^ Changed Toolbar icons
 + Clickable headers to sort episode name, title, metadata
 ^ Changed a couple of language strings
 # Fixed mis-spelling of language strings in plugin
