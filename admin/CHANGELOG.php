@@ -26,6 +26,7 @@ Legend:
 
 14-Oct-2011 Matias
 # Add all missing files to manifest.xml
+# Hide index.html and htaccess.txt from the file list
 
 13-Oct-2011 Matias
 ^ Added doctype to all xml files

@@ -28,7 +28,7 @@ class PodcastModelFiles extends JModel {
 				// TODO: handle error when mediapath isn't a folder
 				$this->filelist = array();
 			} else {
-				$this->filelist = JFolder::files($folder);
+				$this->filelist = JFolder::files($folder, '.', false, false, array('.svn', 'CVS','.DS_Store','__MACOSX', 'index.html', 'htaccess.txt'));
 			}
 		}
 		
