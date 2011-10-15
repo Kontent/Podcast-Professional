@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE metadata>
 <metadata>
+	<!-- Joomla 1.5 Support -->
 	<state>
 		<name>Podcast Feed</name>
 		<description>COM_PODCASTPRO_PODCAST_FEED_DESC</description>
@@ -9,5 +10,12 @@
 		</params>
 		<advanced />
 	</state>
+	
+	<!-- Joomla 1.6 Support -->
+	<fields name="params">
+		<fieldset name="basic">
+			<field name="category_id" type="category" extension="com_content" label="Category (optional)" description="Choose a specific Joomla category to use for this podcast feed" />
+		</fieldset>
+	</fields>
 </metadata>
 
