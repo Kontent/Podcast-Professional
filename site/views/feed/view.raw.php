@@ -164,8 +164,6 @@ class PodcastViewFeed extends JView
 			$xw->writeElement('itunes:subtitle', $metadata[$filename]->itSubtitle);
 			$xw->writeElement('itunes:summary', $this->cleanSummary($pcast->introtext));
 
-			$xw->writeElement('description', $this->cleanSummary($pcast->introtext));
-
 			$this->addEnclosure($xw, $pcast, $params, $fileURL, $fileFullPath);
 			$xw->writeElement('guid', $fileURL);
 

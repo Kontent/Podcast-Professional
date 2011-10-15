@@ -38,6 +38,7 @@ Legend:
 # Allow metadata creation also if article exists
 ^ Module: Use feed URL from component if no URL has been defined
 # Fixes to feed content
+# Remove feed item description tags (data is already in summary)
 
 14-Oct-2011 Matias
 # Add all missing files to manifest.xml
