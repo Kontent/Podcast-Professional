@@ -11,6 +11,7 @@ defined( '_JEXEC' ) or die();
 
 class ModPodcastPro {
 	function __construct($params) {
+		$this->cparams = &JComponentHelper::getParams( 'com_podcastpro' );
 		$this->params = $params;
 		$this->params->def('moduleclass_sfx', '');
 		$this->params->def('text_prefix', '');
@@ -23,7 +24,7 @@ class ModPodcastPro {
 
 	function display() {
 		$itunesidlink = $this->params->def('itunesid', '');
-		$showlink = $this->params->get('otherlink', '');
+		$showlink = $this->params->get('otherlink', $this->cparams->get('mainurl'));
 		$showlink = $showlink ? $showlink : JRoute::_(JURI::root(false) . 'index.php?option=com_podcastpro&view=feed&format=raw');
 		$img = $this->params->get('otherimage', '');
 		$img = $img ? $img : 'modules/mod_podcastpro/media/podcast-subscribe.png';
