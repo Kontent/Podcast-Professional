@@ -1,29 +1,26 @@
 <?php
-
  /**
  * Podcast Professional - The Joomla Podcast Manager
- * @version 	$Id: view.html.php
  * @package 	Podcast Professional
  * @copyright 	(C) 2010-2011 Kontent Design. All rights reserved.
  * @copyright 	(c) 2005-2008 Joseph L. LeBlanc
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
- 
-defined( '_JEXEC' ) or die( 'Restricted access' );
+defined( '_JEXEC' ) or die();
 
 jimport( 'joomla.application.component.view');
 
 class PodcastViewFiles extends JView {
 	public function display($tpl = null) {
-		global $mainframe, $option;
-
+		$this->option = $option = JRequest::getCmd('option');
 		$params =& JComponentHelper::getParams($option);
+		$app =& JFactory::getApplication();
 
-		$filter_state		= $mainframe->getUserStateFromRequest( $option.'filter_state',		'filter_state',		'',				'word' );
-		$filter_order		= $mainframe->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'filename',	'cmd' );
-		$filter_order_Dir	= $mainframe->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'asc',				'word' );
-		$search				= $mainframe->getUserStateFromRequest( $option.'search',			'search',			'',				'string' );
+		$filter_state		= $app->getUserStateFromRequest( $option.'filter_state',		'filter_state',		'',				'word' );
+		$filter_order		= $app->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'filename',	'cmd' );
+		$filter_order_Dir	= $app->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'asc',				'word' );
+		$search				= $app->getUserStateFromRequest( $option.'search',			'search',			'',				'string' );
 		if (strpos($search, '"') !== false) {
 			$search = str_replace(array('=', '<'), '', $search);
 		}
@@ -37,9 +34,9 @@ class PodcastViewFiles extends JView {
 		if (!in_array(strtoupper($filter_order_Dir), array('asc', 'desc'))) {
 			$filter_order_Dir = 'asc';
 		}
-		
-		$filter_published = $mainframe->getUserStateFromRequest($option . 'filter_published', 'filter_published', '*', 'word');
-		$filter_metadata = $mainframe->getUserStateFromRequest($option . 'filter_metadata', 'filter_metadata', '*', 'word');
+
+		$filter_published = $app->getUserStateFromRequest($option . 'filter_published', 'filter_published', '*', 'word');
+		$filter_metadata = $app->getUserStateFromRequest($option . 'filter_metadata', 'filter_metadata', '*', 'word');
 
 		$filter = array();
 		$filter['published'] = PodcastViewFiles::filter($filter_published, JText::_('COM_PODCASTPRO_PUBLISHED'), JText::_('COM_PODCASTPRO_UNPUBLISHED'), JText::_('COM_PODCASTPRO_PUBLISHED'), 'filter_published');
@@ -54,13 +51,13 @@ class PodcastViewFiles extends JView {
 
 		// search filter
 		$lists['search']= $search;
-		
-		
+
+
 		$data =& $this->get('data');
 		$folder = $this->get('folder');
 		$pagination =& $this->get('pagination');
 		$hasSpaces = $this->get('hasSpaces');
-		
+
 		$this->assignRef('params', $params);
 		$this->assignRef('filter', $filter);
 		$this->assignRef('lists', $lists);
@@ -77,7 +74,7 @@ class PodcastViewFiles extends JView {
 		$state[] = JHTML::_('select.option', '*', '- ' . $desc . ' -');
 		$state[] = JHTML::_('select.option', 'on', $state1);
 		$state[] = JHTML::_('select.option', 'off', $state2);
-		
+
 		return JHTML::_('select.genericlist', $state, $requestVar, 'class="inputbox" size="1" onchange="submitform( );"', 'value', 'text', $filter_state);
 	}
 }

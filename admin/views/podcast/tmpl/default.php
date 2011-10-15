@@ -1,19 +1,15 @@
 <?php
-
  /**
  * Podcast Professional - The Joomla Podcast Manager
- * @version 	$Id: default.php
  * @package 	Podcast Professional
  * @copyright 	(C) 2010-2011 Kontent Design. All rights reserved.
  * @copyright 	(c) 2005-2008 Joseph L. LeBlanc
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
- 
- 
-defined( '_JEXEC' ) or die( 'Restricted access' );
+defined( '_JEXEC' ) or die();
 
-if ($this->podcast->podcast_id) {
+if ($this->podcast->articleid) {
 	JToolBarHelper::title( JText::_('COM_PODCASTPRO_EDIT_EPISODE_METADATA'), 'podcast.png' );
 	JToolBarHelper::save();
 } else {
@@ -37,8 +33,8 @@ JHTML::_('behavior.tooltip');
 	<fieldset class="adminform">
 	<legend><?php echo JText::_( 'COM_PODCASTPRO_EPISODE_DETAILS' ); ?></legend>
 	<table class="admintable">
-		<?php 
-			if (!$this->podcast->podcast_id) {
+		<?php
+			if (!$this->podcast->articleid) {
 				echo $this->loadTemplate('episodenotes');
 			}
 		?>
@@ -112,8 +108,8 @@ JHTML::_('behavior.tooltip');
 				<?php echo $this->block ?>
 			</td>
 		</tr>
-		
-		
+
+
 		<tr>
 			<td width="110" class="key">
 				<label for="title" class="hasTip" title="<?php echo JText::_('COM_PODCASTPRO_ITUNES_EXPLICIT_LABEL');?>::<?php echo JText::_('COM_PODCASTPRO_ITUNES_EXPLICIT_DESC');?>">
@@ -124,8 +120,8 @@ JHTML::_('behavior.tooltip');
 				<?php echo $this->explicit ?>
 			</td>
 		</tr>
-		
-		
+
+
 	</table>
 	</fieldset>
 </div>

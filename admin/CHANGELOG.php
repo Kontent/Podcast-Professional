@@ -1,6 +1,5 @@
 <?php
 defined( '_JEXEC' ) or die( 'Restricted access' );
-
 /**
  * Podcast Professional - The Joomla Podcast Manager
  * @package 	Podcast Professional
@@ -8,7 +7,6 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
- 
 ?>
 <!--
 
@@ -25,6 +23,35 @@ Legend:
 ! -> Note
 
 ------------
+
+15-Oct-2011 Matias
+# Joomla 1.7 compatibility: Use always JFactory::getApplication() and local $option
+# Joomla 1.7 compatibility: Make global configuration to work
+# Joomla 1.7 compatibility: Add basic backend access control
+# Joomla 1.7 compatibility: Add view parameters to view=feed
+# Make mod_podcastpro to work in Joomla! 1.5
+# Small fixes and improvements
+# Joomla 1.7 compatibility: Make plugin to work (barely)
+- Remove sample layout from feed view
+# Joomla 1.7 compatibility: Fix public article detection
+# Allow more than one media file in each artricle
+# Allow metadata creation also if article exists
+^ Module: Use feed URL from component if no URL has been defined
+# Fixes to feed content
+# Remove feed item description tags (data is already in summary)
+# Fix invalid content in various feed item tags
+# Improve {enclose} detection
+
+14-Oct-2011 Matias
+# Add all missing files to manifest.xml
+# Hide index.html and htaccess.txt from the file list
+
+13-Oct-2011 Matias
+^ Added doctype to all xml files
+^ Changed file headers (removed @version $Id)
+# Fixed PHP Notice (undefined $params) in PodcastModelPodcast::buildQuery()
+# Joomla 1.7 compatibility: Use JFactory instead of $mainframe in plg_podcapro
+# Fill value from configuration into <itunes:new-feed-url>
 
 18-Jul-2011 Severdia
 ^ Updated version number in footer
@@ -74,7 +101,7 @@ Legend:
 31-May-2011 Arvind
 # Fixed error "Table podcast not supported" by Renaming the file administrator/tables/podcastpro.php to podcast.php
 # Corrected paths to admin images in manifest.xml (might need to change values in jos_components for it to work on existing installation)
-^ Changed Toolbar icons 
+^ Changed Toolbar icons
 + Clickable headers to sort episode name, title, metadata
 ^ Changed a couple of language strings
 # Fixed mis-spelling of language strings in plugin

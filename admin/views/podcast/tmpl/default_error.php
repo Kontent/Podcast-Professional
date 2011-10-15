@@ -1,5 +1,4 @@
 <?php 
-
  /**
  * Podcast Professional - The Joomla Podcast Manager
  * @version 	$Id: default_error.php
@@ -9,8 +8,7 @@
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
- 
- defined( '_JEXEC' ) or die( 'Restricted access' ); 
+defined( '_JEXEC' ) or die(); 
 
 JToolBarHelper::title( JText::_( 'Error' ), 'addedit.png' );
 JToolBarHelper::back();

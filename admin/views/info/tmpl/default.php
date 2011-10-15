@@ -1,5 +1,4 @@
 <?php 
-
  /**
  * Podcast Professional - The Joomla Podcast Manager
  * @version 	$Id: default.php
@@ -9,9 +8,7 @@
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
- 
- 
-defined( '_JEXEC' ) or die( 'Restricted access' );
+defined( '_JEXEC' ) or die();
 
 JToolBarHelper::title( JText::_( 'COM_PODCASTPRO_PODCASTPRO_HELP' ), 'podcastpro.png' );
 
