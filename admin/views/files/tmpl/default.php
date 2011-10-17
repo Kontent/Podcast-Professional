@@ -14,7 +14,9 @@ JToolBarHelper::title( JText::_( 'COM_PODCASTPRO_PODCAST_EPISODE_MANAGER' ), 'po
 // JToolBarHelper::custom( 'add' , 'podcastadd.png', '', JText::_( 'COM_PODCASTPRO_ADD_NEW_EPISODE'), 0, 0 );
 
 // The parameters button will go away once it's moved to the submenu.
-JToolBarHelper::preferences('com_podcastpro', '550');
+if (version_compare(JVERSION, '1.6', '>')) {
+	JToolBarHelper::preferences('com_podcastpro', '550');
+}
 
 // This button isn't hooked up yet.
 JToolBarHelper::custom( 'upload' , 'podcastfileupload.png', '', JText::_( 'COM_PODCASTPRO_UPLOAD_FILE'), 0, 0 );
