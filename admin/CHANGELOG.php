@@ -24,6 +24,14 @@ Legend:
 
 ------------
 
+17-Oct-2011 Matias
+# Fix fatal error in getid3 library
++ iTunes Explicit setting: Add third option of "clean"
+# Administrator: Fix a bug in files view where search changes URL
++ Add iTunes ClosedCaptioned setting
+^ Change component configuration to normal page (J! 1.5)
+^ Change component configuration to normal page (J! 1.6)
+
 15-Oct-2011 Matias
 # Joomla 1.7 compatibility: Use always JFactory::getApplication() and local $option
 # Joomla 1.7 compatibility: Make global configuration to work

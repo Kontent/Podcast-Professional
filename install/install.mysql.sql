@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS `#__podcast` (
   `itBlock` tinyint(1) NOT NULL default '0',
   `itCategory` varchar(255) NOT NULL default '',
   `itDuration` varchar(10) NOT NULL default '',
+  `itClosedCaptioned` tinyint(1) NOT NULL default '0',
   `itExplicit` tinyint(1) NOT NULL default '0',
   `itKeywords` varchar(255) NOT NULL default '',
   `itSubtitle` varchar(255) NOT NULL default '',

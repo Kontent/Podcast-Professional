@@ -1,4 +1,4 @@
-<?php 
+<?php
  /**
  * Podcast Professional - The Joomla Podcast Manager
  * @package 	Podcast Professional
@@ -9,7 +9,6 @@
  **/
 defined( '_JEXEC' ) or die();
 
-$editor =& JFactory::getEditor();
 ?>
 <tr>
 	<td width="110" class="key">
@@ -19,7 +18,7 @@ $editor =& JFactory::getEditor();
 	</td>
 	<td>
 		<input type="text" name="title" value="<?php echo $this->title; ?>" size="60"  />
-	</td>			
+	</td>
 </tr>
 <tr>
 	<td width="110" class="key">
@@ -28,6 +27,6 @@ $editor =& JFactory::getEditor();
 		</label>
 	</td>
 	<td>
-		<?php echo $editor->display( 'text',  $this->text , '100%', '250', '75', '20' ); ?>
-	</td>			
+		<?php echo JFactory::getEditor()->display( 'text',  $this->text , '100%', '250', '75', '20' ); ?>
+	</td>
 </tr>
