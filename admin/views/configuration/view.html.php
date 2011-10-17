@@ -15,6 +15,10 @@ class PodcastViewConfiguration extends JView {
 	public function display($tpl = null) {
 		$this->option = $option = JRequest::getCmd('option');
 		$params =& JComponentHelper::getParams($option);
+		// Joomla 1.6 to JParameter conversion
+		if (!$params instanceof JParameter) {
+			$params = new JParameter($params->toString('INI'));
+		}
 		$params->loadSetupFile(JPATH_COMPONENT.'/config.xml');
 
 		$this->assignRef('params', $params);

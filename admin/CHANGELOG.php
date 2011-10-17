@@ -30,6 +30,7 @@ Legend:
 # Administrator: Fix a bug in files view where search changes URL
 + Add iTunes ClosedCaptioned setting
 ^ Change component configuration to normal page (J! 1.5)
+^ Change component configuration to normal page (J! 1.6)
 
 15-Oct-2011 Matias
 # Joomla 1.7 compatibility: Use always JFactory::getApplication() and local $option

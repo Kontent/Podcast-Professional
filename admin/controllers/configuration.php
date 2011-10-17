@@ -20,8 +20,14 @@ class PodcastControllerConfiguration extends JController
 		// Check for request forgeries
 		JRequest::checkToken() or jexit( 'Invalid Token' );
 
-		$table =& JTable::getInstance('component');
-		if (!$table->loadByOption( 'com_podcastpro' ))
+		if (version_compare(JVERSION, '1.6', '>')) {
+			$table = JTable::getInstance('extension');
+			$success = $table->load(array('type'=>'component', 'element'=>'com_podcastpro'));
+		} else {
+			$table =& JTable::getInstance('component');
+			$success = $table->loadByOption( 'com_podcastpro' );
+		}
+		if (!success)
 		{
 			JError::raiseWarning( 500, 'Not a valid component' );
 			return false;
