@@ -26,6 +26,7 @@ Legend:
 
 17-Oct-2011 Matias
 # Fix fatal error in getid3 library
++ iTunes Explicit setting: Add third option of "clean"
 
 15-Oct-2011 Matias
 # Joomla 1.7 compatibility: Use always JFactory::getApplication() and local $option

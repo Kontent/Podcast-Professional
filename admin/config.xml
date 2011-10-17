@@ -50,7 +50,7 @@
 		<param name="itExplicit" type="radio" default="0" label="COM_PODCASTPRO_ITUNES_EXPLICIT_LABEL" description="COM_PODCASTPRO_ITUNES_EXPLICIT_DESC">
 			<option value="0">COM_PODCASTPRO_NO</option>
 			<option value="1">COM_PODCASTPRO_YES</option>
-			<option value="1">COM_PODCASTPRO_CLEAN</option>
+			<option value="2">COM_PODCASTPRO_CLEAN</option>
 		</param>
 		<param name="itKeywords" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_KEYWORDS_LABEL" description="COM_PODCASTPRO_ITUNES_KEYWORDS_DESC" />
 		<param name="itCategory1" type="list" default="" label="COM_PODCASTPRO_ITUNES_CATEGORY_1_LABEL" description="COM_PODCASTPRO_ITUNES_CATEGORY_1_DESC">

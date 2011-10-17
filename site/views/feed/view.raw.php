@@ -72,7 +72,9 @@ class PodcastViewFeed extends JView
 
 		$itExplicit = $params->get('itExplicit', 0);
 
-		if ($itExplicit) {
+		if ($itExplicit == 2) {
+			$xw->writeElement('itunes:explicit', 'clean');
+		} elseif ($itExplicit == 1) {
 			$xw->writeElement('itunes:explicit', 'yes');
 		} else {
 			$xw->writeElement('itunes:explicit', 'no');
@@ -171,9 +173,13 @@ class PodcastViewFeed extends JView
 				$xw->writeElement('itunes:block', 'yes');
 			}
 
-			// -- TODO: Add support for new clean option -- //
-			if ($metadata[$filename]->itExplicit) {
+			$itExplicit = $metadata[$filename]->itExplicit;
+			if ($itExplicit == 2) {
+				$xw->writeElement('itunes:explicit', 'clean');
+			} elseif ($itExplicit == 1) {
 				$xw->writeElement('itunes:explicit', 'yes');
+			} else {
+				$xw->writeElement('itunes:explicit', 'no');
 			}
 
 			$xw->writeElement('pubDate', date('r', strtotime($pcast->publish_up)));

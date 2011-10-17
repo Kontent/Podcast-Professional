@@ -60,7 +60,11 @@ class PodcastViewPodcast extends JView
 		$db->setQuery($query);
 		$row->articleid = (int) $db->loadResult();
 
-		$explicit = JHTML::_('select.booleanlist', 'itExplicit', '', $row->itExplicit);
+		$explicit = array ();
+		$explicit [] = JHTML::_ ( 'select.option', '0', JText::_('COM_PODCASTPRO_NO') );
+		$explicit [] = JHTML::_ ( 'select.option', '1', JText::_('COM_PODCASTPRO_YES') );
+		$explicit [] = JHTML::_ ( 'select.option', '2', JText::_('COM_PODCASTPRO_CLEAN') );
+		$explicit = JHTML::_ ( 'select.genericlist', $explicit, 'itExplicit', 'class="inputbox" size="1"', 'value', 'text', $row->itExplicit );
 		$block = JHTML::_('select.booleanlist', 'itBlock', '', $row->itBlock);
 
 		$this->assign('text', '{enclose ' . $row->filename . '}');
