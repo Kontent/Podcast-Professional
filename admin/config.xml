@@ -34,8 +34,8 @@
 		
 		<param name="description" type="textarea" rows="5" cols="30" default="" label="COM_PODCASTPRO_DESCRIPTION_LABEL" description="COM_PODCASTPRO_DESCRIPTION_DESC" />
 		<param name="copyright" type="text" size="30" default="&#xA9;2011" label="Copyright" description="Copyright" />
-		<param name="@spacer" type="spacer" default="" label="" description="" />
-		
+	</params>
+	<params group="itunes">
 		<param name="itSubtitle" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_SUBTITLE_LABEL" description="COM_PODCASTPRO_ITUNES_SUBTITLE_DESC" />
 		<param name="itAuthor" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_AUTHOR_LABEL" description="COM_PODCASTPRO_ITUNES_AUTHOR_DESC" />
 		<param name="itImage" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_IMAGE_LABEL" description="COM_PODCASTPRO_ITUNES_IMAGE_DESC" />
@@ -50,7 +50,7 @@
 		<param name="itExplicit" type="radio" default="0" label="COM_PODCASTPRO_ITUNES_EXPLICIT_LABEL" description="COM_PODCASTPRO_ITUNES_EXPLICIT_DESC">
 			<option value="0">COM_PODCASTPRO_NO</option>
 			<option value="1">COM_PODCASTPRO_YES</option>
-			<option value="1">COM_PODCASTPRO_CLEAN</option>
+			<option value="2">COM_PODCASTPRO_CLEAN</option>
 		</param>
 		<param name="itKeywords" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_KEYWORDS_LABEL" description="COM_PODCASTPRO_ITUNES_KEYWORDS_DESC" />
 		<param name="itCategory1" type="list" default="" label="COM_PODCASTPRO_ITUNES_CATEGORY_1_LABEL" description="COM_PODCASTPRO_ITUNES_CATEGORY_1_DESC">
@@ -262,7 +262,7 @@
 			<option value="Technology &gt; Podcasting">Technology &gt; Podcasting</option>
 			<option value="Technology &gt; Software How-To">Technology &gt; Software How-To</option>
 			<option value="TV &amp; Film">TV &amp; Film</option>
-		</param>	
+		</param>
 	</params>
 
 	<!-- Joomla 1.6 Support -->
@@ -299,8 +299,8 @@
 		
 		<field name="description" type="textarea" rows="5" cols="30" default="" label="COM_PODCASTPRO_DESCRIPTION_LABEL" description="COM_PODCASTPRO_DESCRIPTION_DESC" />
 		<field name="copyright" type="text" size="30" default="&#xA9;2011" label="Copyright" description="Copyright" />
-		<field name="@spacer" type="spacer" default="" label="" description="" />
-		
+	</fieldset>
+	<fieldset name="itunes" label="COM_PODCASTPRO_CONFIGURATION_ITUNES_LABEL" description="COM_PODCASTPRO_CONFIGURATION_ITUNES_DESC">
 		<field name="itSubtitle" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_SUBTITLE_LABEL" description="COM_PODCASTPRO_ITUNES_SUBTITLE_DESC" />
 		<field name="itAuthor" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_AUTHOR_LABEL" description="COM_PODCASTPRO_ITUNES_AUTHOR_DESC" />
 		<field name="itImage" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_IMAGE_LABEL" description="COM_PODCASTPRO_ITUNES_IMAGE_DESC" />
