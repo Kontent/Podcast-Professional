@@ -27,7 +27,7 @@ $document->addScript(JURI::base() . 'components/com_podcastpro/media/js/files.js
 JHTML::_('behavior.tooltip');
 ?>
 
-<form action="index.php" method="post" name="adminForm">
+<form action="index.php?option=com_podcastpro" method="post" name="adminForm">
 	<table>
 		<tr>
 			<td align="left">
