@@ -16,6 +16,7 @@ class TablePodcast extends JTable {
 	var $itBlock;
 	var $itCategory;
 	var $itDuration;
+	var $itClosedCaptioned;
 	var $itExplicit;
 	var $itKeywords;
 	var $itSubtitle;

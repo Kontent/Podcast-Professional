@@ -17,7 +17,10 @@
 			<file charset="utf8" driver="mysql">install/install.mysql.sql</file>
 		</sql>
 	</install>
-		 
+
+	<!-- Installation Files -->
+	<installfile>install/install.php</installfile>
+	<uninstallfile>install/uninstall.php</uninstallfile>
 
 	<!-- Site Component -->
 	<files folder="site">

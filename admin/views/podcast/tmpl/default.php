@@ -108,8 +108,16 @@ JHTML::_('behavior.tooltip');
 				<?php echo $this->block ?>
 			</td>
 		</tr>
-
-
+		<tr>
+			<td width="110" class="key">
+				<label for="title" class="hasTip" title="<?php echo JText::_('COM_PODCASTPRO_ITUNES_CLOSEDCAPTIONED_LABEL');?>::<?php echo JText::_('COM_PODCASTPRO_ITUNES_CLOSEDCAPTIONED_DESC');?>">
+					<?php echo JText::_( 'COM_PODCASTPRO_ITUNES_CLOSEDCAPTIONED_LABEL' ); ?>:
+				</label>
+			</td>
+			<td>
+				<?php echo $this->closedcaptioned ?>
+			</td>
+		</tr>
 		<tr>
 			<td width="110" class="key">
 				<label for="title" class="hasTip" title="<?php echo JText::_('COM_PODCASTPRO_ITUNES_EXPLICIT_LABEL');?>::<?php echo JText::_('COM_PODCASTPRO_ITUNES_EXPLICIT_DESC');?>">
@@ -120,7 +128,6 @@ JHTML::_('behavior.tooltip');
 				<?php echo $this->explicit ?>
 			</td>
 		</tr>
-
 
 	</table>
 	</fieldset>
