@@ -39,6 +39,7 @@
 		<menu link="option=com_podcastpro" img="components/com_podcastpro/media/images/icon-16-podcastpro.png">Podcast Professional</menu>
 		<submenu>
 			<menu view="files" img="components/com_podcastpro/media/images/icon-16-podcast.png">Manage Episodes</menu>
+			<menu view="files" layout="upload" img="components/com_podcastpro/media/images/icon-16-podcast.png">Upload files</menu>
 			<menu view="configuration" img="components/com_podcastpro/media/images/icon-16-podcast.png">Configuration</menu>
 			<menu view="info" img="components/com_podcastpro/media/images/icon-16-podcastpro.png">About</menu>
 		</submenu>
@@ -54,6 +55,7 @@
 			<filename>index.html</filename>
 			<filename>podcastpro.php</filename>
 			<filename>version.php</filename>
+			<folder>classes</folder>
 			<folder>controllers</folder>
 			<folder>getid3</folder>
 			<folder>install</folder>
@@ -66,6 +68,7 @@
 	
 	<!-- Media files -->
 	<media destination="com_podcastpro" folder="media">
+		<filename>index.html</filename>
 		<folder>episodes</folder>
 		<folder>images</folder>
 	</media>

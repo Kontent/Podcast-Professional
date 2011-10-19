@@ -19,7 +19,7 @@ if (version_compare(JVERSION, '1.6', '>')) {
 }
 
 // This button isn't hooked up yet.
-JToolBarHelper::custom( 'upload' , 'podcastfileupload.png', '', JText::_( 'COM_PODCASTPRO_UPLOAD_FILE'), 0, 0 );
+JToolBarHelper::custom( 'upload' , 'podcastfileupload.png', '', JText::_( 'COM_PODCASTPRO_UPLOAD_FILES'), 0, 0 );
 
 $document =& JFactory::getDocument();
 $document->addStyleSheet(JURI::base() . 'components/com_podcastpro/media/css/podcastpro.css');
@@ -94,6 +94,7 @@ JHTML::_('behavior.tooltip');
 				$published = "<img src=\"components/com_podcastpro/media/images/icon-16-unpublished.png\" alt=\"" . JText::_('COM_PODCASTPRO_NO') . "\"/>";
 			}
 			$link = JRoute::_("index.php?option={$this->option}&task=edit&{$editKeyName}[]=" . urlencode($editKeyValue));
+			$deleteLink = JRoute::_("index.php?option={$this->option}&task=delete&cid[]=" . urlencode($file->filename).'&'.JUtility::getToken().'=1');
 			?>
 			<tr class="<?php echo $file->hasSpaces ? 'filespace' : "row$k"; ?>">
 				<td class="center">
@@ -148,8 +149,7 @@ JHTML::_('behavior.tooltip');
 				</td>
 				<td width="8%" class="center">
 					<?php
-						//TODO: Delete podcast file
-						echo "<a href=\"#\"><img src=\"components/com_podcastpro/media/images/icon-16-delete.png\"
+						echo "<a href=\"$deleteLink\"><img src=\"components/com_podcastpro/media/images/icon-16-delete.png\"
 								alt=\"" . JText::_('COM_PODCASTPRO_DELETE_FILE_LABEL') . "\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_DELETE_FILE_LABEL') . " :: " . JText::_('COM_PODCASTPRO_DELETE_FILE_DESC') . "\"/></a>";
 					?>
 				</td>
