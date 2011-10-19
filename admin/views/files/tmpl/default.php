@@ -19,7 +19,7 @@ if (version_compare(JVERSION, '1.6', '>')) {
 }
 
 // This button isn't hooked up yet.
-JToolBarHelper::custom( 'upload' , 'podcastfileupload.png', '', JText::_( 'COM_PODCASTPRO_UPLOAD_FILE'), 0, 0 );
+JToolBarHelper::custom( 'upload' , 'podcastfileupload.png', '', JText::_( 'COM_PODCASTPRO_UPLOAD_FILES'), 0, 0 );
 
 $document =& JFactory::getDocument();
 $document->addStyleSheet(JURI::base() . 'components/com_podcastpro/media/css/podcastpro.css');

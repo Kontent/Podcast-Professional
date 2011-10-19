@@ -9,7 +9,7 @@
  **/
 defined( '_JEXEC' ) or die();
 
-JToolBarHelper::title( JText::_( 'COM_PODCASTPRO_PODCAST_EPISODE_MANAGER' ), 'podcast.png' );
+JToolBarHelper::title( JText::_( 'COM_PODCASTPRO_PODCAST_UPLOAD' ), 'podcast.png' );
 
 // The parameters button will go away once it's moved to the submenu.
 if (version_compare(JVERSION, '1.6', '>')) {
@@ -17,7 +17,7 @@ if (version_compare(JVERSION, '1.6', '>')) {
 }
 
 // This button isn't hooked up yet.
-JToolBarHelper::custom( 'upload' , 'podcastfileupload.png', '', JText::_( 'COM_PODCASTPRO_UPLOAD_FILE'), 0, 0 );
+JToolBarHelper::back();
 
 $document =& JFactory::getDocument();
 $document->addStyleSheet(JURI::base() . 'components/com_podcastpro/media/css/podcastpro.css');

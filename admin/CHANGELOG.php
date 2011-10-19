@@ -29,6 +29,7 @@ Legend:
 - Administrator: Remove empty select view
 # Add missing index.html files
 + Add file uploader and upload layout
+^ Usability improvements
 
 17-Oct-2011 Matias
 # Fix fatal error in getid3 library
