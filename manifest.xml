@@ -54,6 +54,7 @@
 			<filename>index.html</filename>
 			<filename>podcastpro.php</filename>
 			<filename>version.php</filename>
+			<folder>classes</folder>
 			<folder>controllers</folder>
 			<folder>getid3</folder>
 			<folder>install</folder>
@@ -66,6 +67,7 @@
 	
 	<!-- Media files -->
 	<media destination="com_podcastpro" folder="media">
+		<filename>index.html</filename>
 		<folder>episodes</folder>
 		<folder>images</folder>
 	</media>
