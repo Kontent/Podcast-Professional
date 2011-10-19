@@ -28,6 +28,7 @@ Legend:
 + Add plupload JavaScript library
 - Administrator: Remove empty select view
 # Add missing index.html files
++ Add file uploader and upload layout
 
 17-Oct-2011 Matias
 # Fix fatal error in getid3 library

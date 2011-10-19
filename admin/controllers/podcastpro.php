@@ -21,6 +21,19 @@ class PodcastController extends JController
 		$this->registerTask( 'add' , 'display' );
 	}
 
+	function upload() {
+		$format = JRequest::getString('format', 'html');
+		if ($format !== 'json') {
+			return $this->setRedirect('index.php?option=com_podcastpro&view=files&layout=upload');
+		}
+		$params =& JComponentHelper::getParams('com_podcastpro');
+		$mediapath = $params->get('mediapath', 'media/com_podcastpro/episodes');
+
+		require_once JPATH_COMPONENT.'/classes/upload.php';
+		$upload = PodcastProUpload::getInstance();
+		$upload->ajaxUpload($mediapath);
+	}
+
 	function &save()
 	{
 		JRequest::checkToken() or jexit( 'Invalid Token' );
