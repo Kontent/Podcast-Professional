@@ -34,6 +34,44 @@ class PodcastController extends JController
 		$upload->ajaxUpload($mediapath);
 	}
 
+	function delete() {
+		JRequest::checkToken('GET') or jexit( 'Invalid Token' );
+
+		jimport('joomla.filesystem.file');
+
+		$params =& JComponentHelper::getParams('com_podcastpro');
+		$mediapath = $params->get('mediapath', 'media/com_podcastpro/episodes');
+
+		$cid = JRequest::getVar ( 'cid', array (), 'get', 'array' );
+		$success = false;
+		if (empty($cid)) {
+			$message = JText::_('COM_PODCASTPRO_NO_FILES_SELECTED');
+		} else foreach ($cid as $filename) {
+			$fileclean = JFile::makeSafe((string) $filename);
+			if ($fileclean == $filename) {
+				$filepath = JPATH_ROOT.'/'.$mediapath.'/'.$filename;
+				if (file_exists($filepath)) {
+					if (JFile::delete($filepath)) {
+						$message = JText::sprintf('COM_PODCASTPRO_FILE_DELETED', $filename);
+						$db =& JFactory::getDBO();
+						$query = "DELETE FROM #__podcast WHERE filename={$db->quote($filename)}";
+						$db->setQuery($query);
+						$db->query();
+
+						$success = true;
+					} else {
+						$message = JText::sprintf('COM_PODCASTPRO_FILE_DELETE_FAILED', $filename);
+					}
+				} else {
+					$message = JText::sprintf('COM_PODCASTPRO_FILE_NOT_FOUND', $filename);
+				}
+			} else {
+				$message = JText::sprintf('COM_PODCASTPRO_FILE_NOT_CLEAN', $filename);
+			}
+		}
+		$this->setRedirect('index.php?option=com_podcastpro', $message, $success ? null : 'notice');
+	}
+
 	function &save()
 	{
 		JRequest::checkToken() or jexit( 'Invalid Token' );
@@ -64,6 +102,7 @@ class PodcastController extends JController
 
 	function publish()
 	{
+		JRequest::checkToken() or jexit( 'Invalid Token' );
 		$db =& JFactory::getDBO();
 
 		// Save the metadata first, will override the redirect below

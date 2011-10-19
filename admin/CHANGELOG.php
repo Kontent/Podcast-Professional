@@ -30,6 +30,7 @@ Legend:
 # Add missing index.html files
 + Add file uploader and upload layout
 ^ Usability improvements
+# Fix delete podcast file button
 
 17-Oct-2011 Matias
 # Fix fatal error in getid3 library
