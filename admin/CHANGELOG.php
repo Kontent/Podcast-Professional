@@ -24,6 +24,10 @@ Legend:
 
 ------------
 
+19-Oct-2011 Matias
++ Add plupload JavaScript library
+- Administrator: Remove empty select view
+
 17-Oct-2011 Matias
 # Fix fatal error in getid3 library
 + iTunes Explicit setting: Add third option of "clean"
