@@ -14,19 +14,20 @@ jimport('joomla.application.component.controller');
 class PodcastController extends JController
 {
 	function display()
-	{		
-		$view = JRequest::getVar('view', '');
-		
-		if ($view == '') {
+	{
+		$view = JRequest::getVar('view');
+
+		if (!$view) {
 			JRequest::setVar('view', 'feed');
 		}
-		
+
+		if ($view=='feed' && JFactory::getDocument()->getType() != 'raw') {
+			JFactory::getApplication()->redirect(JRoute::_('index.php?option=com_podcastpro&view=feed&format=raw', false));
+		}
+
 		parent::display();
 	}
 }
-
-$document =& JFactory::getDocument();
-$document->setType('raw');
 
 $controller = new PodcastController();
 $controller->execute(JRequest::getVar('task', null));
