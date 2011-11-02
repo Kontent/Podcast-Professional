@@ -15,7 +15,19 @@ JTable::addIncludePath( JPATH_COMPONENT.DS.'tables' );
 
 class PodcastControllerConfiguration extends JController
 {
+	function apply()
+	{
+		$this->_save();
+		$this->setRedirect( 'index.php?option=com_podcastpro&view=configuration' );
+	}
+
 	function save()
+	{
+		$this->_save();
+		$this->setRedirect( 'index.php?option=com_podcastpro' );
+	}
+
+	function _save()
 	{
 		// Check for request forgeries
 		JRequest::checkToken() or jexit( 'Invalid Token' );
@@ -48,8 +60,6 @@ class PodcastControllerConfiguration extends JController
 			JError::raiseWarning( 500, $table->getError() );
 			return false;
 		}
-
-		$this->setRedirect( 'index.php?option=com_podcastpro' );
 	}
 
 	/**

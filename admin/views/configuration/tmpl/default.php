@@ -12,6 +12,7 @@ defined( '_JEXEC' ) or die();
 JToolBarHelper::title( JText::_( 'COM_PODCASTPRO_CONFIGURATION_GLOBAL_LABEL' ), 'podcast.png' );
 
 JToolBarHelper::save();
+JToolBarHelper::apply();
 JToolBarHelper::cancel();
 
 JFactory::getDocument()->addStyleSheet(JURI::base() . 'components/com_podcastpro/media/css/podcastpro.css');

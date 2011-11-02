@@ -29,6 +29,7 @@ Legend:
 # Do not allow space in filenames (translate into _)
 ^ Style upload widget
 # Fix a few bugs in upload widget
++ Add Apply button to configuration
 
 19-Oct-2011 Matias
 + Add plupload JavaScript library
