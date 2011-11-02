@@ -25,6 +25,9 @@ abstract class PodcastProFile
 window.addEvent('domready', function() {
 	var uploader = new PodcastPro.Uploader('{$name}', {
 		url: '{$uploadUri}',
+		filters : [
+			{title : "Media files", extensions : "mp3,m4a,mp4,m4v,mov,pdf,epub"},
+		],
 		max_file_size : '1gb',
 		chunk_size : '1mb',
 	});
