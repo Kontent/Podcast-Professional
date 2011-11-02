@@ -26,6 +26,7 @@
 	<files folder="site">
 		<filename>index.html</filename>
 		<filename>podcastpro.php</filename>
+		<filename>router.php</filename>
 		<folder>models</folder>
 		<folder>views</folder>
 	</files>
