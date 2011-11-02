@@ -17,7 +17,7 @@ class PodcastProUpload extends JObject {
 	protected $fileName = false;
 	protected $fileTemp = false;
 
-	protected $validExtensions = array();
+	protected $validExtensions = array('.mp3', '.m4a', '.mp4', '.m4v', '.mov', '.pdf', '.epub');
 
 	public function __construct($extensions = null) {
 		if ($extensions) $this->setValidExtensions($extensions);
@@ -47,7 +47,7 @@ class PodcastProUpload extends JObject {
 	public function ajaxUpload($targetDir, $filename=null) {
 		$chunk = JRequest::getInt ( 'chunk', 0 );
 		$chunks = JRequest::getInt ( 'chunks', 0 );
-		$this->fileName = JFile::makeSafe ( JRequest::getString ( 'name', $filename, 'POST' ) );
+		$this->fileName = strtr(JFile::makeSafe ( JRequest::getString ( 'name', $filename, 'POST' ) ), ' ', '_');
 
 		if (!$this->fileName) {
 			$this->setError(JText::_ ( 'COM_PODCASTPRO_UPLOAD_ERROR_NO_FILE' ));
