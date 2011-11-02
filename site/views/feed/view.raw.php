@@ -158,6 +158,7 @@ class PodcastViewFeed extends JView
 					$fileURL = JURI::root() . $params->get('mediapath', 'media/com_podcastpro/episodes') . '/' . $filename;
 				}
 			}
+			if (!isset($metadata[$filename])) continue;
 
 			$xw->startElement('item');
 

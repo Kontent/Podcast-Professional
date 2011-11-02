@@ -30,6 +30,7 @@ Legend:
 ^ Style upload widget
 # Fix a few bugs in upload widget
 + Add Apply button to configuration
+# [#6] Frontend doesn't work if Joomla! 1.5 adds file suffixes
 
 19-Oct-2011 Matias
 + Add plupload JavaScript library
