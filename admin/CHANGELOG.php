@@ -27,6 +27,8 @@ Legend:
 2-Nov-2011 Matias
 # Allow only mp3, m4a, mp4, m4v, mov, pdf, epub
 # Do not allow space in filenames (translate into _)
+^ Style upload widget
+# Fix a few bugs in upload widget
 
 19-Oct-2011 Matias
 + Add plupload JavaScript library
