@@ -102,7 +102,9 @@ JHTML::_('behavior.tooltip');
 				</td>
 				<td>
 					<?php
-						if($file->published) {
+						if($file->hasSpaces) {
+							echo "<span class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_FILENAME_SPECIAL_CHARACTERS') . " :: " . JText::_('COM_PODCASTPRO_FILENAME_SPECIAL_CHARACTERS_DESC') . "\">$file->filename</span>";
+						} elseif($file->published) {
 							echo "<span class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_NONEW_EPISODE_LABEL') . " :: " . JText::_('COM_PODCASTPRO_NONEW_EPISODE_DESC') . "\">$file->filename</span>";
 						} else {
 							echo "<a href=\"$link\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_NEW_EPISODE_LABEL') . " :: " . JText::_('COM_PODCASTPRO_NEW_EPISODE_DESC') . "\">$file->filename</a>";
