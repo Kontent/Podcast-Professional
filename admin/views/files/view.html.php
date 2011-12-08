@@ -18,7 +18,7 @@ class PodcastViewFiles extends JView {
 		$app =& JFactory::getApplication();
 
 		$filter_state		= $app->getUserStateFromRequest( $option.'filter_state',		'filter_state',		'',				'word' );
-		$filter_order		= $app->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'filename',	'cmd' );
+		$filter_order		= $app->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'ordering',	'cmd' );
 		$filter_order_Dir	= $app->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'asc',				'word' );
 		$search				= $app->getUserStateFromRequest( $option.'search',			'search',			'',				'string' );
 		if (strpos($search, '"') !== false) {
@@ -27,11 +27,11 @@ class PodcastViewFiles extends JView {
 		$search = JString::strtolower($search);
 
 		// sanitize $filter_order
-		if (!in_array($filter_order, array('filename', 'published', 'metadata'))) {
+		if (!in_array($filter_order, array('filename', 'ordering', 'published', 'metadata'))) {
 			$filter_order = 'filename';
 		}
 
-		if (!in_array(strtoupper($filter_order_Dir), array('asc', 'desc'))) {
+		if (!in_array(strtolower($filter_order_Dir), array('asc', 'desc'))) {
 			$filter_order_Dir = 'asc';
 		}
 

@@ -30,10 +30,11 @@ class PodcastModelFeed extends JModel
 
 	private function &getMetaData()
 	{
-		$metadata = array();
+		static $metadata = null;
 
-		if (isset($this->data['content'])) {
-			$metaList = $this->_getList("SELECT * FROM #__podcast");
+		if (!$metadata) {
+			$metadata = array();
+			$metaList = $this->_getList("SELECT * FROM #__podcast ORDER BY ordering DESC, filename DESC");
 
 			foreach ($metaList as &$row) {
 				$metadata[$row->filename] =& $row;

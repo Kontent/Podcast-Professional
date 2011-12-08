@@ -26,21 +26,24 @@ class ModPodcastPro {
 		$itunesidlink = $this->params->def('itunesid', '');
 		$showlink = $this->params->get('otherlink', $this->cparams->get('mainurl'));
 		$showlink = $showlink ? $showlink : JRoute::_('index.php?option=com_podcastpro&view=feed&format=raw');
-		$img = $this->params->get('otherimage', '');
-		$img = $img ? $img : 'modules/mod_podcastpro/media/podcast-subscribe.png';
 
 		$itunesidurl= "http://www.itunes.com/podcast?id=" . $itunesidlink ;
 
 		$this->text_prefix = $this->params->get('text_prefix');
 		$this->text_suffix = $this->params->get('text_suffix');
-		$this->plainlink = $this->params->get('plainlink');
 
-		$this->img = JHTML::_('image', $img, 'Podcast Feed');
+		if ($this->params->get('showimg')) {
+			$img = ltrim($this->params->get('otherimage', ''), '/');
+			$img = $img ? $img : 'modules/mod_podcastpro/media/podcast-subscribe.png';
+			$this->img = JHTML::_('image', $img, 'Podcast Feed');
+		}
 
-		if($this->params->get('urischeme') == 'http')
+		if($this->params->get('urischeme') == 'http') {
 			$this->link = $showlink;
-		else
-			$this->link = str_replace(array('http:', 'https:'), $this->params->get('urischeme') . ':', $showlink);
+		} else {
+			if ($showlink[0] == '/') $showlink = JURI::base().substr($showlink,1);
+			$this->link = preg_replace('#^http(s)?:\/\/#', $this->params->get('urischeme') . '://', $showlink);
+		}
 
 		require(JModuleHelper::getLayoutPath('mod_podcastpro'));
 	}

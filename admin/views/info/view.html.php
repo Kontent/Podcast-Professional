@@ -10,10 +10,22 @@
 defined( '_JEXEC' ) or die();
 
 jimport( 'joomla.application.component.view');
+jimport( 'joomla.filesystem.path');
+jimport( 'joomla.filesystem.folder');
 
 class PodcastViewInfo extends JView {
 	public function display()
 	{
+		$option = $option = JRequest::getCmd('option');
+		$params =& JComponentHelper::getParams($option);
+		// Joomla 1.6 to JParameter conversion
+		if (!$params instanceof JParameter) {
+			$params = new JParameter($params->toString('INI'));
+		}
+
+		$mediapath = $params->get('mediapath', 'media/com_podcastpro/episodes');
+
+		$this->folder = JPATH_ROOT . DS . JFolder::makeSafe(JPath::clean($mediapath));
 		parent::display();
 	}
 }

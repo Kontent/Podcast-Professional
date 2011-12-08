@@ -9,5 +9,6 @@ CREATE TABLE IF NOT EXISTS `#__podcast` (
   `itExplicit` tinyint(1) NOT NULL default '0',
   `itKeywords` varchar(255) NOT NULL default '',
   `itSubtitle` varchar(255) NOT NULL default '',
+  `ordering` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`podcast_id`)
 );
