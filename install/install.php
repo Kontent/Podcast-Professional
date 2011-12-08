@@ -18,11 +18,31 @@ function com_install() {
 	if (!isset($fields['itClosedCaptioned'])) {
 		$queries[] = "ALTER TABLE `#__podcast` ADD `itClosedCaptioned` TINYINT(1) NOT NULL DEFAULT '0' AFTER `itDuration`";
 	}
+	if (!isset($fields['ordering'])) {
+		$queries[] = "ALTER TABLE `#__podcast` ADD `ordering` INT NOT NULL DEFAULT '0' AFTER `itSubtitle`";
+		$ordering = 1;
+	}
 	foreach ($queries as $query) {
 		$db->setQuery($query);
 		if (! $db->query()) {
 			echo $db->getErrorMsg(true);
 			return false;
+		}
+	}
+	if (isset($ordering)) {
+		$query = "SELECT id, introtext FROM #__content WHERE introtext LIKE '%{enclose%}%' ORDER BY publish_up ASC";
+		$db->setQuery($query);
+		$articles = $db->loadObjectList();
+		foreach ($articles as $order => $row) {
+			preg_match('/\{enclose\s+([^\}]+)\}/u', $row->introtext, $matches);
+			$filename = explode(' ', $matches[1]);
+			if (empty($filename[0])) continue;
+			$query = "UPDATE #__podcast SET ordering={$db->quote($order)} WHERE filename={$db->quote($filename[0])}";
+			$db->setQuery($query);
+			if (! $db->query()) {
+				echo $db->getErrorMsg(true);
+				return false;
+			}
 		}
 	}
 	return true;

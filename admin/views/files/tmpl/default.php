@@ -29,7 +29,7 @@ $document->addScript(JURI::base() . 'components/com_podcastpro/media/js/files.js
 JHTML::_('behavior.tooltip');
 ?>
 
-<form action="index.php?option=com_podcastpro" method="post" name="adminForm">
+<form action="index.php?option=com_podcastpro" method="post" name="adminForm" id="adminForm">
 	<table>
 		<tr>
 			<td align="left">
@@ -51,9 +51,16 @@ JHTML::_('behavior.tooltip');
 		<thead>
 			<tr>
 				<th width="20"><?php echo JText::_('COM_PODCASTPRO_PODCAST_ID'); ?></th>
+				<th width="1%">
+					<input type="checkbox" name="toggle" value="" title="<?php echo JText::_('COM_PODCASTPRO_CHECK_ALL'); ?>" onclick="<?php echo version_compare(JVERSION, '1.6', '>') ? 'Joomla.checkAll(this)' : 'checkAll('.count($this->data).')' ?>" />
+				</th>
 
 				<th class="title">
 					<?php echo JHTML::_('grid.sort',  JText::_('COM_PODCASTPRO_FILENAME'), 'filename', $this->lists['order_Dir'], $this->lists['order'] ); ?>
+				</th>
+				<th class="title">
+					<?php echo JHtml::_('grid.sort',  'COM_PODCASTPRO_ORDERING', 'ordering', $this->lists['order_Dir'], $this->lists['order']); ?>
+					<?php echo JHtml::_('grid.order',  $this->data, 'filesave.png', 'saveorder'); ?>
 				</th>
 				<th class="title">
 					<?php echo JHTML::_('grid.sort',  JText::_('COM_PODCASTPRO_STATUS'), 'published', $this->lists['order_Dir'], $this->lists['order'] ); ?>
@@ -98,7 +105,10 @@ JHTML::_('behavior.tooltip');
 			?>
 			<tr class="<?php echo $file->hasSpaces ? 'filespace' : "row$k"; ?>">
 				<td class="center">
-					<!-- ?php echo $checked; ? --> <?php echo $i+1; ?>
+					<?php echo $i+1; ?>
+				</td>
+				<td class="center">
+					<?php echo JHtml::_('grid.id', $i, $file->id); ?>
 				</td>
 				<td>
 					<?php
@@ -109,7 +119,19 @@ JHTML::_('behavior.tooltip');
 						} else {
 							echo "<a href=\"$link\" class=\"hasTip\" title=\"" . JText::_('COM_PODCASTPRO_NEW_EPISODE_LABEL') . " :: " . JText::_('COM_PODCASTPRO_NEW_EPISODE_DESC') . "\">$file->filename</a>";
 						}
-					 ?>
+					?>
+				</td>
+				<td width="100" class="center order">
+				<?php if ($file->ordering !== false) : ?>
+					<?php if ($this->lists['order'] == 'ordering' && $this->lists['order_Dir'] == 'asc') : ?>
+						<span><?php echo $this->pagination->orderUpIcon($i, 1, 'orderup', 'COM_PODCASTPRO_MOVE_UP', $file->ordering); ?></span>
+						<span><?php echo $this->pagination->orderDownIcon($i, $this->pagination->total, 1, 'orderdown', 'COM_PODCASTPRO_MOVE_DOWN', $file->ordering); ?></span>
+					<?php elseif ($this->lists['order'] == 'ordering' && $this->lists['order_Dir'] == 'desc') : ?>
+						<span><?php echo $this->pagination->orderUpIcon($i, 1, 'orderdown', 'COM_PODCASTPRO_MOVE_UP', $file->ordering); ?></span>
+						<span><?php echo $this->pagination->orderDownIcon($i, $this->pagination->total, 1, 'orderup', 'COM_PODCASTPRO_MOVE_DOWN', $file->ordering); ?></span>
+					<?php endif ?>
+					<input type="text" name="order[]" size="5" value="<?php echo $file->ordering;?>" class="text-area-order" />
+				<?php endif ?>
 				</td>
 				<td width="8%" class="center">
 					<?php echo $published; ?>
@@ -162,7 +184,7 @@ JHTML::_('behavior.tooltip');
 				}
 			?>
 		<tfoot>
-			<tr><td colspan="7"><?php echo $this->pagination->getListFooter(); ?></td></tr>
+			<tr><td colspan="9"><?php echo $this->pagination->getListFooter(); ?></td></tr>
 		</tfoot>
 	</table>
 
@@ -171,6 +193,7 @@ JHTML::_('behavior.tooltip');
 	<input type="hidden" name="filter_order" value="<?php echo $this->lists['order']; ?>" />
 	<input type="hidden" name="filter_order_Dir" value="<?php echo $this->lists['order_Dir']; ?>" />
 	<input type="hidden" name="boxchecked" value="0" />
+	<?php echo JHtml::_('form.token'); ?>
 </form>
 
 <?php include_once(JPATH_ADMINISTRATOR."/components/com_podcastpro/footer.php");
