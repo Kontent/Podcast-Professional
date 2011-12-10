@@ -36,6 +36,8 @@
 		<param name="copyright" type="text" size="30" default="&#xA9;2011" label="Copyright" description="Copyright" />
 	</params>
 	<params group="itunes">
+	
+		<param name="itID" type="text" default="" label="COM_PODCASTPRO_ITUNES_ITUNESID_LABEL" description="COM_PODCASTPRO_ITUNES_ITUNESID_DESC" />
 		<param name="itSubtitle" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_SUBTITLE_LABEL" description="COM_PODCASTPRO_ITUNES_SUBTITLE_DESC" />
 		<param name="itAuthor" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_AUTHOR_LABEL" description="COM_PODCASTPRO_ITUNES_AUTHOR_DESC" />
 		<param name="itImage" type="text" size="30" default="" label="COM_PODCASTPRO_ITUNES_IMAGE_LABEL" description="COM_PODCASTPRO_ITUNES_IMAGE_DESC" />

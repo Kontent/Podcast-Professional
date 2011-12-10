@@ -24,7 +24,6 @@
 		<param name="showimg" type="radio" default="1" label="MOD_PODCASTPRO_SHOWIMAGE_LABEL" description="MOD_PODCASTPRO_SHOWIMAGE_DESC">
 			<option value="0">MOD_PODCASTPRO_TEXT</option>
 			<option value="1">MOD_PODCASTPRO_IMAGE</option>
-<<<<<<< HEAD
 		</param>
 		<param name="urischeme" type="list" default="http" label="MOD_PODCASTPRO_URLTYPEIMG_LABEL" description="MOD_PODCASTPRO_URLTYPEIMG_DESC">
 			<option value="http">http://</option>
@@ -35,9 +34,7 @@
 			<option value="0">MOD_PODCASTPRO_HIDE</option>
 			<option value="1">MOD_PODCASTPRO_SHOW</option>
 		</param>
-=======
 		</param>	
->>>>>>> Fix subscription module and language strings
 		
 		<param name="otherimage" type="text" default="" label="MOD_PODCASTPRO_MODULE_OTHER_IMAGE_LABEL" description="MOD_PODCASTPRO_MODULE_OTHER_IMAGE_DESC" />
 		
@@ -45,8 +42,6 @@
 			<option value="http">MOD_PODCASTPRO_LINK_DESTINATION_ITUNES_LABEL</option>
 			<option value="itpc">MOD_PODCASTPRO_LINK_DESTINATION_DIRECT_LABEL</option>
 		</param>
-		
-		<!-- param name="itunesid" type="text" default="" label="MOD_PODCASTPRO_MODULE_ITUNESID_LABEL" description="MOD_PODCASTPRO_MODULE_ITUNESID_DESC" / -->
 		
 		<param name="@spacer" type="spacer" default="" label="" description="" />
 		<param name="text_prefix" type="text" default="" label="MOD_PODCASTPRO_TEXTPREFIX_LABEL" description="MOD_PODCASTPRO_TEXTPREFIX_DESC" />
