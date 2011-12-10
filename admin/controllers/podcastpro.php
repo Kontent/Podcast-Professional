@@ -87,7 +87,7 @@ class PodcastController extends JController
 		if(!$row->podcast_id) // undefined or empty string or 0
 			$row->podcast_id = null; // new podcast: let auto_increment take care of it
 
-		if(!$row->store()) {
+		if(!$row->check() || !$row->store()) {
 			JError::raiseError(500, $row->getError());
 		}
 
@@ -98,6 +98,77 @@ class PodcastController extends JController
 		$cache->clean('com_podcastpro');
 
 		return $row;
+	}
+
+	function orderup()
+	{
+		$this->order(-1);
+	}
+	function orderdown()
+	{
+		$this->order(1);
+	}
+	/**
+	* Moves the order of a record
+	* @param integer The increment to reorder by
+	*/
+	function order($direction)
+	{
+		// Check for request forgeries
+		JRequest::checkToken() or jexit( 'Invalid Token' );
+
+		// Initialize variables
+		$db		= & JFactory::getDBO();
+
+		$cid	= JRequest::getVar( 'cid', array(), 'post', 'array' );
+
+		if (isset( $cid[0] ))
+		{
+			JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_podcastpro/tables');
+			$row = & JTable::getInstance('podcast','table');
+			$row->load( (int) $cid[0] );
+			$row->move($direction );
+		}
+
+		$this->setRedirect('index.php?option=com_podcastpro&view=files');
+	}
+
+	function saveOrder()
+	{
+		// Check for request forgeries
+		JRequest::checkToken() or jexit( 'Invalid Token' );
+
+		// Initialize variables
+		$db			= & JFactory::getDBO();
+
+		$cid		= JRequest::getVar( 'cid', array(0), 'post', 'array' );
+		$order		= JRequest::getVar( 'order', array (0), 'post', 'array' );
+		$total		= count($cid);
+		$conditions	= array ();
+
+		JArrayHelper::toInteger($cid, array(0));
+		JArrayHelper::toInteger($order, array(0));
+
+		// Instantiate an article table object
+		JTable::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_podcastpro/tables');
+		$row = & JTable::getInstance('podcast','table');
+
+		// Update the ordering for items in the cid array
+		for ($i = 0; $i < $total; $i ++)
+		{
+			$row->load( (int) $cid[$i] );
+			if (!$row->podcast_id) continue;
+			if ($row->ordering != $order[$i]) {
+				$row->ordering = $order[$i];
+				if (!$row->check() || !$row->store()) {
+					JError::raiseError( 500, $db->getErrorMsg() );
+					return false;
+				}
+			}
+		}
+
+		$msg = JText::_('New ordering saved');
+		$this->setRedirect('index.php?option=com_podcastpro&view=files', $msg);
 	}
 
 	function publish()
@@ -131,6 +202,7 @@ class PodcastController extends JController
 		$row =& JTable::getInstance('content');
 
 		$row->title = JRequest::getString('title', '');
+		if (!trim($row->title)) $row->title = $podcast->filename;
 		$row->introtext = JRequest::getVar( 'text', '', 'post', 'string', JREQUEST_ALLOWRAW );
 
 		$config =& JFactory::getConfig();

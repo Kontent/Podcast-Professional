@@ -64,9 +64,9 @@ class PodcastViewPodcast extends JView
 		$explicit [] = JHTML::_ ( 'select.option', '0', JText::_('COM_PODCASTPRO_NO') );
 		$explicit [] = JHTML::_ ( 'select.option', '1', JText::_('COM_PODCASTPRO_YES') );
 		$explicit [] = JHTML::_ ( 'select.option', '2', JText::_('COM_PODCASTPRO_CLEAN') );
-		$explicit = JHTML::_ ( 'select.radiolist', $explicit, 'itExplicit', 'class="inputbox" size="1"', 'value', 'text', $row->itExplicit );
-		$closedcaptioned = JHTML::_('select.booleanlist', 'itClosedCaptioned', '', $row->itClosedCaptioned);
-		$block = JHTML::_('select.booleanlist', 'itBlock', '', $row->itBlock);
+		$explicit = JHTML::_ ( 'select.radiolist', $explicit, 'itExplicit', 'class="inputbox" size="1"', 'value', 'text', (int)$row->itExplicit );
+		$closedcaptioned = JHTML::_('select.booleanlist', 'itClosedCaptioned', '', (int)$row->itClosedCaptioned);
+		$block = JHTML::_('select.booleanlist', 'itBlock', '', (int)$row->itBlock);
 
 		$this->assign('text', '{enclose ' . $row->filename . '}');
 		$this->assign('explicit', $explicit);

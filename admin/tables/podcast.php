@@ -20,8 +20,26 @@ class TablePodcast extends JTable {
 	var $itExplicit;
 	var $itKeywords;
 	var $itSubtitle;
+	var $ordering;
+
 	function __construct( &$db )
 	{
 		parent::__construct( '#__podcast', 'podcast_id', $db );
+	}
+
+	/**
+	 * Overloaded check function
+	 *
+	 * @return	boolean
+	 * @see		JTable::check
+	 * @since	1.5
+	 */
+	function check()
+	{
+		if (!$this->ordering) {
+			// Set ordering to last if ordering was 0
+			$this->ordering = self::getNextOrder();
+		}
+		return true;
 	}
 }

@@ -43,7 +43,7 @@ class PodcastModelFiles extends JModel {
 	private function &getPodcasts()
 	{
 		if (!$this->podcasts) {
-			$query = "SELECT podcast_id,filename FROM #__podcast";
+			$query = "SELECT podcast_id,filename,ordering FROM #__podcast";
 			$this->podcasts = $this->_getList($query);
 
 			if (!count($this->podcasts)) {
@@ -107,8 +107,8 @@ class PodcastModelFiles extends JModel {
 		$app =& JFactory::getApplication();
 
 		//get sorting order
-		$filter_order		= $app->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'filename',	'cmd' );
-		$filter_order_Dir	= $app->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'',	'word' );
+		$filter_order		= $app->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'ordering',	'cmd' );
+		$filter_order_Dir	= $app->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'asc',	'word' );
 
 		$files =& $this->getFilelist($filter_order_Dir);
 		$podcasts =& $this->getPodcasts();
@@ -120,6 +120,7 @@ class PodcastModelFiles extends JModel {
 			$file->published = false;
 			$file->hasMetadata = false;
 			$file->id = 0;
+			$file->ordering = false;
 			$file->hasSpaces = false;
 
 			if (JString::stristr($filename, ' ')) {
@@ -138,6 +139,7 @@ class PodcastModelFiles extends JModel {
 				$file->published = false;
 				$file->hasMetadata = false;
 				$file->id = 0;
+				$file->ordering = $podcast->ordering;
 				$file->hasSpaces = false;
 
 				if (JString::stristr($podcast->filename, ' ')) {
@@ -188,6 +190,7 @@ class PodcastModelFiles extends JModel {
 
 			$data[$row->filename]->hasMetadata = true;
 			$data[$row->filename]->id = $row->podcast_id;
+			$data[$row->filename]->ordering = $row->ordering;
 		}
 
 		$this->data =& $data;
@@ -206,50 +209,91 @@ class PodcastModelFiles extends JModel {
 		if(!$metadata && !$nometadata) // no filtering on metadata
 			$metadata = $nometadata = true;
 
-		if($published && $unpublished && $metadata && $nometadata) // no filtering
-			return $data;
+		if(!$published || !$unpublished || !$metadata || !$nometadata) {
+			$keys = array_keys($data);
+			foreach($keys as $key) {
+				$file = $data[$key];
 
-		$keys = array_keys($data);
-		foreach($keys as $key) {
-			$file = $data[$key];
+				if($file->published) {
+					if(!$published)
+						unset($data[$key]);
+				} else {
+					if(!$unpublished)
+						unset($data[$key]);
+				}
 
-			if($file->published) {
-				if(!$published)
-					unset($data[$key]);
-			} else {
-				if(!$unpublished)
-					unset($data[$key]);
-			}
-
-			if($file->hasMetadata) {
-				if(!$metadata)
-					unset($data[$key]);
-			} else {
-				if(!$nometadata)
-					unset($data[$key]);
+				if($file->hasMetadata) {
+					if(!$metadata)
+						unset($data[$key]);
+				} else {
+					if(!$nometadata)
+						unset($data[$key]);
+				}
 			}
 		}
 
 		//sort the files
-		$filter_order		= $app->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'filename',	'cmd' );
+		$filter_order		= $app->getUserStateFromRequest( $option.'filter_order',		'filter_order',		'ordering',	'cmd' );
 		$filter_order_Dir	= $app->getUserStateFromRequest( $option.'filter_order_Dir',	'filter_order_Dir',	'asc',	'word' );
 
 		// sanitize $filter_order
-		if (!in_array($filter_order, array('filename', 'published', 'metadata'))) {
+		if (!in_array($filter_order, array('filename', 'ordering', 'published', 'metadata'))) {
 			$filter_order = 'filename';
 		}
 
-		if (!in_array(strtoupper($filter_order_Dir), array('asc', 'desc'))) {
+		if (!in_array(strtolower($filter_order_Dir), array('asc', 'desc'))) {
 			$filter_order_Dir = 'asc';
 		}
 
 		switch ($filter_order) {
 			case 'filename':
+				uasort($data, array($this, 'sortFilename_'.$filter_order_Dir));
+				break;
 
 			case 'published':
+				uasort($data, array($this, 'sortPublished_'.$filter_order_Dir));
+				break;
 
 			case 'metadata':
+				uasort($data, array($this, 'sortMetadata_'.$filter_order_Dir));
+				break;
+
+			case 'ordering':
+			default:
+				uasort($data, array($this, 'sortOrdering_'.$filter_order_Dir));
+				break;
 		}
 		return $data;
+	}
+
+	function sortFilename_asc($a, $b) {
+		return strcmp($a->filename, $b->filename);
+	}
+	function sortFilename_desc($a, $b) {
+		return strcmp($b->filename, $a->filename);
+	}
+	function sortOrdering_asc($a, $b) {
+		if ($a->ordering == $b->ordering) return $this->sortFilename_asc($a, $b);
+		return ($a->ordering < $b->ordering) ? -1 : 1;
+	}
+	function sortOrdering_desc($a, $b) {
+		if ($b->ordering == $a->ordering) return $this->sortFilename_desc($a, $b);
+		return ($b->ordering < $a->ordering) ? -1 : 1;
+	}
+	function sortPublished_asc($a, $b) {
+		if ($a->published == $b->published) return $this->sortOrdering_asc($a, $b);
+		return ($a->published < $b->published) ? -1 : 1;
+	}
+	function sortPublished_desc($a, $b) {
+		if ($b->published == $a->published) return $this->sortOrdering_desc($a, $b);
+		return ($b->published < $a->published) ? -1 : 1;
+	}
+	function sortMetadata_asc($a, $b) {
+		if ($a->hasMetadata == $b->hasMetadata) return $this->sortOrdering_asc($a, $b);
+		return ($a->hasMetadata < $b->hasMetadata) ? -1 : 1;
+	}
+	function sortMetadata_desc($a, $b) {
+		if ($b->hasMetadata == $a->hasMetadata) return $this->sortOrdering_desc($a, $b);
+		return ($b->hasMetadata < $a->hasMetadata) ? -1 : 1;
 	}
 }

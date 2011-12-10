@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE install>
-<install type="module" version="1.5.0" method="upgrade">
+<install type="module" client="site" version="1.5.0" method="upgrade">
 	<name>Podcast Professional - Subscription Link</name>
 	<author>Kontent Design</author>
-	<creationDate>April 2011</creationDate>
+	<creationDate>December 2011</creationDate>
 	<copyright>(C) 2011 Kontent Design. All rights reserved.</copyright>
 	<license>GNU/GPL</license>
 	<authorEmail>support@kontentdesign.com</authorEmail>
 	<authorUrl>http://extensions.kontentdesign.com</authorUrl>
-	<version>1.0</version>
+	<version>1.0.0</version>
 	<description>Displays podcast subscription links.</description>
 	<languages folder="language">
 		<language tag="en-GB">en-GB.mod_podcastpro.ini</language>
@@ -28,7 +28,7 @@
 		<param name="showimg" type="radio" default="1" label="MOD_PODCASTPRO_SHOWIMAGE_LABEL" description="MOD_PODCASTPRO_SHOWIMAGE_DESC">
 			<option value="0">MOD_PODCASTPRO_TEXT</option>
 			<option value="1">MOD_PODCASTPRO_IMAGE</option>
-		</param>		
+		</param>
 		<param name="urischeme" type="list" default="http" label="MOD_PODCASTPRO_URLTYPEIMG_LABEL" description="MOD_PODCASTPRO_URLTYPEIMG_DESC">
 			<option value="http">http://</option>
 			<option value="itpc">itpc://</option>

@@ -143,8 +143,11 @@ class PodcastViewFeed extends JView
 
 		$content =& $items['content'];
 		$metadata =& $items['metadata'];
+print_r($metadata);die();
+		foreach ($metadata as $filename => &$data) {
+			if (!isset($content[$filename])) continue;
+			$pcast =& $content[$filename];
 
-		foreach ($content as $filename => &$pcast) {
 			if(preg_match('/^http/', $filename)) { // external url
 				$fileFullPath = $fileURL = $filename;
 			} else {
@@ -158,7 +161,6 @@ class PodcastViewFeed extends JView
 					$fileURL = JURI::root() . $params->get('mediapath', 'media/com_podcastpro/episodes') . '/' . $filename;
 				}
 			}
-			if (!isset($metadata[$filename])) continue;
 
 			$xw->startElement('item');
 

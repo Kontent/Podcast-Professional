@@ -18,8 +18,8 @@ JHTML::stylesheet('podcastpro.css', 'modules/mod_podcastpro/media/');
 	<?php endif ?>
 
 
-	<?php if($this->plainlink) : ?>
-		<p><a href="<?php echo $this->plainlink; ?>"><?php echo JText::_('MOD_PODCASTPRO_FULL_FEED'); ?></a></p>
+	<?php if (empty($this->img)) : ?>
+		<p><a href="<?php echo $this->link; ?>"><?php echo JText::_('MOD_PODCASTPRO_FULL_FEED'); ?></a></p>
 	<?php else : ?>
 		<div><a href="<?php echo $this->link ?>"><?php echo $this->img ?></a></div>
 	<?php endif ?>
