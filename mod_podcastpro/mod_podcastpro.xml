@@ -22,21 +22,13 @@
 	</files>
 	<params>
 		<param name="showimg" type="radio" default="1" label="MOD_PODCASTPRO_SHOWIMAGE_LABEL" description="MOD_PODCASTPRO_SHOWIMAGE_DESC">
-			<option value="0">MOD_PODCASTPRO_TEXT</option>
 			<option value="1">MOD_PODCASTPRO_IMAGE</option>
+			<option value="0">MOD_PODCASTPRO_TEXT</option>
 		</param>
-		<param name="urischeme" type="list" default="http" label="MOD_PODCASTPRO_URLTYPEIMG_LABEL" description="MOD_PODCASTPRO_URLTYPEIMG_DESC">
-			<option value="http">http://</option>
-			<option value="itpc">itpc://</option>
-			<option value="pcast">pcast://</option>
-		</param>
-		<param name="rsslink" type="radio" default="1" label="MOD_PODCASTPRO_SHOWRSS_LABEL" description="MOD_PODCASTPRO_SHOWRSS_DESC">
-			<option value="0">MOD_PODCASTPRO_HIDE</option>
-			<option value="1">MOD_PODCASTPRO_SHOW</option>
-		</param>
-		</param>	
-		
+	
 		<param name="otherimage" type="text" default="" label="MOD_PODCASTPRO_MODULE_OTHER_IMAGE_LABEL" description="MOD_PODCASTPRO_MODULE_OTHER_IMAGE_DESC" />
+		
+		<param name="othertext" type="text" default="" label="MOD_PODCASTPRO_MODULE_OTHER_TEXT_LABEL" description="MOD_PODCASTPRO_MODULE_OTHER_TEXT_DESC" />
 		
 		<param name="urischeme" type="list" default="http" label="MOD_PODCASTPRO_LINK_DESTINATION_LABEL" description="MOD_PODCASTPRO_LINK_DESTINATION_DESC">
 			<option value="http">MOD_PODCASTPRO_LINK_DESTINATION_ITUNES_LABEL</option>
