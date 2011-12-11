@@ -143,7 +143,7 @@ class PodcastViewFeed extends JView
 
 		$content =& $items['content'];
 		$metadata =& $items['metadata'];
-print_r($metadata);die();
+
 		foreach ($metadata as $filename => &$data) {
 			if (!isset($content[$filename])) continue;
 			$pcast =& $content[$filename];
