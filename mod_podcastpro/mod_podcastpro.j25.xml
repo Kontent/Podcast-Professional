@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extension>
+<extension version="2.5" type="module" client="site" method="upgrade">
+	<name>mod_podcastpro</name>
+	<author>Kontent Design</author>
+	<creationDate>December 2011</creationDate>
+	<copyright>(C) 2011 Kontent Design. All rights reserved.</copyright>
+	<license>GNU/GPL</license>
+	<authorEmail>support@kontentdesign.com</authorEmail>
+	<authorUrl>http://extensions.kontentdesign.com</authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_PODCASTPRO_XML_DESCRIPTION</description>
+
+	<scriptfile>install.script.php</scriptfile>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_podcastpro.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_podcastpro.sys.ini</language>
+	</languages>
+
+	<files>
+		<filename module="mod_podcastpro">mod_podcastpro.php</filename>
+		<filename>class.php</filename>
+		<filename>index.html</filename>
+		<folder>media</folder>
+		<folder>tmpl</folder>
+	</files>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="showimg" type="radio" default="1" label="MOD_PODCASTPRO_SHOWIMAGE_LABEL" description="MOD_PODCASTPRO_SHOWIMAGE_DESC">
+					<option value="1">MOD_PODCASTPRO_IMAGE</option>
+					<option value="0">MOD_PODCASTPRO_TEXT</option>
+				</field>
+	
+				<field name="otherimage" type="text" default="" label="MOD_PODCASTPRO_MODULE_OTHER_IMAGE_LABEL" description="MOD_PODCASTPRO_MODULE_OTHER_IMAGE_DESC" />
+		
+				<field name="othertext" type="text" default="" label="MOD_PODCASTPRO_MODULE_OTHER_TEXT_LABEL" description="MOD_PODCASTPRO_MODULE_OTHER_TEXT_DESC" />
+		
+				<field name="urischeme" type="list" default="http" label="MOD_PODCASTPRO_LINK_DESTINATION_LABEL" description="MOD_PODCASTPRO_LINK_DESTINATION_DESC">
+					<option value="http">MOD_PODCASTPRO_LINK_DESTINATION_ITUNES_LABEL</option>
+					<option value="itpc">MOD_PODCASTPRO_LINK_DESTINATION_DIRECT_LABEL</option>
+				</field>
+		
+				<field name="@spacer" type="spacer" default="" label="" description="" />
+				<field name="text_prefix" type="text" default="" label="MOD_PODCASTPRO_TEXTPREFIX_LABEL" description="MOD_PODCASTPRO_TEXTPREFIX_DESC" />
+				<field name="text_suffix" type="text" default="" label="MOD_PODCASTPRO_TEXTSUFFIX_LABEL" description="MOD_PODCASTPRO_TEXTSUFFIX_DESC" />
+			</fieldset>
+
+			<fieldset name="advanced">
+				<!--field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" /-->
+
+				<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field name="cachemode" type="hidden" default="static">
+					<option value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

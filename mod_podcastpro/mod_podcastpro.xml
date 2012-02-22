@@ -9,10 +9,12 @@
 	<authorEmail>support@kontentdesign.com</authorEmail>
 	<authorUrl>http://extensions.kontentdesign.com</authorUrl>
 	<version>1.0.0</version>
-	<description>Displays podcast subscription links.</description>
+	<description>MOD_PODCASTPRO_XML_DESCRIPTION</description>
+	
 	<languages folder="language">
-		<language tag="en-GB">en-GB.mod_podcastpro.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_podcastpro.ini</language>
 	</languages>
+	
 	<files>
 		<filename module="mod_podcastpro">mod_podcastpro.php</filename>
 		<filename>class.php</filename>
@@ -20,6 +22,7 @@
 		<folder>media</folder>
 		<folder>tmpl</folder>
 	</files>
+	
 	<params>
 		<param name="showimg" type="radio" default="1" label="MOD_PODCASTPRO_SHOWIMAGE_LABEL" description="MOD_PODCASTPRO_SHOWIMAGE_DESC">
 			<option value="1">MOD_PODCASTPRO_IMAGE</option>
@@ -38,11 +41,6 @@
 		<param name="@spacer" type="spacer" default="" label="" description="" />
 		<param name="text_prefix" type="text" default="" label="MOD_PODCASTPRO_TEXTPREFIX_LABEL" description="MOD_PODCASTPRO_TEXTPREFIX_DESC" />
 		<param name="text_suffix" type="text" default="" label="MOD_PODCASTPRO_TEXTSUFFIX_LABEL" description="MOD_PODCASTPRO_TEXTSUFFIX_DESC" />
-		<param name="@spacer" type="spacer" default="" label="" description="" />
-		<param name="kbox" type="radio" default="1" label="MOD_PODCASTPRO_KBOX_LABEL" description="MOD_PODCASTPRO_KBOX_DESC">
-			<option value="0">MOD_PODCASTPRO_OFF</option>
-			<option value="1">MOD_PODCASTPRO_ON</option>
-		</param>
 	</params>
 	
 	<params group="advanced">
