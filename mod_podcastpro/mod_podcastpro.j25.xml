@@ -3,8 +3,8 @@
 <extension version="2.5" type="module" client="site" method="upgrade">
 	<name>mod_podcastpro</name>
 	<author>Kontent Design</author>
-	<creationDate>December 2011</creationDate>
-	<copyright>(C) 2011 Kontent Design. All rights reserved.</copyright>
+	<creationDate>February 2012</creationDate>
+	<copyright>(C) 2011-2012 Kontent Design. All rights reserved.</copyright>
 	<license>GNU/GPL</license>
 	<authorEmail>support@kontentdesign.com</authorEmail>
 	<authorUrl>http://extensions.kontentdesign.com</authorUrl>
