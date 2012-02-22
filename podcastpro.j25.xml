@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extension>
+<extension type="component" version="2.5.0" method="upgrade">
+	<name>com_podcastpro</name>
+	<creationDate>February 2012</creationDate>
+	<author>Kontent Design</author>
+	<authorEmail>contact@kontentdesign.com</authorEmail>
+	<authorUrl>http://extensions.kontentdesign.com</authorUrl>
+	<copyright>2010-2012 Kontent Design. All rights reserved.</copyright>
+	<license>GPL v2</license>
+	<version>1.0.0</version>
+	<description>COM_PODCASTPRO_XML_DESCRIPTION</description>
+	
+	<!-- Install Database Section -->
+	<install>
+		<sql>
+			<file charset="utf8" driver="mysql">install/install.mysql.sql</file>
+		</sql>
+	</install>
+
+	<!-- Installation Files -->
+	<installscript>install/install.script.php</installscript>
+	
+	<!-- Site Component -->
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>podcastpro.php</filename>
+		<filename>router.php</filename>
+		<folder>models</folder>
+		<folder>views</folder>
+	</files>
+
+	<languages folder="site/language">
+		<language tag="en-GB">en-GB/en-GB.com_podcastpro.ini</language>
+	</languages>
+	
+	<!-- Admin Component -->
+	<administration>
+		<menu link="option=com_podcastpro" img="components/com_podcastpro/media/images/icon-16-podcastpro.png">COM_PODCASTPRO</menu>
+		<submenu>
+			<menu view="files" img="components/com_podcastpro/media/images/icon-16-podcast.png">COM_PODCASTPRO_MENU_MANAGE</menu>
+			<menu view="files" layout="upload" img="components/com_podcastpro/media/images/icon-16-podcast.png">COM_PODCASTPRO_MENU_UPLOAD</menu>
+			<menu view="configuration" img="components/com_podcastpro/media/images/icon-16-podcast.png">COM_PODCASTPRO_MENU_CONFIG</menu>
+			<menu view="info" img="components/com_podcastpro/media/images/icon-16-podcastpro.png">COM_PODCASTPRO_MENU_ABOUT</menu>
+		</submenu>
+		
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>CHANGELOG.php</filename>
+			<filename>config.xml</filename>
+			<filename>COPYRIGHT.php</filename>
+			<filename>footer.php</filename>
+			<filename>index.html</filename>
+			<filename>podcastpro.php</filename>
+			<filename>version.php</filename>
+			<folder>classes</folder>
+			<folder>controllers</folder>
+			<folder>getid3</folder>
+			<folder>install</folder>
+			<folder>media</folder>
+			<folder>models</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		
+		<languages folder="admin/language">
+			<language tag="en-GB">en-GB/en-GB.com_podcastpro.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_podcastpro.sys.ini</language>
+		</languages>
+	</administration>
+	
+	<!-- Media files -->
+	<media destination="com_podcastpro" folder="media">
+		<filename>index.html</filename>
+		<folder>episodes</folder>
+		<folder>images</folder>
+	</media>
+	
+	<!-- Update servers -->
+	<updateservers>
+		<server type="collection" priority="1" name="Kontent Update Site">http://update.kontentdesign.com/podcastpro</server>
+	</updateservers>
+</extension>

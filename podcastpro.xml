@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE install>
 <install type="component" version="1.5.0" method="upgrade">
-	<name>Podcast Pro</name>
-	<creationDate>December 2011</creationDate>
+	<name>Podcast Professional</name>
+	<creationDate>February 2012</creationDate>
 	<author>Kontent Design</author>
 	<authorEmail>contact@kontentdesign.com</authorEmail>
 	<authorUrl>http://extensions.kontentdesign.com</authorUrl>
-	<copyright>2010-2011 Kontent Design. All rights reserved.</copyright>
+	<copyright>2010-2012 Kontent Design. All rights reserved.</copyright>
 	<license>GPL v2</license>
 	<version>1.0.0</version>
 	<description>Podcast Manager</description>
@@ -31,8 +31,8 @@
 		<folder>views</folder>
 	</files>
 
-	<languages folder="language/site/en-GB">
-		<language tag="en-GB">en-GB.com_podcastpro.ini</language>
+	<languages folder="site/language">
+		<language tag="en-GB">en-GB/en-GB.com_podcastpro.ini</language>
 	</languages>
 	
 	<!-- Admin Component -->
@@ -40,12 +40,12 @@
 		<menu link="option=com_podcastpro" img="components/com_podcastpro/media/images/icon-16-podcastpro.png">Podcast Professional</menu>
 		<submenu>
 			<menu view="files" img="components/com_podcastpro/media/images/icon-16-podcast.png">Manage Episodes</menu>
-			<menu view="files" layout="upload" img="components/com_podcastpro/media/images/icon-16-podcast.png">Upload Files</menu>
+			<menu view="files" layout="upload" img="components/com_podcastpro/media/images/icon-16-podcast.png">Upload files</menu>
 			<menu view="configuration" img="components/com_podcastpro/media/images/icon-16-podcast.png">Configuration</menu>
 			<menu view="info" img="components/com_podcastpro/media/images/icon-16-podcastpro.png">About</menu>
 		</submenu>
-		<languages folder="language/admin/en-GB">
-			<language tag="en-GB">en-GB.com_podcastpro.ini</language>
+		<languages folder="admin/language">
+			<language tag="en-GB">en-GB/en-GB.com_podcastpro.ini</language>
 		</languages>
 		<files folder="admin">
 			<filename>access.xml</filename>
