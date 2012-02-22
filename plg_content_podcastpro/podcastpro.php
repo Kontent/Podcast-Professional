@@ -129,7 +129,8 @@ class PodcastPlayer
 
 	private function links()
 	{
-		return '<a href="' . $this->fileURL . '" rel="mediabox">' . htmlspecialchars($this->podcastParams->get('linktitle', 'Click to Listen Now')) . '</a>';
+		$kbox = $this->podcastParams->get('kbox', '1') ? ' rel="mediabox"' : '';
+		return '<a href="' . $this->fileURL . $kbox . '>' . htmlspecialchars($this->podcastParams->get('linktitle', 'Click to Listen Now')) . '</a>';
 	}
 
 	private function player()
