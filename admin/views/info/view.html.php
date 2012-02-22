@@ -26,6 +26,12 @@ class PodcastViewInfo extends JView {
 		$mediapath = $params->get('mediapath', 'media/com_podcastpro/episodes');
 
 		$this->folder = JPATH_ROOT . '/' . JFolder::makeSafe(JPath::clean($mediapath));
+		$this->url_configuration = JURI::base(true).'/index.php?option=com_podcastpro&view=configuration';
+		if (version_compare(JVERSION, '1.6', '>')) {
+			$this->url_categories = JURI::base(true).'/index.php?option=com_categories&extension=com_content';
+		} else {
+			$this->url_categories = JURI::base(true).'/index.php?option=com_categories&section=com_content';
+		}
 		parent::display();
 	}
 }
