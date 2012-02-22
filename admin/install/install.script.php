@@ -44,7 +44,7 @@ class Com_PodcastProInstallerScript {
 		foreach ($queries as $query) {
 			$db->setQuery($query);
 			if (! $db->query()) {
-				echo $db->getErrorMsg(true);
+				JFactory::getApplication()->enqueueMessage( $db->getErrorMsg(true), 'notice' );
 				return false;
 			}
 		}
@@ -59,7 +59,7 @@ class Com_PodcastProInstallerScript {
 				$query = "UPDATE #__podcast SET ordering={$db->quote($order)} WHERE filename={$db->quote($filename[0])}";
 				$db->setQuery($query);
 				if (! $db->query()) {
-					echo $db->getErrorMsg(true);
+					JFactory::getApplication()->enqueueMessage( $db->getErrorMsg(true), 'notice' );
 					return false;
 				}
 			}

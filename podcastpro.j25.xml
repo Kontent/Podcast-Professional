@@ -19,7 +19,7 @@
 	</install>
 
 	<!-- Installation Files -->
-	<installscript>install/install.script.php</installscript>
+	<scriptfile>install/install.script.php</scriptfile>
 	
 	<!-- Site Component -->
 	<files folder="site">
