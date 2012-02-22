@@ -11,6 +11,8 @@
 	<version>1.0.0</version>
 	<description>PLG_CONTENT_PODCASTPRO_XML_DESCRIPTION</description>
 	
+	<scriptfile>install.script.php</scriptfile>
+
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.plg_content_podcastpro.ini</language>
 		<language tag="en-GB">en-GB/en-GB.plg_content_podcastpro.sys.ini</language>
