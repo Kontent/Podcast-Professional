@@ -25,7 +25,7 @@ class PodcastViewInfo extends JView {
 
 		$mediapath = $params->get('mediapath', 'media/com_podcastpro/episodes');
 
-		$this->folder = JPATH_ROOT . DS . JFolder::makeSafe(JPath::clean($mediapath));
+		$this->folder = JPATH_ROOT . '/' . JFolder::makeSafe(JPath::clean($mediapath));
 		parent::display();
 	}
 }

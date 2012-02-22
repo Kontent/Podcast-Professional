@@ -9,7 +9,7 @@
  **/
 defined( '_JEXEC' ) or die();
 
-require_once (dirname ( __FILE__ ) . DS . 'class.php');
+require_once (dirname ( __FILE__ ) . '/class.php');
 
 $params = ( object ) $params;
 $moPodcastPro = new ModPodcastPro ( $params );

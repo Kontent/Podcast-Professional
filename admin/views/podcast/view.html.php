@@ -81,16 +81,16 @@ class PodcastViewPodcast extends JView
 
 	private function fillMetaID3(&$row, &$title)
 	{
-		define('GETID3_HELPERAPPSDIR', JPATH_COMPONENT . DS . 'getid3');
-		include JPATH_COMPONENT . DS . 'getid3' . DS . 'getid3.php';
+		define('GETID3_HELPERAPPSDIR', JPATH_COMPONENT . '/getid3');
+		include JPATH_COMPONENT . '/getid3/getid3.php';
 
 		$params =& JComponentHelper::getParams('com_podcastpro');
 		$mediapath = $params->get('mediapath', 'media/com_podcastpro/episodes');
 
-		$filename = JPATH_ROOT . DS . $mediapath . DS . $row->filename;
+		$filename = JPATH_ROOT . '/' . $mediapath . '/' . $row->filename;
 
 		if (!JFile::exists($filename)) {
-			$filename = JPATH_ROOT .  DS . $row->filename;
+			$filename = JPATH_ROOT .  '/' . $row->filename;
 		}
 
 		$getID3 = new getID3($filename);

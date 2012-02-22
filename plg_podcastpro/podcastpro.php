@@ -114,7 +114,7 @@ class PodcastPlayer
 		// Else, just assume Joomla root
 		if (!preg_match('/^https?:\/\//', $filename)) {
 
-			$fullPath = JPATH_BASE . DS . $mediapath . DS . $filename;
+			$fullPath = JPATH_BASE . '/' . $mediapath . '/' . $filename;
 
 			if (JFile::exists($fullPath)) {
 				$filename = JURI::base() . $mediapath . '/' . $filename;
