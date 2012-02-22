@@ -57,6 +57,7 @@
 			<folder>controllers</folder>
 			<folder>getid3</folder>
 			<folder>install</folder>
+			<folder>liveupdate</folder>
 			<folder>media</folder>
 			<folder>models</folder>
 			<folder>tables</folder>

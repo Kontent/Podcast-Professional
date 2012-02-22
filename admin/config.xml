@@ -39,6 +39,7 @@
 		
 		<param name="description" type="textarea" rows="5" cols="30" default="" label="COM_PODCASTPRO_DESCRIPTION_LABEL" description="COM_PODCASTPRO_DESCRIPTION_DESC" />
 		<param name="copyright" type="text" size="30" default="&#xA9;2011" label="Copyright" description="Copyright" />
+		<param name="liveupdate" type="hidden" default="" />
 	</params>
 	<params group="itunes">
 	

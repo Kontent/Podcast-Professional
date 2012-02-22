@@ -89,7 +89,7 @@ class Com_PodcastProInstallerScript {
 		$installer = $parent->getParent();
 
 		// Rename podcastpro.j25.xml to podcastpro.xml
-		$adminpath = $installer->extension_administrator;
+		$adminpath = JPATH_ADMINISTRATOR . 'components/com_podcastpro';
 		if (JFile::exists("{$adminpath}/podcastpro.j25.xml")) {
 			if ( JFile::exists("{$adminpath}/podcastpro.xml")) JFile::delete("{$adminpath}/podcastpro.xml");
 			JFile::move("{$adminpath}/podcastpro.j25.xml", "{$adminpath}/podcastpro.xml");
