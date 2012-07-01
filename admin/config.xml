@@ -13,6 +13,11 @@
 		
 		<param name="cache_time" type="text" size="8" default="3600" label="COM_PODCASTPRO_CACHETIME_LABEL" description="COM_PODCASTPRO_CACHETIME_DESC" />
 		
+		<param name="kbox" type="radio" default="1" label="COM_PODCASTPRO_KBOX_LABEL" description="COM_PODCASTPRO_KBOX_DESC">
+			<option value="0">COM_PODCASTPRO_NO</option>
+			<option value="1">COM_PODCASTPRO_YES</option>
+		</param>
+
 		<param name="@spacer" type="spacer" default="" label="" description="" />
 		
 		<param name="linkhandling" type="radio" default="links" label="COM_PODCASTPRO_LINKHANDLING_LABEL" description="COM_PODCASTPRO_LINKHANDLING_DESC">
@@ -34,6 +39,7 @@
 		
 		<param name="description" type="textarea" rows="5" cols="30" default="" label="COM_PODCASTPRO_DESCRIPTION_LABEL" description="COM_PODCASTPRO_DESCRIPTION_DESC" />
 		<param name="copyright" type="text" size="30" default="&#xA9;2011" label="Copyright" description="Copyright" />
+		<param name="liveupdate" type="hidden" default="" />
 	</params>
 	<params group="itunes">
 	

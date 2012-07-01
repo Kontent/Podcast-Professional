@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extension>
+<extension version="2.5" type="plugin" group="content" method="upgrade">
+	<name>plg_content_podcastpro</name>
+	<author>Kontent Design</author>
+	<creationDate>February 2012</creationDate>
+	<copyright>(C) 2011-2012 Kontent Design. All rights reserved.</copyright>
+	<license>GNU/GPL</license>
+	<authorEmail>support@kontentdesign.com</authorEmail>
+	<authorUrl>http://extensions.kontentdesign.com</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_CONTENT_PODCASTPRO_XML_DESCRIPTION</description>
+	
+	<scriptfile>install.script.php</scriptfile>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_content_podcastpro.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_content_podcastpro.sys.ini</language>
+	</languages>
+
+	<files>
+		<filename plugin="podcastpro">podcastpro.php</filename>
+		<folder>podcastpro</folder>
+	</files>
+</extension>

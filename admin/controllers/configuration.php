@@ -11,7 +11,7 @@ defined( '_JEXEC' ) or die();
 
 jimport('joomla.application.component.controller');
 
-JTable::addIncludePath( JPATH_COMPONENT.DS.'tables' );
+JTable::addIncludePath( JPATH_COMPONENT.'/tables' );
 
 class PodcastControllerConfiguration extends JController
 {

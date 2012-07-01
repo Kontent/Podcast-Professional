@@ -13,38 +13,39 @@ class ModPodcastPro {
 	function __construct($params) {
 		$this->cparams = &JComponentHelper::getParams( 'com_podcastpro' );
 		$this->params = $params;
-		$this->params->def('moduleclass_sfx', '');
+		$this->params->def('showimg', 1);
+		$this->params->def('otherimage', '');
+		$this->params->def('othertext', JText::_('MOD_PODCASTPRO_FULL_FEED'));
+		$this->params->def('urischeme', 'http');
 		$this->params->def('text_prefix', '');
 		$this->params->def('text_suffix', '');
-		$this->params->def('urischeme', 'http');
-		$this->params->def('showlink', 1);
-		$this->params->def('rsslink', 1);
-		$this->params->def('showimg', 1);
+		$this->params->def('moduleclass_sfx', '');
 	}
 
 	function display() {
-		$itunesidlink = $this->params->def('itunesid', '');
-		$showlink = $this->params->get('otherlink', $this->cparams->get('mainurl'));
-		$showlink = $showlink ? $showlink : JRoute::_('index.php?option=com_podcastpro&view=feed&format=raw');
-
-		$itunesidurl= "http://www.itunes.com/podcast?id=" . $itunesidlink ;
-
-		$this->text_prefix = $this->params->get('text_prefix');
-		$this->text_suffix = $this->params->get('text_suffix');
+		$link = $this->cparams->get('mainurl');
+		$link = $link ? $link : JRoute::_('index.php?option=com_podcastpro&view=feed&format=raw');
 
 		if ($this->params->get('showimg')) {
-			$img = ltrim($this->params->get('otherimage', ''), '/');
+			$img = ltrim($this->params->get('otherimage'), '/');
 			$img = $img ? $img : 'modules/mod_podcastpro/media/podcast-subscribe.png';
-			$this->img = JHTML::_('image', $img, 'Podcast Feed');
+			$this->html = JHTML::_('image', $img, 'Podcast Feed');
+		} else {
+			$this->html = $this->params->get('othertext');
 		}
 
 		if($this->params->get('urischeme') == 'http') {
-			$this->link = $showlink;
+			$this->link = $link;
 		} else {
-			if ($showlink[0] == '/') $showlink = JURI::base().substr($showlink,1);
-			$this->link = preg_replace('#^http(s)?:\/\/#', $this->params->get('urischeme') . '://', $showlink);
+			if ($link[0] == '/') $link = JURI::base().substr($link,1);
+			$this->link = preg_replace('#^http(s)?:\/\/#', $this->params->get('urischeme') . '://', $link);
 		}
+
+		$this->text_prefix = $this->params->get('text_prefix');
+		$this->text_suffix = $this->params->get('text_suffix');
+		$this->moduleclass_sfx = $this->params->get('moduleclass_sfx');
 
 		require(JModuleHelper::getLayoutPath('mod_podcastpro'));
 	}
 }
+

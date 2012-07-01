@@ -151,9 +151,9 @@ class PodcastViewFeed extends JView
 			if(preg_match('/^http/', $filename)) { // external url
 				$fileFullPath = $fileURL = $filename;
 			} else {
-				$fileFullPath = JPATH_ROOT . DS . $params->get('mediapath', 'media/com_podcastpro/episodes') . DS . $filename;
+				$fileFullPath = JPATH_ROOT . '/' . $params->get('mediapath', 'media/com_podcastpro/episodes') . '/' . $filename;
 				if(!JFile::exists($fileFullPath)) {
-					$fileFullPath = JPATH_ROOT . DS . $filename; // try fallback
+					$fileFullPath = JPATH_ROOT . '/' . $filename; // try fallback
 					if(!JFile::exists($fileFullPath))
 						continue;
 					$fileURL = JURI::root() . $filename;

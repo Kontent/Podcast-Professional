@@ -2,14 +2,26 @@
  /**
  * Podcast Professional - The Joomla Podcast Manager
  * @package 	Podcast Professional
- * @copyright 	(C) 2010-2011 Kontent Design. All rights reserved.
+ * @copyright 	(C) 2010-2012 Kontent Design. All rights reserved.
  * @copyright 	(c) 2005-2008 Joseph L. LeBlanc
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
 defined('_JEXEC') or die;
 
+// WARNING: this file is in 2 locations!
+
 function com_install() {
+	if (version_compare(JVERSION, '1.6','>')) {
+		$app = JFactory::getApplication();
+		$app->enqueueMessage('UNEXPECTED ERROR: Wrong manifest file loaded, please remove podcastpro.xml from the ZIP file!', 'notice');
+		return false;
+	}
+
+	// Delete old manifest file
+	if ( JFile::exists(JPATH_ADMINISTRATOR . 'components/com_podcastpro/manifest.xml'))
+		JFile::delete(JPATH_ADMINISTRATOR . 'components/com_podcastpro/manifest.xml');
+
 	$db = &JFactory::getDBO();
 	$queries = array();
 

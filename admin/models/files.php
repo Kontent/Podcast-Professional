@@ -62,7 +62,7 @@ class PodcastModelFiles extends JModel {
 			$params =& JComponentHelper::getParams('com_podcastpro');
 			$mediapath = $params->get('mediapath', 'media/com_podcastpro/episodes');
 
-			$this->folder = JPATH_ROOT . DS . JFolder::makeSafe(JPath::clean($mediapath));
+			$this->folder = JPATH_ROOT . '/' . JFolder::makeSafe(JPath::clean($mediapath));
 		}
 
 		return $this->folder;
