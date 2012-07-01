@@ -11,20 +11,15 @@ defined('_JEXEC') or die();
 // Attach the stylesheet to the document head
 JHTML::stylesheet('podcastpro.css', 'modules/mod_podcastpro/media/');
 ?>
-<div class="podpro<?php echo $this->params->get('moduleclass_sfx'); ?>">
+<div class="podpro<?php echo $this->moduleclass_sfx; ?>">
 
 	<?php if ($this->text_prefix) : ?>
-		<p class="podpro-prefix"><?php echo $this->text_prefix ?></p>
+		<p class="podpro-prefix"><?php echo $this->text_prefix; ?></p>
 	<?php endif ?>
 
-
-	<?php if (empty($this->img)) : ?>
-		<p><a href="<?php echo $this->link; ?>"><?php echo JText::_('MOD_PODCASTPRO_FULL_FEED'); ?></a></p>
-	<?php else : ?>
-		<div><a href="<?php echo $this->link ?>"><?php echo $this->img ?></a></div>
-	<?php endif ?>
+	<p><a href="<?php echo $this->link; ?>"><?php echo $this->html; ?></a></p>
 
 	<?php if ($this->text_suffix) : ?>
-		<p class="podpro-suffix"><?php echo $this->text_suffix ?></p>
+		<p class="podpro-suffix"><?php echo $this->text_suffix; ?></p>
 	<?php endif ?>
 </div>

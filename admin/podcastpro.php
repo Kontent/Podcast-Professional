@@ -16,6 +16,12 @@ if (version_compare(JVERSION, '1.6', '>')) {
 	}
 }
 
+require_once JPATH_COMPONENT_ADMINISTRATOR.'/liveupdate/liveupdate.php';
+if(JRequest::getCmd('view') == 'liveupdate') {
+	LiveUpdate::handleRequest();
+	return;
+}
+
 jimport('joomla.application.component.controller');
 
 // Require specific controller if it exists

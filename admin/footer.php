@@ -1,4 +1,4 @@
-<?php 
+<?php
  /**
  * Podcast Professional - The Joomla Podcast Manager
  * @package 	Podcast Professional
@@ -6,6 +6,6 @@
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * @link 		http://extensions.kontentdesign.com
  **/
-defined ( '_JEXEC' ) or die (); 
+defined ( '_JEXEC' ) or die ();
 ?>
-<p class="credit">Podcast Professional 1.0 | <a href="http://extensions.kontentdesign.com">Kontent Extensions</a> | <a href="#">Check for update</a></p>
+<p class="credit">Podcast Professional 1.0.0 | <a href="http://extensions.kontentdesign.com">Kontent Extensions</a> | <?php echo LiveUpdate::getIcon(); ?></p>

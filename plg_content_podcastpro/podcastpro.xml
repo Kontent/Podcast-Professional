@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install>
+<install version="1.5" type="plugin" group="content" method="upgrade">
+	<name>Content - Podcast Professional</name>
+	<author>Kontent Design</author>
+	<creationDate>February 2012</creationDate>
+	<copyright>(C) 2011-2012 Kontent Design. All rights reserved.</copyright>
+	<license>GNU/GPL</license>
+	<authorEmail>support@kontentdesign.com</authorEmail>
+	<authorUrl>http://extensions.kontentdesign.com</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_CONTENT_PODCASTPRO_XML_DESCRIPTION</description>
+	
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_content_podcastpro.ini</language>
+	</languages>
+	
+	<files>
+		<filename plugin="podcastpro">podcastpro.php</filename>
+		<folder>podcastpro</folder>
+	</files>
+</install>

@@ -38,21 +38,17 @@ $document->addStyleSheet(JURI::base() . 'components/com_podcastpro/media/css/pod
 
 	<h2>Setting Up Podcast Professional</h2>
 
-	<!--  TO DO: Add the path below  -->
-	<p>First, go to the <a href="">configuration</a> to define the settings for all of your podcast episodes.</p>
+	<p>First, go to the <a href="<?php echo $this->url_configuration ?>">configuration</a> to define the settings for all of your podcast episodes.</p>
 
-	<!--  TO DO: Add check for Joomla version number and display correct link  -->
-	<p>Podcast Professional is integrated with Joomla's core content and podcasts are embedded in Joomla articles. You can add podcasts to any of your articles using the special tag, but we recommend you create a specific Joomla category for your podcasts. <a href="/administrator/index.php?option=com_categories&section=com_content">Click here to go to your Category Manager</a> (or <a href="/administrator/index.php?option=com_categories&extension=com_content">here</a> in Joomla 1.6).</p>
+	<p>Podcast Professional is integrated with Joomla's core content and podcasts are embedded in Joomla articles. You can add podcasts to any of your articles using the special tag, but we recommend you create a specific Joomla category for your podcasts. <a href="<?php echo $this->url_categories ?>">Click here to go to your Category Manager</a>.</p>
 
 	<p>The default directory for uploading your episode files is:</p>
 
 	<p><strong>media/com_podcastpro/episodes</strong></p>
 
-	<!--  TO DO: Add the folder path below  -->
-	<p>The path for this directory on your server is: <strong><?php JText::printf($this->folder); ?></strong></p>
+	<p>The path for this directory on your server is: <strong><?php JText::printf($this->folder); ?></strong> . Please make sure that your <strong>web server has write permissions</strong> to the directory.</p>
 
-	<!--  TO DO: Add link below  -->
-	<p>You can change this in the <a href="#">Podcast Pro configuration</a>. Currently, your system supports a <strong>maximum upload size of <?php echo ini_get('upload_max_filesize');?></strong>. If you want to upload files larger than that, you will need to increase it or upload your episode files via FTP to this directory.</p>
+	<p>You can change this in the <a href="<?php echo $this->url_configuration ?>">Podcast Pro configuration</a>. Currently, uploader supports <strong>maximum upload size of 100MB</strong>. If you want to upload files larger than that, you will need to upload your episode files via FTP to this directory.</p>
 
 
 	<h2>Setting Up Your New Podcast</h2>
